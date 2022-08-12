@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_purple-purple.min.css" />
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script src="services.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fake trello</title>
+    <style>
+        .page-content {
+            text-align: center;
+        }
+
+        body {
+            background-image: url('');
+        }
+
+        yellow_highlight { 
+  background-color: yellow;
+  color: black;
+}
+
+orange_highlight { 
+  background-color: orange;
+  color: black;
+}
+
+green_highlight { 
+  background-color: green;
+  color: black;
+}
+
+red_highlight { 
+  background-color: red;
+  color: black;
+}
+    </style>
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+    <title>fake trello</title>
+</head>
+
+<body>
+    <!-- Always shows a header, even in smaller screens. -->
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <span>
+                    <img src="img/logo.png" width="50" height="50"></span>
+                <strong><i> fake trello</i></strong>
+                <div class="mdl-layout-spacer"></div>
+            </div>
+        </header>
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title"></span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="home.html">Home page</a>
+                <a class="mdl-navigation__link" href="list.html">List of task</a>
+            </nav>
+        </div>
+        <main class="mdl-layout__content">
+            <div class="page-content">
+                <span>Task name: </span>
+                <input type="text" class="mdl-textfield__input" id="editTaskName" placeholder="placeholder">
+                <br>
+                <br>
+                <span>Assignee: </span>
+                <input type="text" class="mdl-textfield__input" id="editTaskAssignee" placeholder="placeholder">
+                <br>
+                <br>
+                <span>Date: </span>
+                <input type="date" id="editTaskDate" placeholder="placeholder">
+                <br>
+                <br>
+                <span>Priority: </span>
+                <input type="radio" id="edit_critical" name="priority" >
+                  <label> <red_highlight>Critical </red_highlight></label>
+                <input type="radio" id="edit_high" name="priority" >
+                    <label> <orange_highlight>High</orange_highlight> </label>
+                <input type="radio" id="edit_medium" name="priority">
+                    <label> <yellow_highlight> Medium  </yellow_highlight> </label>
+                <input type="radio" id="edit_low" name="priority">
+                    <label> <green_highlight> Low </green_highlight></label><br><br>
+
+                <span>Type: </span>
+                     <input type="radio" id="edit_story" name="type">
+                  <label> Story </label>
+                <input type="radio" id="edit_bug" name="type">
+                    <label> Bug </label>
+                <br>
+                <br>    
+                <span>Status: </span>
+                <input type="radio" id="edit_havenotstarted" name="status">
+                  <label> Have not started </label>
+                <input type="radio" id="edit_progress" name="status" >
+                    <label> In progress </label>
+                <input type="radio" id="edit_done" name="status">
+                    <label> Done </label>
+                <br>
+                <br>
+
+                <span>Tag: </span>
+                <input type="radio" id="edit_ui" name="tag" >
+                  <label> <yellow_highlight>UI</yellow_highlight> </label>
+                <input type="radio" id="edit_core" name="tag" >
+                    <label><orange_highlight>Core </orange_highlight> </label>
+                <input type="radio" id="edit_testing" name="tag">
+                    <label> <green_highlight>Testing </green_highlight></label>
+                <br>
+                <br>
+                <br>
+                <br>
+                <span>Description: </span>
+                <input type="text" class="mdl-textfield__input" id="editTaskDescription" placeholder="placeholder">
+                <br>
+                <br>
+            </div>
+ 
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+            onclick=submit()>ok</button>
+
+        </main>
+    </div>
+    <script src="shared.js"></script>
+    <script src="start.js"></script>
+    <script src="mainpage.js"></script>
+    <script src="addtask.js"></script>
+    <script src="edittask.js"></script>
+</body>
+
+</html>
