@@ -30,9 +30,9 @@ function pageLoad() {
 	let taskListInnerHTML = ""; 
 	for (let i in arr) { 
 		taskListInnerHTML += `  
-		<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone" color="yellow">
+		<div class="mdl-cell mdl-cell--4-col" >
 								<h5>  <${arr[i][0]._taskPriority}> Task ${Number(i) + 1} </${arr[i][0]._taskPriority}><button onclick="edit(${i})" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Details </button> </h5>
-								<div class="mdl-card"> 
+								<div class="mdl-card"  > 
 									<div class="mdl-card__supporting-text"> 
                                     <b>Task name:</b> ${arr[i][0]._taskName}  <${arr[i][0]._taskTag}> ${arr[i][0]._taskTag} </${arr[i][0]._taskTag}>
 									<br><br>
