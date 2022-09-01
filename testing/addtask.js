@@ -13,9 +13,12 @@ if (checkLSData(TASK_KEY)) {
 
 console.log(savedTasks);
 
+//temp list of assignees
+let tempArray=[];
+
 function addTask() {
   let taskName = document.getElementById("taskName").value;
-  let taskAssignee = document.getElementById("taskAssignee").value;
+  //let taskAssignee = document.getElementById("taskAssignee").value;
   let taskDate = document.getElementById("taskDate").value;
   //let taskStatus = document.getElementById("taskStatus").value;
   let taskStatus="";
@@ -73,7 +76,10 @@ function addTask() {
 
 
   task.taskName = taskName;
-  task.taskAssignee = taskAssignee;
+  //task.taskAssignee = taskAssignee;
+  task.taskAssignee=tempArray;
+  console.log(tempArray);
+  console.log(task.taskAssignee);
   task.taskDate = taskDate;
   task.taskPriority = taskPriority;
   task.taskStatus = taskStatus;
@@ -90,4 +96,33 @@ function addTask() {
   updateLSData(TASK_LIST_KEY, savedTasks);
 
   window.location = "mainpage.html";
+}
+
+
+function addAssignee(){
+  let taskAssignee = document.getElementById("taskAssignee").value;
+  if (taskAssignee!="" || taskAssignee!= null){
+    tempArray.push(taskAssignee);
+  }
+  showAssignee();
+}
+
+
+function showAssignee(){
+
+  let assigneePlaceholder=document.getElementById("assigneeList");
+  let assigneePlaceholderInnerHTML="";
+
+  for (let i in tempArray){
+    assigneePlaceholderInnerHTML+=`<span class="mdl-chip mdl-chip--deletable">
+    <span class="mdl-chip__text">${tempArray[i]}</span>
+    <button type="button" class="mdl-chip__action"><i class="material-icons" onclick="deleteAssignee(${i})">cancel</i></button>
+</span>`
+  }
+  assigneePlaceholder.innerHTML=assigneePlaceholderInnerHTML;
+}
+
+function deleteAssignee(index){
+	tempArray.splice(index, 1);
+  showAssignee();
 }

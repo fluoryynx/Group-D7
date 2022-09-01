@@ -69,6 +69,15 @@ red_highlight {
                 <span>Assignee: </span>
                 <input type="text" class="mdl-textfield__input" id="editTaskAssignee" placeholder="placeholder">
                 <br>
+
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="edit_addAssignee()">
+                    Add assignee
+                   </button>
+ 
+                 <div class="mdl-grid" id="editAssigneeList">
+                     <!-- Placeholder for assignees -->
+                 </div>
+            
                 <br>
                 <span>Date: </span>
                 <input type="date" id="editTaskDate" placeholder="placeholder">
