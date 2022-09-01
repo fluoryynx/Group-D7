@@ -7,7 +7,7 @@
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <script src="services.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>fake trello</title>
+    <title>Projectify</title>
     <style>
         .page-content {
             text-align: center;
@@ -41,7 +41,7 @@ red_highlight {
     </style>
     <!-- favicon -->
     <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
-    <title>fake trello</title>
+    <title>Projectify</title>
 </head>
 
 
@@ -52,56 +52,56 @@ red_highlight {
             <div class="mdl-layout__header-row">
                 <span>
                     <img src="img/logo.png" width="50" height="50"></span>
-                <strong><i> fake trello</i></strong>
+                <strong><i>Projectify</i></strong>
                 <div class="mdl-layout-spacer"></div>
             </div>
         </header>
         <div class="mdl-layout__drawer">
             <span class="mdl-layout-title"></span>
             <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" href="home.html">Home page</a>
-                <a class="mdl-navigation__link" href="list.html">List of task</a>
+                <a class="mdl-navigation__link" href="home.html">Home Page</a>
+                <a class="mdl-navigation__link" href="list.html">Product Backlog</a>
             </nav>
         </div>
         <main class="mdl-layout__content">
             <div class="page-content">
-                <span>Task name: </span>
-                <input type="text" class="mdl-textfield__input" id="taskName" placeholder="placeholder">
+                <span>Task Name: </span>
+                <input type="text" class="mdl-textfield__input" id="taskName" placeholder="Name">
                 <br>
                 <br>
                 <span>Assignee: </span>
-                <input type="text" class="mdl-textfield__input" id="taskAssignee" placeholder="placeholder">
+                <input type="text" class="mdl-textfield__input" id="taskAssignee" placeholder="Assignee">
                 <br>
                 <br>
                 <span>Date: </span>
-                <input type="date" id="taskDate" placeholder="placeholder">
+                <input type="date" id="taskDate" placeholder="Date">
                 <br>
                 <br>
 
                 <span>Priority: </span>
                 <input type="radio" id="criticalPrio"  value="critical" name="priority">
-                  <label> <red_highlight>Critical </red_highlight></label>
+                  <label> <red_highlight>Critical</red_highlight></label>
                 <input type="radio" id="highPrio"  value="high" name="priority">
                     <label> <orange_highlight>High</orange_highlight> </label>
                 <input type="radio" id="mediumPrio" value="medium" name="priority">
-                    <label> <yellow_highlight> Medium  </yellow_highlight> </label>
+                    <label> <yellow_highlight>Medium</yellow_highlight> </label>
                 <input type="radio" id="lowPrio"  value="low" name="priority">
-                    <label> <green_highlight> Low </green_highlight></label><br><br>
+                    <label> <green_highlight>Low</green_highlight></label><br><br>
 
                 <span>Type: </span>
                      <input type="radio" id="story" name="type">
-                  <label> Story </label>
+                  <label>Story</label>
                 <input type="radio" id="bug" name="type">
-                    <label> Bug </label>
+                    <label>Bug</label>
                 <br>
                 <br>    
                 <span>Status: </span>
                 <input type="radio" id="start" name="status" >
-                  <label> Have not started </label>
+                  <label>Have not started</label>
                 <input type="radio" id="progress" name="status" >
-                    <label> In progress </label>
+                    <label>In progress</label>
                 <input type="radio" id="done" name="status">
-                    <label> Done </label>
+                    <label>Done</label>
                 <br>
                 <br>
 
@@ -109,14 +109,14 @@ red_highlight {
                 <input type="radio" id="ui"  name="tag">
                   <label> <yellow_highlight>UI</yellow_highlight> </label>
                 <input type="radio" id="core"   name="tag">
-                    <label><orange_highlight>Core </orange_highlight> </label>
+                    <label><orange_highlight>Core</orange_highlight> </label>
                 <input type="radio" id="testing"  name="tag">
-                    <label> <green_highlight>Testing </green_highlight></label>
+                    <label> <green_highlight>Testing</green_highlight></label>
                 <br>
                 <br>
 
                 <span>Description: </span>
-                <input type="text" class="mdl-textfield__input" id="taskDescription" placeholder="placeholder">
+                <input type="text" class="mdl-textfield__input" id="taskDescription" placeholder="Add your description ...">
                 <br>
                 <br>
 
