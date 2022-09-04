@@ -11,10 +11,11 @@
     <style>
         .page-content {
             text-align: center;
+            font-family: "Copperplate", fantasy;
         }
 
-        body {
-            background-image: url('');
+        .h1 {
+            font-family: "Copperplate", fantasy;
         }
 
         yellow_highlight { 
@@ -48,8 +49,8 @@ red_highlight {
         <header class="mdl-layout__header">
             <div class="mdl-layout__header-row">
                 <span>
-                    <img src="img/logo.png" width="50" height="50"></span>
-                <strong><i>Projectify</i></strong>
+                    <img src="logo.png" width="50" height="50"></span>
+                    <h3 class="h1">Projectify</h3>
                 <div class="mdl-layout-spacer"></div>
             </div>
         </header>
@@ -57,16 +58,18 @@ red_highlight {
             <span class="mdl-layout-title"></span>
             <nav class="mdl-navigation">
                 <a class="mdl-navigation__link" href="home.html">Home Page</a>
-                <a class="mdl-navigation__link" href="list.html">Product Backlog</a>
+                <a class="mdl-navigation__link" href="mainpage.html">Product Backlog</a>
             </nav>
         </div>
         <main class="mdl-layout__content">
             <div class="page-content">
+                <br>
+                <br>
                 <span>Task Name: </span>
                 <input type="text" class="mdl-textfield__input" id="editTaskName" placeholder="Name">
                 <br>
                 <br>
-                <span>Assignee: </span>
+                <span>Assignee(s): </span>
                 <input type="text" class="mdl-textfield__input" id="editTaskAssignee" placeholder="Assignee">
                 <br>
                 <br>
@@ -110,16 +113,24 @@ red_highlight {
                     <label> <green_highlight>Testing</green_highlight></label>
                 <br>
                 <br>
+
                 <br>
                 <br>
+                <span>Story Point: </span>
+                <input type="text" class="mdl-textfield__input" id="editStoryPoint" placeholder="Add your story point ...">
+                <br>
+                <br>
+                
                 <span>Description: </span>
                 <input type="text" class="mdl-textfield__input" id="editTaskDescription" placeholder="Add your description ...">
                 <br>
                 <br>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored"
+                onclick=submit()>Save Changes</button>
+
+                <br>
+                <br>
             </div>
- 
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
-            onclick=submit()>ok</button>
 
         </main>
     </div>

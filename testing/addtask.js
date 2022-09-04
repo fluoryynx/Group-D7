@@ -22,6 +22,7 @@ function addTask() {
   //let taskType = document.getElementById("taskType").value;
   let taskType= "";
   let taskTag="";
+  let storyPoint = document.getElementById("storyPoint").value;
   let taskDescription = document.getElementById("taskDescription").value;
 
   let taskPriority = "";
@@ -78,6 +79,7 @@ function addTask() {
   task.taskPriority = taskPriority;
   task.taskStatus = taskStatus;
   task.taskType = taskType;
+  task.storyPoint = storyPoint;
   task.taskDescription = taskDescription;
   task.taskTag=taskTag;
   updateLSData(TASK_KEY, task);
