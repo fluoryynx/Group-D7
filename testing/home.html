@@ -10,7 +10,13 @@
     <style>
         .page-content {
             text-align: center;
+            font-family: "Copperplate", fantasy;
         }
+
+        .h1 {
+            font-family: "Copperplate", fantasy;
+        }
+
 
         body {
             background-image: url('');
@@ -27,8 +33,8 @@
         <header class="mdl-layout__header">
             <div class="mdl-layout__header-row">
                 <span>
-                    <img src="img/logo.png" width="50" height="50"></span>
-                <strong><i>Projectify</i></strong>
+                    <img src="logo.png" width="50" height="50"></span>
+                    <h3 class="h1">Projectify</h3>
                 <div class="mdl-layout-spacer"></div>
             </div>
         </header>
@@ -36,21 +42,21 @@
             <span class="mdl-layout-title"></span>
             <nav class="mdl-navigation">
                 <a class="mdl-navigation__link" href="home.html">Home Page</a>
-                <a class="mdl-navigation__link" href="list.html">Product Backlog</a>
+                <a class="mdl-navigation__link" href="mainpage.html">Product Backlog</a>
             </nav>
         </div>
         <main class="mdl-layout__content">
             <div class="page-content">
                 <div>
-                    <img src="img/logo.png" width="220" height="220">
-                    <strong><i>Projectify</i></strong>
+                    <img src="logo.png" width="220" height="220">
+                    <h1 class="h1">Projectify</h1>
                 </div>
                 <div>
                     Click on the button below to start your project planning :)
                 </div>
                 <div class="mdl-grid">
                     <div class="mdl-cell mdl-cell--12-col">
-                        <button class="mdl-button mdl-js-button mdl-button--raised" onclick="startingPage()">Start Project</button>
+                        <button class="mdl-button mdl-js-button mdl-button--raised" onclick="startingPage()">Start Planning</button>
                     </div>
                     <div class="mdl-cell mdl-cell--4-col"></div>
                 </div>
