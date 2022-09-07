@@ -96,7 +96,7 @@ function submit() {
 
 
       if (edit_havenotstarted.checked) {
-        taskStatus2 = "have not started";
+        taskStatus2 = "havenotstarted";
       }
       else if (edit_progress.checked) {
         taskStatus2 = "progress";
