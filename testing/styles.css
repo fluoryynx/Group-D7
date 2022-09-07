@@ -41,22 +41,19 @@ html, body {
     padding: 8px;
     padding-top: 48px;
   }
-
   .mdl-demo .mdl-card {
     height: auto;
-    width: auto;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     -webkit-flex-direction: column;
         -ms-flex-direction: column;
-            flex-direction: column;      
+            flex-direction: column;
   }
   .mdl-demo .mdl-card > * {
     height: auto;
   }
   .mdl-demo .mdl-card .mdl-card__supporting-text {
-    font-size: 108%;
     margin: 40px;
     -webkit-flex-grow: 1;
         -ms-flex-positive: 1;
@@ -94,6 +91,7 @@ html, body {
   }
   
   .mdl-demo .mdl-layout__content section:not(:last-of-type) {
+    position:relative;
     margin-bottom: 48px;
   }
   .mdl-demo section.section--center {
@@ -223,3 +221,7 @@ html, body {
     z-index: 99;
   }
   
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: red;
+    opacity: 1; /* Firefox */
+  }

@@ -1,35 +1,33 @@
 <!doctype html>
 
 <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Material Design Lite</title>
+    <script src="services.js"></script>
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="images/android-desktop.png">
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <title>Projectify</title>
-  <script src="services.js"></script>
-  <!-- Add to homescreen for Chrome on Android -->
-  <meta name="mobile-web-app-capable" content="yes">
-  <link rel="icon" sizes="192x192" href="images/android-desktop.png">
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+    <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
 
-  <!-- Add to homescreen for Safari on iOS -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="Material Design Lite">
-  <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
 
-  <!-- Tile icon for Win8 (144x144 + tile color) -->
-  <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
-  <meta name="msapplication-TileColor" content="#3372DF">
+    <link rel="shortcut icon" href="">
 
-  <link rel="shortcut icon" href="">
-
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_purple-pink.min.css">
-  <link rel="stylesheet" href="styles.css">
-  <style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_purple-pink.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
     #view-source {
       position: fixed;
       display: block;
@@ -41,116 +39,103 @@
     }
 
     .h1 {
-      font-family: "Copperplate", fantasy;
-    }
+            font-family: "Copperplate", fantasy;
+        }
 
-    ui {
-      background-color: yellow;
-      color: black;
-    }
+    ui { 
+  background-color: yellow;
+  color: black;
+}
 
-    core {
-      background-color: orange;
-      color: black;
-    }
+    core { 
+  background-color: orange;
+  color: black;
+}
 
-    testing {
-      background-color: green;
-      color: black;
-    }
+testing { 
+  background-color: green;
+  color: black;
+}
 
-    critical {
-      background-color: red;
-      color: black;
-    }
+critical { 
+  background-color: red;
+  color: black;
+}
 
-    medium {
-      background-color: yellow;
-      color: black;
-    }
+medium { 
+  background-color: yellow;
+  color: black;
+}
 
-    high {
-      background-color: orange;
-      color: black;
-    }
+high { 
+  background-color: orange;
+  color: black;
+}
 
-    low {
-      background-color: green;
-      color: black;
-    }
-  </style>
-</head>
+low { 
+  background-color: green;
+  color: black;
+}
 
-<body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
-  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-    <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
-      <div class="mdl-layout--large-screen-only mdl-layout__header-row">
-      </div>
-      <div class="mdl-layout--large-screen-only mdl-layout__header-row">
-        <h3>Name of board</h3>
-      </div>
-      <div class="mdl-layout--large-screen-only mdl-layout__header-row">
-      </div>
 
-      <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
-        <a href="#overview" class="mdl-layout__tab is-active">Main Page</a>
-        <a href="#features" class="mdl-layout__tab">Sprint List</a>
-        <button
-          class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent"
-          id="add" onclick="proceedToAdd()">
-          <i class="material-icons">add</i>
-        </button>
-      </div>
-    </header>
-
-    <main class="mdl-layout__content">
-      <!-- Main Content of page -->
-      <div class="mdl-grid">
-        <!-- empty first col -->
-        <div class="mdl-cell mdl-cell--1-col"></div>
-        <!-- second col -->
-        <div class="mdl-cell mdl-cell--10-col">
-
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <select class="mdl-textfield__input" id="filterBy" name="tag">
-              <option></option>
-              <option value="ui">UI </option>
-              <option value="core">Core</option>
-              <option value="testing">Testing</option>
-            </select>
-            <label class="mdl-textfield__label"> Filter by tags:</label>
-          </div>
-          <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick="filterByTag()">
-            <i class="material-icons">filter_alt</i>
-          </button>
-          <button onclick="removeFilter()"
-            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Remove
-            Filter </button>
-          <div class="mdl-grid" id="taskList">
-            <!-- Placeholder for task cards -->
-          </div>
-
-          <div class="mdl-layout__tab-panel" id="features">
-            <section class="section--center mdl-grid mdl-grid--no-spacing">
-              <div class="mdl-cell mdl-cell--12-col">
-                <h4>Sprint board</h4>
-
-                <ul class="toc">
-                </ul>
-              </div>
-            </section>
-          </div>
+    </style>
+  </head>
+  <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
         </div>
-        <!-- empty last col -->
-        <div class="mdl-cell mdl-cell--1-col"></div>
-      </div>
-    </main>
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+          <h3>Name of board</h3>
+        </div>
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+        </div>
+
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+          <a href="#overview" class="mdl-layout__tab is-active">Main Page</a>
+          <a href="#features" class="mdl-layout__tab">Sprint List</a>
+          <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" id="add" onclick="proceedToAdd()">
+            <i class="material-icons" >add</i>
+          </button>
+        </div>
+      </header>
+
+      <main class="mdl-layout__content">
+
+		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+			<select class="mdl-textfield__input" id="filterBy" name="tag">
+			  <option></option>
+			  <option value="ui">UI </option>
+			  <option value="core">Core</option>
+			  <option value="testing">Testing</option>
+			</select>
+			<label class="mdl-textfield__label">          Filter by tags:</label>
+		  </div>
+		  <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick="filterByTag()">
+			<i class="material-icons" >filter_alt</i>
+		  </button>
+      <button onclick="removeFilter()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Remove Filter </button> 
+			<div class="mdl-grid" id="taskList">
+				<!-- Placeholder for task cards -->
+			</div>
+
+        <div class="mdl-layout__tab-panel" id="features">
+          <section class="section--center mdl-grid mdl-grid--no-spacing">
+            <div class="mdl-cell mdl-cell--12-col">
+              <h4>Sprint List</h4>
+
+              <ul class="toc">
+              </ul>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <script src="shared.js"></script>
-    <script src="start.js"></script>
-    <script src="addtask.js"></script>
-    <script src="mainpage.js"></script>
-    <script src="edittask.js"></script>
-</body>
-
+	<script src="start.js"></script>
+  <script src="addtask.js"></script>
+  <script src="mainpage.js"></script>
+  <script src="edittask.js"></script>
+  </body>
 </html>
