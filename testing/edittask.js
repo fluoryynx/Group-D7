@@ -18,6 +18,7 @@ let editTaskDateRef = document.getElementById("editTaskDate");
  //let editTaskPriorityRef = document.getElementById("editTaskPriority");
  //let editTaskTypeRef = document.getElementById("editTaskType");
  //let editTaskStatusRef = document.getElementById("editTaskStatus");
+let editStoryPoint = document.getElementById("editStoryPoint");
 let editTaskDescriptionRef = document.getElementById("editTaskDescription");
 let itemIndex=0;
 
@@ -87,7 +88,7 @@ function submit() {
 
 
       if (edit_havenotstarted.checked) {
-        taskStatus2 = "havenotstarted";
+        taskStatus2 = "have not started";
       }
       else if (edit_progress.checked) {
         taskStatus2 = "progress";
@@ -122,7 +123,7 @@ function submit() {
     selectedTask[0]._taskType = taskType2;
     selectedTask[0]._taskStatus = taskStatus2;
     selectedTask[0]._taskTag=taskTag2;
-
+    selectedTask[0]._taskStoryPoint=editStoryPoint.value;
     selectedTask[0]._taskDescription = editTaskDescriptionRef.value;
 
     savedTasks._allTask[itemIndex] = selectedTask;
