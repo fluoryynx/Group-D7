@@ -66,6 +66,7 @@ if (savedTasks._allTask.length > 0) {
     document.getElementById("edit_"+selectedTag).checked = true;
 
     editTaskDescriptionRef.value = selectedTask[0]._taskDescription;
+    editStoryPoint.value = selectedTask[0].storyPoint;
 
 }
 
@@ -129,7 +130,7 @@ function submit() {
     selectedTask[0]._taskType = taskType2;
     selectedTask[0]._taskStatus = taskStatus2;
     selectedTask[0]._taskTag=taskTag2;
-    selectedTask[0]._taskStoryPoint=editStoryPoint.value;
+    selectedTask[0].storyPoint=editStoryPoint.value;
     selectedTask[0]._taskDescription = editTaskDescriptionRef.value;
 
     savedTasks._allTask[itemIndex] = selectedTask;

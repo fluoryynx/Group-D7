@@ -48,7 +48,7 @@ function addTask() {
   }
 
   if (start.checked) {
-    taskStatus = "have not started";
+    taskStatus = "havenotstarted";
   }
   else if (progress.checked) {
     taskStatus = "progress";
