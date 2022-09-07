@@ -15,9 +15,7 @@ let selectedTask=[];
 let editTaskNameRef = document.getElementById("editTaskName");
 let editTaskAssigneeRef = document.getElementById("editTaskAssignee");
 let editTaskDateRef = document.getElementById("editTaskDate");
- //let editTaskPriorityRef = document.getElementById("editTaskPriority");
- //let editTaskTypeRef = document.getElementById("editTaskType");
- //let editTaskStatusRef = document.getElementById("editTaskStatus");
+
 let editStoryPoint = document.getElementById("editStoryPoint");
 let editTaskDescriptionRef = document.getElementById("editTaskDescription");
 let itemIndex=0;
@@ -55,6 +53,7 @@ if (savedTasks._allTask.length > 0) {
     //editTaskAssigneeRef.value = selectedTask[0]._taskAssignee;
     editTaskAssigneeRef.value="";
     editTaskDateRef.value = selectedTask[0]._taskDate;
+    editStoryPoint.value=selectedTask[0]._taskStoryPoint;
 
     //radio buttons
     selectedPrio = selectedTask[0]._taskPriority;
