@@ -108,23 +108,31 @@
         }
 
 green_highlight { 
-/* background-color: yellow; */
-  color: green
+  color: green;
+  font-family: 'Open Sans';
 }
 
-orange_highlight { 
-  /* background-color: orange; */
+orange_highlight {
   color: orange;
+  font-family: 'Open Sans';
 }
 
 blue_highlight { 
-  /* background-color: green; */
   color: rgb(78, 78, 233);
+  font-family: 'Open Sans';
 }
 
 red_highlight { 
-  /* background-color: red; */
   color: red;
+  font-family: 'Open Sans';
+}
+
+storyfont { 
+  font-family: 'Open Sans';
+}
+
+bugfont { 
+  font-family: 'Open Sans';
 }
 
     </style>
@@ -196,49 +204,33 @@ red_highlight {
                         <br>
                         <br>
                         <input type="radio" id="story" name="type">
-                            <label>Story</label>
+                        <img src="story.png" width="40" height="35" class="storyimg">
+                            <label><storyfont>Story</storyfont></label>
                         <input type="radio" id="bug" name="type">
-                            <label>Bug</label>
+                        <img src="bug.png" width="40" height="35" class="bugimg">
+                            <label><bugfont>Bug</bugfont></label>
                         <br>
                         <br> 
-                        <span>Assignee(s): </span>
-                        <input type="text" class="mdl-textfield__input" id="taskAssignee" placeholder="Assignee">
+                        <span class="tags">Assignee</span>
                         <br>
-                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="addAssignee()">
-                        Add assignee
-                        </button>
+                        <input type="text" class="mdl-textfield__input" id="taskAssignee" placeholder="Assignee Name">
+                        <br>
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="addAssignee()">Add assignee</button>
 
                         <div class="mdl-grid" id="assigneeList">
                             <!-- Placeholder for assignees -->
                         </div>
-
-                        <br>
-                        <span>Date: </span>
-                        <input type="date" id="taskDate" placeholder="Date">
-                        <br>
-                        <br>    
-                        <span>Status: </span>
-                        <input type="radio" id="start" name="status" >
-                            <label>Have not started</label>
-                        <input type="radio" id="progress" name="status" >
-                            <label>In progress</label>
-                        <input type="radio" id="done" name="status">
-                            <label>Done</label>
                         <br>
                         <br>
-
+                        <img src="description.png" width="40" height="35" class="descriptionimg">
+                        <span class="tags">Description</span>
+                        <input type="text" class="mdl-textfield__input" id="taskDescription" placeholder="Add your description ...">
                         <br>
                         <br>
                         <span>Story Point: </span>
                         <input type="text" class="mdl-textfield__input" id="storyPoint" placeholder="Add your story point ...">
                         <br>
                         <br>
-
-                        <span>Description: </span>
-                        <input type="text" class="mdl-textfield__input" id="taskDescription" placeholder="Add your description ...">
-                        <br>
-                        <br>
-
                         <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" id="add" onclick="addTask()">Add Task</button>
                         <br>
                         <br>
