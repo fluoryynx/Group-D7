@@ -207,6 +207,19 @@ bugfont {
   font-family: 'Open Sans';
 }
 
+notstartedfont { 
+  font-family: 'Open Sans';
+}
+
+inprogress { 
+  font-family: 'Open Sans';
+}
+
+completed { 
+  font-family: 'Open Sans';
+}
+
+
     </style>
     <!-- favicon -->
     <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
@@ -271,15 +284,16 @@ bugfont {
                         <img src="bluetriangle.png" alt="lowpic" class="lowimg">    
                             <label> <blue_highlight>Low</blue_highlight></label>
                         <br>
-                        <br>
-                        <br>    
-                        <span>Status: </span>
+                        <br>   
+                        <span class="tags">Status</span>
+                        <br> 
+                        <br> 
                         <input type="radio" id="start" name="status">
-                          <label> Have not started </label>
+                            <label><notstartedfont>Have not started</notstartedfont></label>
                         <input type="radio" id="progress" name="status" >
-                            <label> In progress </label>
+                            <label><inprogress>In progress</inprogress></label>
                         <input type="radio" id="done" name="status">
-                            <label> Done </label>
+                            <label><completed>Done</completed></label>
                         <br> 
                         <br>        
                         <br>
