@@ -43,6 +43,7 @@ html, body {
   }
   .mdl-demo .mdl-card {
     height: auto;
+    width: auto;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
