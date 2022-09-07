@@ -272,6 +272,17 @@ bugfont {
                             <label> <blue_highlight>Low</blue_highlight></label>
                         <br>
                         <br>
+                        <br>    
+                        <span>Status: </span>
+                        <input type="radio" id="start" name="status">
+                          <label> Have not started </label>
+                        <input type="radio" id="progress" name="status" >
+                            <label> In progress </label>
+                        <input type="radio" id="done" name="status">
+                            <label> Done </label>
+                        <br> 
+                        <br>        
+                        <br>
                         <span class="tags"> Type</span>
                         <br>
                         <br>
@@ -309,7 +320,7 @@ bugfont {
                         <span class="tags">Date</span>
                         <br>
                         <br>
-                        <input type="date" id="editTaskDate" placeholder="placeholder">
+                        <input type="date" id="taskDate" placeholder="placeholder">
                         <br>
                         <br>
                         <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" id="add" onclick="addTask()">Add Task</button>
