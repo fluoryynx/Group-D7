@@ -10,10 +10,10 @@
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <script src="services.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projectify</title>
+    <!-- <title>Projectify</title> -->
     <style>
         .page-content {
-            margin-left: 100px;
+            margin-left: 10%;
             text-align: left;
             font-family: "Arial";
         }
@@ -75,8 +75,59 @@
             color: black;
         }
 
-        input:placeholder-shown {
+        .taskname:placeholder-shown {
             border: none;
+        }
+
+        .descriptiontext {
+            font-family: 'Alegreya';
+            font-size: 15px;
+            color: black;
+            width: 40%;
+            max-height: 120px;
+            min-height: 50px;
+            padding-left: 10px;
+            padding-top: 10px;
+        }
+
+        .descriptiontext::placeholder {
+            color: black;
+            text-align: left;
+            
+        }
+
+        .descriptiontext:placeholder-shown {
+            border: 1px solid #dbd5d5;
+            background-color: #dbd5d5;
+        }
+
+        .storytext {
+            font-family: 'Alegreya';
+            font-size: 15px;
+            color: black;
+            width: 40%;
+            max-height: 120px;
+            min-height: 50px;
+            padding-left: 10px;
+            padding-top: 10px;
+        }
+
+        .storytext::placeholder {
+            color: black;
+            text-align: left;
+            
+        }
+
+        .storytext:placeholder-shown {
+            border: 1px solid #dbd5d5;
+            background-color: #dbd5d5;
+        }
+
+        .mdl-textfield__input {
+            font-family: 'Alegreya';
+            font-size: 15px;
+            color: black;
+            width: 40%;
         }
 
         .taskimage {
@@ -105,6 +156,21 @@
         .lowimg {
             width: 40px;
             height: 40px;
+        }
+
+        .descriptionimg {
+            margin-bottom: 16px;
+        }
+
+        textarea {
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border: none;
+        }
+
+        .mdl-layout__header-row {
+            background-image: ;
         }
 
 green_highlight { 
@@ -213,22 +279,24 @@ bugfont {
                         <br> 
                         <span class="tags">Assignee</span>
                         <br>
+                        <br>
                         <input type="text" class="mdl-textfield__input" id="taskAssignee" placeholder="Assignee Name">
                         <br>
                         <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="addAssignee()">Add assignee</button>
-
                         <div class="mdl-grid" id="assigneeList">
                             <!-- Placeholder for assignees -->
                         </div>
                         <br>
-                        <br>
-                        <img src="description.png" width="40" height="35" class="descriptionimg">
+                        <img src="description.png" width="40" height="40" class="descriptionimg">
                         <span class="tags">Description</span>
-                        <input type="text" class="mdl-textfield__input" id="taskDescription" placeholder="Add your description ...">
+                        <br>
+                        <textarea type="text" class="descriptiontext" id="taskDescription" placeholder="Add your description ..."></textarea>
                         <br>
                         <br>
-                        <span>Story Point: </span>
-                        <input type="text" class="mdl-textfield__input" id="storyPoint" placeholder="Add your story point ...">
+                        <span class="tags">Story Point</span>
+                        <br>
+                        <br>
+                        <textarea type="text" class="storytext" id="storyPoint" placeholder="Add your story point ..."></textarea>
                         <br>
                         <br>
                         <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" id="add" onclick="addTask()">Add Task</button>
