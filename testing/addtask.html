@@ -302,7 +302,8 @@ bugfont {
                         <span class="tags">Story Point</span>
                         <br>
                         <br>
-                        <textarea type="text" class="storytext" id="storyPoint" placeholder="Add your story point ..."></textarea>
+                        <!-- <textarea type="text" class="storytext" id="storyPoint" placeholder="Add your story point ..."></textarea> -->
+                        <textarea type="number" min="1" max="999999"class="storytext" id="storyPoint" placeholder="Add your story point ..."></textarea>
                         <br>
                         <br>
                         <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" id="add" onclick="addTask()">Add Task</button>
