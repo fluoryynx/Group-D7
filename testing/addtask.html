@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_purple-purple.min.css" />
+    <link rel="stylesheet" href="addtask.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya:300,400,700" rel="stylesheet">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script src="services.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- <title>Projectify</title> -->
+    <style>
+        .page-content {
+            margin-left: 35%;
+            text-align: left;
+            font-family: "Arial";
+        }
+
+        .h1 {
+            font-family: "Alegreya";
+        }
+
+        /* body {
+            background: rgb(248, 232, 253);
+        } */
+
+        .tags {
+            font-family: "Alegreya";
+            font-size: 25px;
+        }
+
+        .tags spanui {
+            font-family: "Alegreya";
+            font-size: 25px;
+            background-color:rgb(255, 96, 96);
+            color: black;
+            border-radius: 10px;
+            -webkit-box-decoration-break: clone;
+            box-decoration-break: clone;
+            padding: 0 10px 0 10px;
+        }
+
+        .tags spancore {
+            font-family: "Alegreya";
+            font-size: 25px;
+            background-color: rgb(255, 202, 104);
+            color: black;
+            border-radius: 10px;
+            -webkit-box-decoration-break: clone;
+            box-decoration-break: clone;
+            padding: 0 10px 0 10px;
+        }
+
+        .tags spantesting {
+            font-family: "Alegreya";
+            font-size: 25px;
+            background-color: rgb(131, 230, 233);
+            color: black;
+            border-radius: 10px;
+            -webkit-box-decoration-break: clone;
+            box-decoration-break: clone;
+            padding: 0 10px 0 10px;
+        }
+
+        .taskname {
+            font-family: 'Open Sans';
+            font-size: 30px;
+            color: black;
+            font-weight: bolder;
+        }
+
+        .taskname::placeholder {
+            color: black;
+        }
+
+        .taskname:placeholder-shown {
+            border: none;
+        }
+
+        .descriptiontext {
+            font-family: 'Alegreya';
+            font-size: 15px;
+            color: black;
+            width: 40%;
+            max-height: 120px;
+            min-height: 50px;
+            padding-left: 10px;
+            padding-top: 10px;
+            background-color: #dbd5d5;
+        }
+
+        .descriptiontext::placeholder {
+            color: black;
+            text-align: left;
+            
+        }
+
+        .descriptiontext:placeholder-shown {
+            border: 1px solid #dbd5d5;
+            background-color: #dbd5d5;
+        }
+
+        .storytext {
+            font-family: 'Alegreya';
+            font-size: 15px;
+            color: black;
+            width: 40%;
+            max-height: 120px;
+            min-height: 50px;
+            padding-left: 10px;
+            padding-top: 10px;
+            background-color: #dbd5d5;
+        }
+
+        .storytext::placeholder {
+            color: black;
+            text-align: left;
+            
+        }
+
+        .storytext:placeholder-shown {
+            border: 1px solid #dbd5d5;
+            background-color: #dbd5d5;
+        }
+
+        .mdl-textfield__input {
+            font-family: 'Alegreya';
+            font-size: 15px;
+            color: black;
+            width: 40%;
+
+        }
+
+        .taskimage {
+            margin-bottom: 16px;
+        }
+
+        .priorityimg {
+            margin-bottom: 5px;
+        }
+
+        .criticalimg {
+            width: 40px;
+            height: 40px;
+        }
+
+        .highimg {
+            width: 40px;
+            height: 40px;
+        }
+
+        .mediumimg {
+            width: 40px;
+            height: 40px;
+        }
+
+        .lowimg {
+            width: 40px;
+            height: 40px;
+        }
+
+        .descriptionimg {
+            margin-bottom: 16px;
+        }
+
+        textarea {
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border: none;
+        }
+
+        .mdl-layout__header-row {
+            background-image:url("background.png");
+            height: 150px;
+            background-size: contain;
+        }
+
+green_highlight { 
+  color: green;
+  font-family: 'Open Sans';
+}
+
+orange_highlight {
+  color: orange;
+  font-family: 'Open Sans';
+}
+
+blue_highlight { 
+  color: rgb(78, 78, 233);
+  font-family: 'Open Sans';
+}
+
+red_highlight { 
+  color: red;
+  font-family: 'Open Sans';
+}
+
+storyfont { 
+  font-family: 'Open Sans';
+}
+
+bugfont { 
+  font-family: 'Open Sans';
+}
+
+    </style>
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+    <title>Projectify</title>
+</head>
+
+
+<body>
+    <!-- Always shows a header, even in smaller screens. -->
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <span>
+                    <img src="logo.png" width="80" height="80"></span>
+                    <h3 class="h1">Projectify</h3>
+                <div class="mdl-layout-spacer"></div>
+            </div>
+        </header>
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title"></span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="home.html">Home Page</a>
+                <a class="mdl-navigation__link" href="mainpage.html">Product Backlog</a>
+            </nav>
+        </div>
+        <main class="mdl-layout__content">
+            <div class="page-content">
+                <div class = "inner">
+                    <div class = "left">
+                        <br>
+                        <br>
+                        <img src="task.png" width="40" height="35" class="taskimage">
+                        <!-- <span class="taskname"><b>Task Name:</b> </span> -->
+                        <input type="text" class="taskname" id="taskName" placeholder="Task Name" style="text-align: left">
+                        <br>
+                        <br>
+                        <span class="tags">Tags</span>
+                        <br>
+                        <br>
+                        <input type="radio" id="ui"  name="tag">
+                            <label class="tags"> <spanui>UI</spanui></label>
+                        <input type="radio" id="core"   name="tag">
+                            <label class="tags"> <spancore>Core</spancore></label>
+                        <input type="radio" id="testing"  name="tag">
+                            <label class="tags"> <spantesting>Testing</spantesting></label>
+                        <br>
+                        <br>
+                        <br>
+                        <img src="priority.png" width="40" height="35" class="priorityimg">
+                        <span class="tags">Priority</span> 
+                        <br>
+                        <input type="radio" id="criticalPrio"  value="critical" name="priority">
+                        <img src="redsqaure.png" alt="criticalpic" class="criticalimg">    
+                            <label> <red_highlight>Critical</red_highlight></label>
+                        <input type="radio" id="highPrio"  value="high" name="priority">
+                        <img src="orangletriangle.png" alt="highpic" class="highimg">    
+                            <label> <orange_highlight>High</orange_highlight> </label>
+                        <input type="radio" id="mediumPrio" value="medium" name="priority">
+                        <img src="greencircle.png" alt="mediumpic" class="mediumimg">    
+                            <label> <green_highlight>Medium</green_highlight> </label>
+                        <input type="radio" id="lowPrio"  value="low" name="priority">
+                        <img src="bluetriangle.png" alt="lowpic" class="lowimg">    
+                            <label> <blue_highlight>Low</blue_highlight></label>
+                        <br>
+                        <br>
+                        <span class="tags"> Type</span>
+                        <br>
+                        <br>
+                        <input type="radio" id="story" name="type">
+                        <img src="story.png" width="40" height="35" class="storyimg">
+                            <label><storyfont>Story</storyfont></label>
+                        <input type="radio" id="bug" name="type">
+                        <img src="bug.png" width="40" height="35" class="bugimg">
+                            <label><bugfont>Bug</bugfont></label>
+                        <br>
+                        <br> 
+                        <span class="tags">Assignee</span>
+                        <br>
+                        <br>
+                        <input type="text" class="mdl-textfield__input" id="taskAssignee" placeholder="Assignee Name">
+                        <br>
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="addAssignee()">Add assignee</button>
+                        <div class="mdl-grid" id="assigneeList">
+                            <!-- Placeholder for assignees -->
+                        </div>
+                        <br>
+                        <img src="description.png" width="40" height="40" class="descriptionimg">
+                        <span class="tags">Description</span>
+                        <br>
+                        <textarea type="text" class="descriptiontext" id="taskDescription" placeholder="Add your description ..."></textarea>
+                        <br>
+                        <br>
+                        <span class="tags">Story Point</span>
+                        <br>
+                        <br>
+                        <!-- <textarea type="text" class="storytext" id="storyPoint" placeholder="Add your story point ..."></textarea> -->
+                        <textarea type="number" min="1" max="999999"class="storytext" id="storyPoint" placeholder="Add your story point ..."></textarea>
+                        <br>
+                        <br>
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" id="add" onclick="addTask()">Add Task</button>
+                        <br>
+                        <br>
+                    </div>
+                    <div class = "left"></div>
+            </div> 
+        </div>
+                
+
+        </main>
+    </div>
+    <script src="shared.js"></script>
+    <script src="start.js"></script>
+    <script src="mainpage.js"></script>
+    <script src="addtask.js"></script>
+</body>
+
+</html>
