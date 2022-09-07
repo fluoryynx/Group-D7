@@ -30,6 +30,8 @@ let taskPriority2="";
 let taskTag2="";
 
 
+
+
 console.log(savedTasks);
 
 let selectedPrio="";
@@ -37,14 +39,21 @@ let selectedType="";
 let selectedStatus="";
 let selectedTag="";
 
+let tempAssigneeArr=[];
+
 if (savedTasks._allTask.length > 0) {
 
     itemIndex = retrieveLSData(LIST_INDEX_KEY);
 
+    
     selectedTask = savedTasks._allTask[itemIndex];
+    console.log(selectedTask);
+    tempAssigneeArr=selectedTask[0]._taskAssignee;
+    edit_showAssignee();
 
     editTaskNameRef.value = selectedTask[0]._taskName;
-    editTaskAssigneeRef.value = selectedTask[0]._taskAssignee;
+    //editTaskAssigneeRef.value = selectedTask[0]._taskAssignee;
+    editTaskAssigneeRef.value="";
     editTaskDateRef.value = selectedTask[0]._taskDate;
 
     //radio buttons
@@ -113,11 +122,9 @@ function submit() {
       else if (edit_testing.checked) {
         taskTag2 = "testing";
       }
-    
-    
-
     selectedTask[0]._taskName = editTaskNameRef.value;
-    selectedTask[0]._taskAssignee = editTaskAssigneeRef.value;
+    //selectedTask[0]._taskAssignee = editTaskAssigneeRef.value;
+    selectedTask[0]._taskAssignee = tempAssigneeArr;
     selectedTask[0]._taskDate = editTaskDateRef.value;
     selectedTask[0]._taskPriority = taskPriority2;
     selectedTask[0]._taskType = taskType2;
@@ -130,4 +137,37 @@ function submit() {
 
     updateLSData(TASK_LIST_KEY, savedTasks);
     window.location = "mainpage.html";
+}
+
+
+
+function edit_addAssignee(){
+  let editTaskAssignee = document.getElementById("editTaskAssignee").value;
+  console.log(tempAssigneeArr)
+  if (editTaskAssignee!="" || editTaskAssignee!= null){
+    tempAssigneeArr.push(editTaskAssignee);
+  }
+  edit_showAssignee();
+}
+
+
+function edit_showAssignee(){
+
+  let assigneePlaceholder=document.getElementById("editAssigneeList");
+  let assigneePlaceholderInnerHTML="";
+
+  for (let i in tempAssigneeArr){
+    assigneePlaceholderInnerHTML+=`<span class="mdl-chip mdl-chip--deletable">
+    <span class="mdl-chip__text">${tempAssigneeArr[i]}</span>
+    <button type="button" class="mdl-chip__action"><i class="material-icons" onclick="edit_deleteAssignee(${i})">cancel</i></button>
+</span>`
+  }
+  assigneePlaceholder.innerHTML=assigneePlaceholderInnerHTML;
+}
+
+
+function edit_deleteAssignee(index){
+  console.log(tempAssigneeArr);
+	tempAssigneeArr.splice(index, 1);
+  edit_showAssignee();
 }

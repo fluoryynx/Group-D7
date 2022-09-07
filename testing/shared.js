@@ -4,9 +4,10 @@ const TASK_LIST_KEY="duh5498treifnv";
 const LIST_INDEX_KEY="9438hrtfio";
 
 class Task {
-    constructor(name, assignee, date,priority,tag,status,description,type) {
+    constructor(name, date,priority,tag,status,description,type) {
         this._taskName = name;
-        this._taskAssignee=assignee;
+       // this._taskAssignee=assignee;
+       this._taskAssignee=[];
         this._taskDate=date;
         this._taskPriority=priority;
         this._taskStatus=status;
@@ -20,7 +21,7 @@ class Task {
     }
 
     get taskAssignee() {
-        return this.taskAssignee;
+        return this._taskAssignee;
     }
 
     get taskDate() {
@@ -80,15 +81,28 @@ class Task {
         this._taskTag=newTaskTag;
     }
 
+    addAssignee(assignee) {
+        this._taskAssignee.push(assignee);
+}
+
     fromData(data) {
         this._taskName = data._taskName;
-        this._taskAssignee=data._taskAssignee;
+       // this._taskAssignee=data._taskAssignee;
         this._taskDate=data._taskDate;
         this._taskPriority=data._taskPriority;
         this._taskStatus=data._taskStatus;
         this._taskDescription=data._taskDescription;
         this._taskType=data._taskType;
         this._taskTag=data._taskTag;
+        this._taskAssignee=data._taskAssignee;
+
+        // this._taskAssignee=[];
+        // for (let i in data.taskAssignee) {
+        //     let assigneeName = data._taskAssignee[i].assigneeName;
+        //     let assignee = new Assignee(assigneeName);
+        //     this._taskAssignee.push(assignee);
+        // }
+
     }
 }
 
@@ -141,6 +155,26 @@ function dataExistance(key) {
     }
 }
 
+
+class Assignee{
+    constructor(name){
+        this._assigneeName=name;
+    }
+
+    getAssigneeName(){
+        return this._assigneeName;
+    }
+
+    setAssigneeName(newAssigneeName){
+        this._assigneeName=newAssigneeName;
+    }
+
+    fromData(data){
+        this._assigneeName=data._assigneeName;
+    }
+}
+
 let task = new Task();
 let savedTasks=new SavedTasks();
+let assignee=new Assignee();
 
