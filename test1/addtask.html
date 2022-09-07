@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_purple-purple.min.css" />
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script src="services.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projectify</title>
+    <style>
+        .page-content {
+            text-align: center;
+        }
+        .h1 {
+            font-family: "Copperplate", fantasy;
+        }
+
+        body {
+            background-image: url('');
+        }
+
+        yellow_highlight {
+            background-color: yellow;
+            color: black;
+        }
+
+        orange_highlight {
+            background-color: orange;
+            color: black;
+        }
+
+        green_highlight {
+            background-color: green;
+            color: black;
+        }
+
+        red_highlight {
+            background-color: red;
+            color: black;
+        }
+    </style>
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+    <title>Projectify</title>
+</head>
+
+
+<body>
+    <!-- Always shows a header, even in smaller screens. -->
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <span>
+                    <img src="logo.png" width="50" height="50"></span>
+                <p>&nbsp;&nbsp;&nbsp;</p>
+                <h3 class="h1">Projectify</h3>
+                <div class="mdl-layout-spacer"></div>
+            </div>
+        </header>
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title"></span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="home.html">Home Page</a>
+                <a class="mdl-navigation__link" href="mainpage.html">Product Backlog</a>
+            </nav>
+        </div>
+
+        <main class="mdl-layout__content">
+            <div class="page-content">
+                <div class="mdl-grid">
+                    <!-- empty first col -->
+                    <div class="mdl-cell mdl-cell--4-col"></div>
+                    <!-- second col -->
+                    <div class="mdl-cell mdl-cell--4-col">
+
+                        <h5 class="h1">Task Name: </h5>
+                        <!--<input type="text" class="mdl-textfield__input" id="taskName" placeholder="placeholder"> -->
+                        <!-- Simple Textfield -->
+                        <form action="#">
+                            <div class="mdl-textfield mdl-js-textfield">
+                                <input class="mdl-textfield__input" type="text" id="taskName">
+                                <label class="mdl-textfield__label" for="taskName">Enter Task Name</label>
+                            </div>
+                        </form>
+
+                        <h5 class="h1">Assignee(s): </h5>
+                        <!-- <input type="text" class="mdl-textfield__input" id="taskAssignee" placeholder="placeholder"> -->
+                        <form action="#">
+                            <div class="mdl-textfield mdl-js-textfield">
+                                <input class="mdl-textfield__input" type="text" id="taskAssignee">
+                                <label class="mdl-textfield__label" for="taskAssignee">Enter Assignee</label>
+                            </div>
+                        </form>
+                        <br>
+                        <br>
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+                            onclick="addAssignee()">
+                            Add assignee
+                        </button>
+
+                        <div class="mdl-grid" id="assigneeList">
+                            <!-- Placeholder for assignees -->
+                        </div>
+
+                        <br>
+                        <h7 class="h1">Date: </h7>
+                        <input type="date" id="taskDate" placeholder="Date">
+                        <br>
+                        <br>
+
+                        <h7 class="h1">Priority: </h7>
+                        <input type="radio" id="criticalPrio" value="critical" name="priority">
+                          <label>
+                            <red_highlight>Critical</red_highlight>
+                        </label>
+                        <input type="radio" id="highPrio" value="high" name="priority">
+                        <label>
+                            <orange_highlight>High</orange_highlight>
+                        </label>
+                        <input type="radio" id="mediumPrio" value="medium" name="priority">
+                        <label>
+                            <yellow_highlight>Medium</yellow_highlight>
+                        </label>
+                        <input type="radio" id="lowPrio" value="low" name="priority">
+                        <label>
+                            <green_highlight>Low</green_highlight>
+                        </label><br><br>
+
+                        <h7 class="h1">Type: </h7>
+                        <input type="radio" id="story" name="type">
+                          <label>Story</label>
+                        <input type="radio" id="bug" name="type">
+                        <label>Bug</label>
+                        <br>
+                        <br>
+                        <h7 class="h1">Status: </h7>
+                        <input type="radio" id="start" name="status">
+                          <label>Have not started</label>
+                        <input type="radio" id="progress" name="status">
+                        <label>In progress</label>
+                        <input type="radio" id="done" name="status">
+                        <label>Done</label>
+                        <br>
+                        <br>
+
+                        <h7 class="h1">Tag: </h7>
+                        <input type="radio" id="ui" name="tag">
+                          <label>
+                            <yellow_highlight>UI</yellow_highlight>
+                        </label>
+                        <input type="radio" id="core" name="tag">
+                        <label>
+                            <orange_highlight>Core</orange_highlight>
+                        </label>
+                        <input type="radio" id="testing" name="tag">
+                        <label>
+                            <green_highlight>Testing</green_highlight>
+                        </label>
+                        <br>
+                        <br>
+                        <h5 class="h1">Story Point: </h5>
+                        <!--<input type="text" class="mdl-textfield__input" id="storyPoint"
+                            placeholder="Add your story point ...">-->
+                            <form action="#">
+                                <div class="mdl-textfield mdl-js-textfield">
+                                    <textarea class="mdl-textfield__input" type="text" rows="3"
+                                        id="storyPoint"></textarea>
+                                    <label class="mdl-textfield__label" for="storyPoint">Add your story point ...</label>
+                                </div>
+                            </form>
+
+                        <h5 class="h1">Description: </h5>
+                        <!--<input type="text" class="mdl-textfield__input" id="taskDescription"
+                            placeholder="Add your description ..."> -->
+                            <form action="#">
+                                <div class="mdl-textfield mdl-js-textfield">
+                                    <textarea class="mdl-textfield__input" type="text" rows="3"
+                                        id="taskDescription"></textarea>
+                                    <label class="mdl-textfield__label" for="taskDescription">Add your description ...</label>
+                                </div>
+                            </form>
+                        <br>
+                        <br>
+
+                        <button
+                            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent"
+                            id="add" onclick="addTask()">Add Task</button>
+                        <br>
+                        <br>
+
+
+                    </div>
+                    <!-- empty last col -->
+                    <div class="mdl-cell mdl-cell--4-col"></div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+    <script src="shared.js"></script>
+    <script src="start.js"></script>
+    <script src="mainpage.js"></script>
+    <script src="addtask.js"></script>
+</body>
+
+</html>
