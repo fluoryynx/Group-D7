@@ -91,7 +91,7 @@ html, body {
   }
   
   .mdl-demo .mdl-layout__content section:not(:last-of-type) {
-    position: relative;
+    position:relative;
     margin-bottom: 48px;
   }
   .mdl-demo section.section--center {
@@ -221,3 +221,7 @@ html, body {
     z-index: 99;
   }
   
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: red;
+    opacity: 1; /* Firefox */
+  }

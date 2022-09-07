@@ -4,6 +4,7 @@
 <head>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_purple-purple.min.css" />
+    <link rel="stylesheet" href="addtask.css">
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <script src="services.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,20 +12,20 @@
     <style>
         .page-content {
             text-align: center;
-            font-family: "Copperplate", fantasy;
+            font-family: "Arial";
         }
 
-        .h1 {
-            font-family: "Copperplate", fantasy;
-        }
+        /* .h1 {
+            font-family: "Alegreya";
+        } */
 
-        body {
-            background-image: url('');
-        }
+        /* body {
+            font-family: "Alegreya";;
+        } */
 
-        yellow_highlight { 
+        green_highlight { 
   /* background-color: yellow; */
-  color: rgb(225, 222, 60);
+  color: green
 }
 
 orange_highlight { 
@@ -32,14 +33,29 @@ orange_highlight {
   color: orange;
 }
 
-green_highlight { 
+blue_highlight { 
   /* background-color: green; */
-  color: green;
+  color: rgb(78, 78, 233);
 }
 
 red_highlight { 
   /* background-color: red; */
   color: red;
+}
+
+blue_tags { 
+  background-color: rgb(144, 251, 255);
+  color: black;
+}
+
+red_tags { 
+  background-color: red;
+  color: black;
+}
+
+orange_tags { 
+  background-color: orange;
+  color: black;
 }
 
     </style>
@@ -72,7 +88,7 @@ red_highlight {
                 <br>
                 <br>
                 <span>Task Name: </span>
-                <input type="text" class="mdl-textfield__input" id="taskName" placeholder="Name">
+                <input type="text" class="mdl-textfield__input" id="taskName" placeholder="Name" style="text-align: center">
                 <br>
                 <br>
                 <span>Assignee(s): </span>
@@ -93,25 +109,30 @@ red_highlight {
                 <br>
 
                 <span>Priority: </span>
+                
                 <input type="radio" id="criticalPrio"  value="critical" name="priority">
-                  <label> <red_highlight>Critical</red_highlight></label>
+                <img src="redsqaure.png" alt="criticalpic" class="criticalimg">    
+                    <label> <red_highlight>Critical</red_highlight></label>
                 <input type="radio" id="highPrio"  value="high" name="priority">
+                <img src="orangletriangle.png" alt="highpic" class="highimg">    
                     <label> <orange_highlight>High</orange_highlight> </label>
                 <input type="radio" id="mediumPrio" value="medium" name="priority">
-                    <label> <yellow_highlight>Medium</yellow_highlight> </label>
+                <img src="greencircle.png" alt="mediumpic" class="mediumimg">    
+                    <label> <green_highlight>Medium</green_highlight> </label>
                 <input type="radio" id="lowPrio"  value="low" name="priority">
-                    <label> <green_highlight>Low</green_highlight></label><br><br>
+                <img src="bluetriangle.png" alt="lowpic" class="lowimg">    
+                    <label> <blue_highlight>Low</blue_highlight></label><br><br>
 
                 <span>Type: </span>
                      <input type="radio" id="story" name="type">
-                  <label>Story</label>
+                     <label>Story</label>
                 <input type="radio" id="bug" name="type">
                     <label>Bug</label>
                 <br>
                 <br>    
                 <span>Status: </span>
                 <input type="radio" id="start" name="status" >
-                  <label>Have not started</label>
+                    <label>Have not started</label>
                 <input type="radio" id="progress" name="status" >
                     <label>In progress</label>
                 <input type="radio" id="done" name="status">
@@ -121,11 +142,12 @@ red_highlight {
 
                 <span>Tag: </span>
                 <input type="radio" id="ui"  name="tag">
-                  <label> <yellow_highlight>UI</yellow_highlight> </label>
+                <!-- <h3 class="h1">Projectify</h3> -->
+                    <label> <red_tags class="tags">UI</red_tags> </label>
                 <input type="radio" id="core"   name="tag">
-                    <label><orange_highlight>Core</orange_highlight> </label>
+                    <label><orange_tags>Core</orange_tags> </label>
                 <input type="radio" id="testing"  name="tag">
-                    <label> <green_highlight>Testing</green_highlight></label>
+                    <label> <blue_tags>Testing</blue_tags></label>
                 <br>
                 <br>
 
