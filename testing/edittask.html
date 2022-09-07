@@ -248,17 +248,17 @@ completed {
                         <br>
                         <img src="task.png" width="40" height="35" class="taskimage">
                         <!-- <span class="taskname"><b>Task Name:</b> </span> -->
-                        <input type="text" class="taskname" id="taskName" placeholder="Task Name" style="text-align: left">
+                        <input type="text" class="taskname" id="editTaskName" placeholder="Task Name" style="text-align: left">
                         <br>
                         <br>
                         <span class="tags">Tags</span>
                         <br>
                         <br>
-                        <input type="radio" id="ui"  name="tag">
+                        <input type="radio" id="edit_ui"  name="tag">
                             <label class="tags"> <spanui>UI</spanui></label>
-                        <input type="radio" id="core"   name="tag">
+                        <input type="radio" id="edit_core"   name="tag">
                             <label class="tags"> <spancore>Core</spancore></label>
-                        <input type="radio" id="testing"  name="tag">
+                        <input type="radio" id="edit_testing"  name="tag">
                             <label class="tags"> <spantesting>Testing</spantesting></label>
                         <br>
                         <br>
@@ -266,16 +266,16 @@ completed {
                         <img src="priority.png" width="40" height="35" class="priorityimg">
                         <span class="tags">Priority</span> 
                         <br>
-                        <input type="radio" id="criticalPrio"  value="critical" name="priority">
+                        <input type="radio" id="edit_criticalPrio"  value="critical" name="priority">
                         <img src="redsqaure.png" alt="criticalpic" class="criticalimg">    
                             <label> <red_highlight>Critical</red_highlight></label>
-                        <input type="radio" id="highPrio"  value="high" name="priority">
+                        <input type="radio" id="edit_highPrio"  value="high" name="priority">
                         <img src="orangletriangle.png" alt="highpic" class="highimg">    
                             <label> <orange_highlight>High</orange_highlight> </label>
-                        <input type="radio" id="mediumPrio" value="medium" name="priority">
+                        <input type="radio" id="edit_mediumPrio" value="medium" name="priority">
                         <img src="greencircle.png" alt="mediumpic" class="mediumimg">    
                             <label> <green_highlight>Medium</green_highlight> </label>
-                        <input type="radio" id="lowPrio"  value="low" name="priority">
+                        <input type="radio" id="edit_lowPrio"  value="low" name="priority">
                         <img src="bluetriangle.png" alt="lowpic" class="lowimg">    
                             <label> <blue_highlight>Low</blue_highlight></label>
                         <br>
@@ -283,11 +283,11 @@ completed {
                         <span class="tags">Status</span>
                         <br> 
                         <br> 
-                        <input type="radio" id="start" name="status">
+                        <input type="radio" id="edit_start" name="status">
                             <label><notstartedfont>Have not started</notstartedfont></label>
-                        <input type="radio" id="progress" name="status" >
+                        <input type="radio" id="edit_progress" name="status" >
                             <label><inprogress>In progress</inprogress></label>
-                        <input type="radio" id="done" name="status">
+                        <input type="radio" id="edit_done" name="status">
                             <label><completed>Done</completed></label>
                         <br> 
                         <br>        
@@ -295,10 +295,10 @@ completed {
                         <span class="tags"> Type</span>
                         <br>
                         <br>
-                        <input type="radio" id="story" name="type">
+                        <input type="radio" id="editStory" name="type">
                         <img src="story.png" width="40" height="35" class="storyimg">
                             <label><storyfont>Story</storyfont></label>
-                        <input type="radio" id="bug" name="type">
+                        <input type="radio" id="editBug" name="type">
                         <img src="bug.png" width="40" height="35" class="bugimg">
                             <label><bugfont>Bug</bugfont></label>
                         <br>
@@ -306,7 +306,7 @@ completed {
                         <span class="tags">Assignee</span>
                         <br>
                         <br>
-                        <input type="text" class="mdl-textfield__input" id="taskAssignee" placeholder="Assignee Name">
+                        <input type="text" class="mdl-textfield__input" id="editTaskAssignee" placeholder="Assignee Name">
                         <br>
                         <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="addAssignee()">Add assignee</button>
                         <div class="mdl-grid" id="assigneeList">
@@ -316,14 +316,14 @@ completed {
                         <img src="description.png" width="40" height="40" class="descriptionimg">
                         <span class="tags">Description</span>
                         <br>
-                        <textarea type="text" class="descriptiontext" id="taskDescription" placeholder="Add your description ..."></textarea>
+                        <textarea type="text" class="descriptiontext" id="editTaskDescription" placeholder="Add your description ..."></textarea>
                         <br>
                         <br>
                         <span class="tags">Story Point</span>
                         <br>
                         <br>
                         <!-- <textarea type="text" class="storytext" id="storyPoint" placeholder="Add your story point ..."></textarea> -->
-                        <textarea type="number" min="1" max="999999"class="storytext" id="storyPoint" placeholder="Add your story point ..."></textarea>
+                        <textarea type="number" min="1" max="999999"class="storytext" id="editStoryPoint" placeholder="Add your story point ..."></textarea>
                         <br>
                         <br>
                         <span class="tags">Date</span>
