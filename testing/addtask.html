@@ -28,15 +28,87 @@
 
         .tags {
             font-family: "Alegreya";
+            font-size: 25px;
+        }
+
+        .tags spanui {
+            font-family: "Alegreya";
+            font-size: 25px;
+            background-color:rgb(255, 96, 96);
+            color: black;
+            border-radius: 10px;
+            -webkit-box-decoration-break: clone;
+            box-decoration-break: clone;
+            padding: 0 10px 0 10px;
+        }
+
+        .tags spancore {
+            font-family: "Alegreya";
+            font-size: 25px;
+            background-color: rgb(255, 202, 104);
+            color: black;
+            border-radius: 10px;
+            -webkit-box-decoration-break: clone;
+            box-decoration-break: clone;
+            padding: 0 10px 0 10px;
+        }
+
+        .tags spantesting {
+            font-family: "Alegreya";
+            font-size: 25px;
+            background-color: rgb(131, 230, 233);
+            color: black;
+            border-radius: 10px;
+            -webkit-box-decoration-break: clone;
+            box-decoration-break: clone;
+            padding: 0 10px 0 10px;
         }
 
         .taskname {
             font-family: 'Open Sans';
             font-size: 30px;
+            color: black;
+            font-weight: bolder;
         }
 
-        green_highlight { 
-  /* background-color: yellow; */
+        .taskname::placeholder {
+            color: black;
+        }
+
+        input:placeholder-shown {
+            border: none;
+        }
+
+        .taskimage {
+            margin-bottom: 16px;
+        }
+
+        .priorityimg {
+            margin-bottom: 5px;
+        }
+
+        .criticalimg {
+            width: 40px;
+            height: 40px;
+        }
+
+        .highimg {
+            width: 40px;
+            height: 40px;
+        }
+
+        .mediumimg {
+            width: 40px;
+            height: 40px;
+        }
+
+        .lowimg {
+            width: 40px;
+            height: 40px;
+        }
+
+green_highlight { 
+/* background-color: yellow; */
   color: green
 }
 
@@ -53,21 +125,6 @@ blue_highlight {
 red_highlight { 
   /* background-color: red; */
   color: red;
-}
-
-blue_tags { 
-  background-color: rgb(144, 251, 255);
-  color: black;
-}
-
-red_tags { 
-  background-color: red;
-  color: black;
-}
-
-orange_tags { 
-  background-color: orange;
-  color: black;
 }
 
     </style>
@@ -98,14 +155,52 @@ orange_tags {
         <main class="mdl-layout__content">
             <div class="page-content">
                 <div class = "inner">
-                    <div class = "right">
+                    <div class = "left">
                         <br>
                         <br>
-                        <img src="task.png" width="40" height="35">
-                        <span class="taskname"><b>Task Name:</b> </span>
-                        <input type="text" class="left" id="taskName" placeholder="Name" style="text-align: left">
+                        <img src="task.png" width="40" height="35" class="taskimage">
+                        <!-- <span class="taskname"><b>Task Name:</b> </span> -->
+                        <input type="text" class="taskname" id="taskName" placeholder="Task Name" style="text-align: left">
                         <br>
                         <br>
+                        <span class="tags">Tags</span>
+                        <br>
+                        <br>
+                        <input type="radio" id="ui"  name="tag">
+                            <label class="tags"> <spanui>UI</spanui></label>
+                        <input type="radio" id="core"   name="tag">
+                            <label class="tags"> <spancore>Core</spancore></label>
+                        <input type="radio" id="testing"  name="tag">
+                            <label class="tags"> <spantesting>Testing</spantesting></label>
+                        <br>
+                        <br>
+                        <br>
+                        <img src="priority.png" width="40" height="35" class="priorityimg">
+                        <span class="tags">Priority</span> 
+                        <br>
+                        <input type="radio" id="criticalPrio"  value="critical" name="priority">
+                        <img src="redsqaure.png" alt="criticalpic" class="criticalimg">    
+                            <label> <red_highlight>Critical</red_highlight></label>
+                        <input type="radio" id="highPrio"  value="high" name="priority">
+                        <img src="orangletriangle.png" alt="highpic" class="highimg">    
+                            <label> <orange_highlight>High</orange_highlight> </label>
+                        <input type="radio" id="mediumPrio" value="medium" name="priority">
+                        <img src="greencircle.png" alt="mediumpic" class="mediumimg">    
+                            <label> <green_highlight>Medium</green_highlight> </label>
+                        <input type="radio" id="lowPrio"  value="low" name="priority">
+                        <img src="bluetriangle.png" alt="lowpic" class="lowimg">    
+                            <label> <blue_highlight>Low</blue_highlight></label>
+                        <br>
+                        <br>
+                        <span class="tags"> Type</span>
+                        <br>
+                        <br>
+                        <input type="radio" id="story" name="type">
+                            <label>Story</label>
+                        <input type="radio" id="bug" name="type">
+                            <label>Bug</label>
+                        <br>
+                        <br> 
                         <span>Assignee(s): </span>
                         <input type="text" class="mdl-textfield__input" id="taskAssignee" placeholder="Assignee">
                         <br>
@@ -121,30 +216,6 @@ orange_tags {
                         <span>Date: </span>
                         <input type="date" id="taskDate" placeholder="Date">
                         <br>
-                        <br>
-
-                        <img src="priority.png" width="40" height="35">
-                        <span>Priority: </span>
-                        
-                        <input type="radio" id="criticalPrio"  value="critical" name="priority">
-                        <img src="redsqaure.png" alt="criticalpic" class="criticalimg">    
-                            <label> <red_highlight>Critical</red_highlight></label>
-                        <input type="radio" id="highPrio"  value="high" name="priority">
-                        <img src="orangletriangle.png" alt="highpic" class="highimg">    
-                            <label> <orange_highlight>High</orange_highlight> </label>
-                        <input type="radio" id="mediumPrio" value="medium" name="priority">
-                        <img src="greencircle.png" alt="mediumpic" class="mediumimg">    
-                            <label> <green_highlight>Medium</green_highlight> </label>
-                        <input type="radio" id="lowPrio"  value="low" name="priority">
-                        <img src="bluetriangle.png" alt="lowpic" class="lowimg">    
-                            <label> <blue_highlight>Low</blue_highlight></label><br><br>
-
-                        <span>Type: </span>
-                            <input type="radio" id="story" name="type">
-                            <label>Story</label>
-                        <input type="radio" id="bug" name="type">
-                            <label>Bug</label>
-                        <br>
                         <br>    
                         <span>Status: </span>
                         <input type="radio" id="start" name="status" >
@@ -153,16 +224,6 @@ orange_tags {
                             <label>In progress</label>
                         <input type="radio" id="done" name="status">
                             <label>Done</label>
-                        <br>
-                        <br>
-
-                        <span>Tag: </span>
-                        <input type="radio" id="ui"  name="tag">
-                            <label> <red_tags class="tags">UI</red_tags> </label>
-                        <input type="radio" id="core"   name="tag">
-                            <label><orange_tags class="tags">Core</orange_tags> </label>
-                        <input type="radio" id="testing"  name="tag">
-                            <label> <blue_tags class="tags">Testing</blue_tags></label>
                         <br>
                         <br>
 
@@ -182,6 +243,7 @@ orange_tags {
                         <br>
                         <br>
                     </div>
+                    <div class = "left"></div>
             </div> 
         </div>
                 
