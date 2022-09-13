@@ -1,17 +1,11 @@
-
-if (checkLSData(TASK_KEY)) {
-  let data = retrieveLSData(TASK_KEY);
-  let task = new Task();
-  task.fromData(data);
+// Check local storage whether there is data
+// If there is, store it into savedTasks
+if (checkLSData(TASK_LIST_KEY)) {
+  savedTasks.fromData(taskListData);
 }
 
-//if (checkLSData(TASK_LIST_KEY)) {
-   data = retrieveLSData(TASK_LIST_KEY);
-   savedTasks = new SavedTasks();
-  savedTasks.fromData(data);
-//}
-
-console.log(savedTasks);
+// console.log(checkLSData(TASK_LIST_KEY))
+// console.log(savedTasks)
 
 //temp list of assignees
 let tempArray=[];
