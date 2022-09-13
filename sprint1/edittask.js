@@ -1,14 +1,11 @@
-
 if (checkLSData(TASK_KEY)) {
-    let data = retrieveLSData(TASK_KEY);
-    let task = new Task();
-    task.fromData(data);
+    task.fromData(taskData);
 }
 
 if (checkLSData(TASK_LIST_KEY)) {
-    let data = retrieveLSData(TASK_LIST_KEY);
-    let savedTasks = new SavedTasks();
-    savedTasks.fromData(data);
+    // let data = retrieveLSData(TASK_LIST_KEY);
+    // let savedTasks = new SavedTasks();
+    savedTasks.fromData(taskListData);
 }
 
 let selectedTask=[];
@@ -26,9 +23,6 @@ let checkForMedium2 = document.getElementById("edit_medium");
 let checkForCritical2 = document.getElementById("edit_critical");
 let taskPriority2="";
 let taskTag2="";
-
-
-
 
 console.log(savedTasks);
 
