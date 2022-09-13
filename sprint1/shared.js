@@ -1,4 +1,7 @@
+// Uncomment the line below to clear localStorage:
+// window.localStorage.clear()
 
+// Declaration of constants
 const TASK_KEY="ufeh98eirojgfed";
 const TASK_LIST_KEY="duh5498treifnv";
 const LIST_INDEX_KEY="9438hrtfio";
@@ -15,6 +18,7 @@ class Task {
         this._taskType=type;
         this._taskTag=tag;
     }
+    
     //getters
     get taskName() {
         return this._taskName;
@@ -174,7 +178,11 @@ class Assignee{
     }
 }
 
-let task = new Task();
-let savedTasks=new SavedTasks();
-let assignee=new Assignee();
 
+
+// Declaration of global variables
+let task = new Task();
+let savedTasks = new SavedTasks();
+let assignee = new Assignee();
+let taskListData = retrieveLSData(TASK_LIST_KEY);
+let taskData = retrieveLSData(TASK_KEY);

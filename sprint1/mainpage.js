@@ -1,13 +1,13 @@
-
+// Check local storage whether there is data
+// If there is, store it into savedTasks
 if (checkLSData(TASK_LIST_KEY)) {
-	let data = retrieveLSData(TASK_LIST_KEY);
-	let savedTasks = new SavedTasks();
-	savedTasks.fromData(data);
+	savedTasks.fromData(taskListData);
 }
 
-if (savedTasks._allTask.length > 0) {
-	savedTasks=retrieveLSData(TASK_LIST_KEY);
-}
+// console.log(TASK_LIST_KEY)
+// console.log(checkLSData(TASK_LIST_KEY))
+// console.log(retrieveLSData(TASK_LIST_KEY))
+// console.log(data)
 
 let arr = savedTasks._allTask;
 let filteredTag="";
@@ -26,7 +26,7 @@ let filteredTag="";
 		arr = searchTaskWithTag(filteredTag);
 
 	}
-	console.log(arr);
+	// console.log(arr);
 	let taskListInnerHTML = "";
 	for (let i in arr) {
 		taskListInnerHTML += `  
@@ -97,4 +97,8 @@ function removeFilter(){
 	pageLoad();
 }
 
-pageLoad();
+
+window.onload = function () {
+    pageLoad();
+};
+
