@@ -56,4 +56,3 @@ function deleteSprint(index){
 window.onload = function () {
     pageLoad();
 };
-
