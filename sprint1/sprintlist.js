@@ -34,6 +34,7 @@ let arr = savedSprints._allSprint;
 									<p>
 									<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick="deleteSprint(${i})">  <i class="material-icons">delete</i> </button>
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<button onclick="editSprint(${i})" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored"> <i class="large material-icons">edit</i> </button>
 									</p>
 									</div>
 									<div class="mdl-card__actions mdl-card--border">
