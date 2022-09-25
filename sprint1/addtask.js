@@ -37,10 +37,10 @@ function addTask() {
   }
 
   
-  if (taskName==""|| taskStatus=="" || taskType=="" || taskTag==""){
-    alert('task name, status,type and tag cannot be empty')
-    return
-  }
+  // if (taskName==""|| taskStatus=="" || taskType=="" || taskTag==""){
+  //   alert('task name, status,type and tag cannot be empty')
+  //   return
+  // }
 
   // checks for taskName, if it is blank, then return error
   taskDetails.taskName === "" ? (taskDetails.taskError = true, errorHandler("nameError")) : 
