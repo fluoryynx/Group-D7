@@ -6,3 +6,7 @@ function startingPage() {
 function proceedToAdd(){
     window.location = "addtask.html";
 }
+
+function proceedToAddSprint(){
+    window.location = "addsprint.html";
+}

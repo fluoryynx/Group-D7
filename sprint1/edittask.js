@@ -1,23 +1,18 @@
-
 if (checkLSData(TASK_KEY)) {
-    let data = retrieveLSData(TASK_KEY);
-    let task = new Task();
-    task.fromData(data);
+    task.fromData(taskData);
 }
 
 if (checkLSData(TASK_LIST_KEY)) {
-    let data = retrieveLSData(TASK_LIST_KEY);
-    let savedTasks = new SavedTasks();
-    savedTasks.fromData(data);
+    // let data = retrieveLSData(TASK_LIST_KEY);
+    // let savedTasks = new SavedTasks();
+    savedTasks.fromData(taskListData);
 }
 
 let selectedTask=[];
 let editTaskNameRef = document.getElementById("editTaskName");
 let editTaskAssigneeRef = document.getElementById("editTaskAssignee");
 let editTaskDateRef = document.getElementById("editTaskDate");
- //let editTaskPriorityRef = document.getElementById("editTaskPriority");
- //let editTaskTypeRef = document.getElementById("editTaskType");
- //let editTaskStatusRef = document.getElementById("editTaskStatus");
+
 let editStoryPoint = document.getElementById("editStoryPoint");
 let editTaskDescriptionRef = document.getElementById("editTaskDescription");
 let itemIndex=0;
@@ -28,9 +23,6 @@ let checkForMedium2 = document.getElementById("edit_medium");
 let checkForCritical2 = document.getElementById("edit_critical");
 let taskPriority2="";
 let taskTag2="";
-
-
-
 
 console.log(savedTasks);
 
@@ -55,6 +47,7 @@ if (savedTasks._allTask.length > 0) {
     //editTaskAssigneeRef.value = selectedTask[0]._taskAssignee;
     editTaskAssigneeRef.value="";
     editTaskDateRef.value = selectedTask[0]._taskDate;
+    editStoryPoint.value=selectedTask[0]._taskStoryPoint;
 
     //radio buttons
     selectedPrio = selectedTask[0]._taskPriority;
@@ -67,6 +60,7 @@ if (savedTasks._allTask.length > 0) {
     document.getElementById("edit_"+selectedTag).checked = true;
 
     editTaskDescriptionRef.value = selectedTask[0]._taskDescription;
+    editStoryPoint.value = selectedTask[0].storyPoint;
 
 }
 
@@ -97,7 +91,7 @@ function submit() {
 
 
       if (edit_havenotstarted.checked) {
-        taskStatus2 = "have not started";
+        taskStatus2 = "havenotstarted";
       }
       else if (edit_progress.checked) {
         taskStatus2 = "progress";
@@ -130,7 +124,7 @@ function submit() {
     selectedTask[0]._taskType = taskType2;
     selectedTask[0]._taskStatus = taskStatus2;
     selectedTask[0]._taskTag=taskTag2;
-    selectedTask[0]._taskStoryPoint=editStoryPoint.value;
+    selectedTask[0].storyPoint=editStoryPoint.value;
     selectedTask[0]._taskDescription = editTaskDescriptionRef.value;
 
     savedTasks._allTask[itemIndex] = selectedTask;

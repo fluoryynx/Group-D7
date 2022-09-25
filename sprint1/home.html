@@ -14,15 +14,16 @@
         }
 
         .h1 {
-            font-family: "Copperplate", fantasy;
+            font-family: "Alegreya";
         }
 
-
-        body {
-            background-image: url('');
+        .mdl-layout__header-row {
+            background-image:url("img/background.png");
+            height: 150px;
+            background-size: contain;
         }
     </style>
-    <!-- favicon -->
+<!-- favicon -->
     <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
     <title>Projectify</title>
 </head>
@@ -30,10 +31,10 @@
 <body>
     <!-- Always shows a header, even in smaller screens. -->
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-        <header class="mdl-layout__header">
+        <header class="mdl-layout__header mdl-layout__header--transparent">
             <div class="mdl-layout__header-row">
                 <span>
-                    <img src="logo.png" width="50" height="50"></span>
+                    <img src="img/logo.png" width="80" height="80"></span>
                     <h3 class="h1">Projectify</h3>
                 <div class="mdl-layout-spacer"></div>
             </div>
@@ -43,12 +44,13 @@
             <nav class="mdl-navigation">
                 <a class="mdl-navigation__link" href="home.html">Home Page</a>
                 <a class="mdl-navigation__link" href="mainpage.html">Product Backlog</a>
+                <a class="mdl-navigation__link" href="sprintlist.html">Sprint List</a>
             </nav>
         </div>
         <main class="mdl-layout__content">
             <div class="page-content">
                 <div>
-                    <img src="logo.png" width="220" height="220">
+                    <img src="img/logo.png" width="220" height="220">
                     <h1 class="h1">Projectify</h1>
                 </div>
                 <div>
