@@ -10,7 +10,18 @@ if (checkLSData(TASK_LIST_KEY)) {
 //temp list of assignees
 let tempArray=[];
 
-
+function errorHandler(errorType){
+  errorType === "nameError" ? console.log("Name Error") :
+    null
+  errorType === "tagError" ? console.log("Tag Error") :
+    null
+  errorType === "priorityError" ? console.log("Priority Error") :
+    null
+  errorType === "statusError" ? console.log("Status Error") :
+    null
+  errorType === "detailError" ? console.log("Detail Error") :
+    null
+}
 
 function addTask() {
 
