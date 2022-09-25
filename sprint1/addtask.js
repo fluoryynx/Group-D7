@@ -13,7 +13,7 @@ let tempArray=[];
 
 
 function addTask() {
-  
+
     // taskDetail object stores details of the added task
     let taskDetails = {
       taskName: document.getElementById("taskName").value,
@@ -33,55 +33,36 @@ function addTask() {
     return
   }
 
-  let storyPoint = document.getElementById("storyPoint").value;
-  let taskDescription = document.getElementById("taskDescription").value;
+  // checks for taskName, if it is blank, then return error
+  taskDetails.taskName === "" ? (taskDetails.taskError = true, errorHandler("nameError")) : 
+    null
 
-  let taskPriority = "";
-  //priorities 
-  let checkForLow = document.getElementById("lowPrio");
-  let checkForHigh = document.getElementById("highPrio");
-  let checkForMedium = document.getElementById("mediumPrio");
-  let checkForCritical = document.getElementById("criticalPrio");
-  if (checkForLow.checked) {
-    taskPriority = "low";
-  }
-  else if (checkForMedium.checked) {
-    taskPriority = "medium";
-  }
-  else if (checkForHigh.checked) {
-    taskPriority = "high";
-  }
-  else if (checkForCritical.checked) {
-    taskPriority = "critical";
-  }
+  // checks for the tag type, assigns taskTag with the correct input
+  ui.checked ? taskDetails.taskTag = "ui" : 
+    core.checked ? taskDetails.taskTag = "core" :
+      testing.checked ? taskDetails.taskTag = "testing" : 
+        (taskDetails.taskError = true, errorHandler("tagError"))
 
-  if (start.checked) {
-    taskStatus = "havenotstarted";
-  }
-  else if (progress.checked) {
-    taskStatus = "progress";
-  }
-  else if (done.checked) {
-    taskStatus = "done";
-  }
+  // checks for the task priority, assigns taskPriority with the correct input
+  lowPrio.checked ? taskDetails.taskPriority = "low" :
+    mediumPrio.checked ? taskDetails.taskPriority = "medium" :
+      highPrio.checked ? taskDetails.taskPriority = "high" :
+        criticalPrio.checked ? taskDetails.taskPriority = "critical" :
+          (taskDetails.taskError = true, errorHandler("priorityError"))
 
+  // checks for the task status, assigns taskStatus with the correct input
+  start.checked ? taskDetails.taskStatus = "havenotstarted" :
+    progress.checked ? taskDetails.taskStatus = "progress" :
+      done.checked ? taskDetails.taskStatus = "done" :
+        (taskDetails.taskError = true, errorHandler("statusError"))
 
-  if (story.checked) {
-    taskType = "story";
-  }
-  else if (bug.checked) {
-    taskType = "bug";
-  }
+  // checks for the task type, assigns taskType with the correct input
+  story.checked ? taskDetails.taskType = "story" :
+    bug.checked ? taskDetails.taskType = "bug" :
+      (taskDetails.taskError = true, errorHandler("detailError"))
 
-  if (ui.checked) {
-    taskTag = "ui";
-  }
-  else if (core.checked) {
-    taskTag = "core";
-  }
-  else if (testing.checked) {
-    taskTag = "testing";
-  }
+  // console.log(Object.keys(taskDetails))
+  console.log(taskDetails)
 
 
   task.taskName = taskName;
