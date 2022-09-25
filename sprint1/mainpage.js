@@ -54,6 +54,7 @@ let filteredTag="";
 									<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick="deleteTask(${i})">  <i class="material-icons">delete</i> </button>
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									<button onclick="edit(${i})" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored"> <i class="large material-icons">edit</i> </button>
+									<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="addToSprint()"> Add to sprint board</button>
 									</p>
 									</div>
 									<div class="mdl-card__actions mdl-card--border">
@@ -97,6 +98,26 @@ function removeFilter(){
 	pageLoad();
 }
 
+//dialog that pops out when the add to sprint button is clicked
+let dialog = document.getElementById("sprintDialog");
+if (!dialog.showModal) {
+  dialogPolyfill.registerDialog(dialog);
+}
+
+//show dialog for user to input sprint details
+function addToSprint(){
+dialog.showModal();
+}
+
+//cancel add to sprint
+function cancel() {
+	dialog.close()
+  }
+
+function confirmAddSprint(){
+	
+}
+  
 
 window.onload = function () {
     pageLoad();
