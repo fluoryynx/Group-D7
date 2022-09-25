@@ -4,11 +4,8 @@ if (checkLSData(TASK_LIST_KEY)) {
   savedTasks.fromData(taskListData);
 }
 
-// console.log(checkLSData(TASK_LIST_KEY))
-// console.log(savedTasks)
-
-//temp list of assignees
-let tempArray=[];
+// list of assignees
+let assigneeList=[];
 
 function errorHandler(errorType){
   errorType === "nameError" ? console.log("Name Error") :
@@ -24,21 +21,22 @@ function errorHandler(errorType){
 }
 
 function addTask() {
+  
+  // taskDetail object stores details of the added task
+  let taskDetails = {
+    taskName: document.getElementById("taskName").value,
+    taskTag: "",
+    taskPriority: "",
+    taskStatus: "",
+    taskType: "",
+    taskAssignee: assigneeList,
+    taskDescription: document.getElementById("taskDescription").value,
+    storyPoint: document.getElementById("storyPoint").value,
+    taskDate: document.getElementById("taskDate").value,
+    taskError: false
+  }
 
-    // taskDetail object stores details of the added task
-    let taskDetails = {
-      taskName: document.getElementById("taskName").value,
-      taskTag: "",
-      taskPriority: "",
-      taskStatus: "",
-      taskType: "",
-      taskAssignee: assigneeList,
-      taskDescription: document.getElementById("taskDescription").value,
-      storyPoint: document.getElementById("storyPoint").value,
-      taskDate: document.getElementById("taskDate").value,
-      taskError: false
-    }
-
+  
   if (taskName==""|| taskStatus=="" || taskType=="" || taskTag==""){
     alert('task name, status,type and tag cannot be empty')
     return
@@ -74,37 +72,38 @@ function addTask() {
 
   // console.log(Object.keys(taskDetails))
   console.log(taskDetails)
+  
+  if (taskDetails.taskError){
+    console.log("Errors!!!")
+  } else {
 
+    // Add task details into a task class and 
+    task.taskName = taskDetails.taskName;
+    task.taskAssignee = taskDetails.assigneeList;
+    task.taskDate = taskDetails.taskDate;
+    task.taskPriority = taskDetails.taskPriority;
+    task.taskStatus = taskDetails.taskStatus;
+    task.taskType = taskDetails.taskType;
+    task.storyPoint = taskDetails.storyPoint;
+    task.taskDescription = taskDetails.taskDescription;
+    task.taskTag = taskDetails.taskTag;
+  
+    // updateLSData(TASK_KEY, task);
 
-  task.taskName = taskName;
-  //task.taskAssignee = taskAssignee;
-  task.taskAssignee=tempArray;
-  console.log(tempArray);
-  console.log(task.taskAssignee);
-  task.taskDate = taskDate;
-  task.taskPriority = taskPriority;
-  task.taskStatus = taskStatus;
-  task.taskType = taskType;
-  task.storyPoint = storyPoint;
-  task.taskDescription = taskDescription;
-  task.taskTag=taskTag;
-  updateLSData(TASK_KEY, task);
-  console.log(task)
+    savedTasks._allTask.push([task]);
+    updateLSData(TASK_LIST_KEY, savedTasks);
 
-  console.log(savedTasks._allTask);
+    window.location = "mainpage.html";
 
-  savedTasks._allTask.push([task]);
-
-  updateLSData(TASK_LIST_KEY, savedTasks);
-
-  window.location = "mainpage.html";
+  }
+  
 }
 
 
 function addAssignee(){
   let taskAssignee = document.getElementById("taskAssignee").value;
   if (taskAssignee!="" || taskAssignee!= null){
-    tempArray.push(taskAssignee);
+    assigneeList.push(taskAssignee);
   }
   showAssignee();
 }
@@ -115,16 +114,16 @@ function showAssignee(){
   let assigneePlaceholder=document.getElementById("assigneeList");
   let assigneePlaceholderInnerHTML="";
 
-  for (let i in tempArray){
+  for (let i in assigneeList){
     assigneePlaceholderInnerHTML+=`<span class="mdl-chip mdl-chip--deletable">
-    <span class="mdl-chip__text">${tempArray[i]}</span>
+    <span class="mdl-chip__text">${assigneeList[i]}</span>
     <button type="button" class="mdl-chip__action"><i class="material-icons" onclick="deleteAssignee(${i})">cancel</i></button>
-</span>`
+    </span>`
   }
   assigneePlaceholder.innerHTML=assigneePlaceholderInnerHTML;
 }
 
 function deleteAssignee(index){
-	tempArray.splice(index, 1);
+	assigneeList.splice(index, 1);
   showAssignee();
 }
