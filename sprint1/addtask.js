@@ -21,7 +21,6 @@ function errorHandler(errorType){
 }
 
 function addTask() {
-<<<<<<< HEAD
   let taskNameRef = document.getElementById("taskName");
   let taskDateRef = document.getElementById("taskDate");
 
@@ -62,21 +61,6 @@ function addTask() {
   }
   else if (done.checked) {
     taskStatus = "done";
-=======
-  
-  // taskDetail object stores details of the added task
-  let taskDetails = {
-    taskName: document.getElementById("taskName").value,
-    taskTag: "",
-    taskPriority: "",
-    taskStatus: "",
-    taskType: "",
-    taskAssignee: assigneeList,
-    taskDescription: document.getElementById("taskDescription").value,
-    storyPoint: document.getElementById("storyPoint").value,
-    taskDate: document.getElementById("taskDate").value,
-    taskError: false
->>>>>>> 50197345fdade75deb42f617931cb8f19214014e
   }
 
   
@@ -139,8 +123,7 @@ function addTask() {
     window.location = "mainpage.html";
 
   }
-<<<<<<< HEAD
-  else if (bug.checked) {
+  elif (bug.checked) {
     taskType = "bug";
   }
 
@@ -181,9 +164,6 @@ function addTask() {
   updateLSData(TASK_LIST_KEY, savedTasks);
 
   window.location = "mainpage.html";
-=======
-  
->>>>>>> 50197345fdade75deb42f617931cb8f19214014e
 }
 
 
