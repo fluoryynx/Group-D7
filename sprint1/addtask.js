@@ -10,15 +10,23 @@ if (checkLSData(TASK_LIST_KEY)) {
 //temp list of assignees
 let tempArray=[];
 
+
+
 function addTask() {
-  let taskName = document.getElementById("taskName").value;
-  //let taskAssignee = document.getElementById("taskAssignee").value;
-  let taskDate = document.getElementById("taskDate").value;
-  //let taskStatus = document.getElementById("taskStatus").value;
+  let taskNameRef = document.getElementById("taskName");
+  let taskDateRef = document.getElementById("taskDate");
+
+  let taskName = taskNameRef.value;
+  let taskDate= taskDateRef.value;
   let taskStatus="";
-  //let taskType = document.getElementById("taskType").value;
   let taskType= "";
   let taskTag="";
+
+  if (taskName==""|| taskStatus=="" || taskType=="" || taskTag==""){
+    alert('task name, status,type and tag cannot be empty')
+    return
+ }
+
   let storyPoint = document.getElementById("storyPoint").value;
   let taskDescription = document.getElementById("taskDescription").value;
 
