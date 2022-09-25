@@ -19,8 +19,14 @@ function addSprint() {
     }
 
     sprint.sprintName = sprintName;
-    sprint.sprintStartingDate = sprintStartingDate;
-    sprint.sprintEndingDate = sprintEndingDate;
+     if (sprintEndingDate >= sprintStartingDate) {
+        sprint.sprintStartingDate = sprintStartingDate;
+        sprint.sprintEndingDate = sprintEndingDate;
+    }
+    else {
+        alert("Please ensure that the End Date must be later than Start Date. Try changing the dates, and try again.");
+        return false;
+    }
     sprint.sprintStatus = sprintStatus;
     updateLSData(SPRINT_KEY, sprint);
     console.log(sprint)

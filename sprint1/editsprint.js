@@ -42,16 +42,22 @@ function editSprint(index) {
  */
 function submit() {
 
-      if (edit_Active.checked) {
-        sprintStatus2 = "Active";
-      }
-      else if (edit_Completed.checked) {
-        sprintStatus2 = "Completed";
-      }
+    if (edit_Active.checked) {
+      sprintStatus2 = "Active";
+    }
+    else if (edit_Completed.checked) {
+      sprintStatus2 = "Completed";
+    }
 
     selectedSprint[0]._sprintName = editSprintNameRef.value;
-    selectedSprint[0]._sprintStartingDate = editSprintStartingDateRef.value;
-    selectedSprint[0]._sprintEndingDate = editSprintEndingDateRef.value;
+    if (editSprintEndingDateRef.value >= editSprintStartingDateRef.value) {
+      selectedSprint[0]._sprintStartingDate = editSprintStartingDateRef.value;
+      selectedSprint[0]._sprintEndingDate = editSprintEndingDateRef.value;
+    }
+    else {
+      alert("Please ensure that the End Date must be later than Start Date. Try changing the dates, and try again.");
+      return false;
+    }
     selectedSprint[0]._sprintStatus = sprintStatus2;
 
     savedSprints._allSprint[itemIndex] = selectedSprint;
