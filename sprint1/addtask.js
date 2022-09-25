@@ -13,19 +13,25 @@ let tempArray=[];
 
 
 function addTask() {
-  let taskNameRef = document.getElementById("taskName");
-  let taskDateRef = document.getElementById("taskDate");
-
-  let taskName = taskNameRef.value;
-  let taskDate= taskDateRef.value;
-  let taskStatus="";
-  let taskType= "";
-  let taskTag="";
+  
+    // taskDetail object stores details of the added task
+    let taskDetails = {
+      taskName: document.getElementById("taskName").value,
+      taskTag: "",
+      taskPriority: "",
+      taskStatus: "",
+      taskType: "",
+      taskAssignee: assigneeList,
+      taskDescription: document.getElementById("taskDescription").value,
+      storyPoint: document.getElementById("storyPoint").value,
+      taskDate: document.getElementById("taskDate").value,
+      taskError: false
+    }
 
   if (taskName==""|| taskStatus=="" || taskType=="" || taskTag==""){
     alert('task name, status,type and tag cannot be empty')
     return
- }
+  }
 
   let storyPoint = document.getElementById("storyPoint").value;
   let taskDescription = document.getElementById("taskDescription").value;
