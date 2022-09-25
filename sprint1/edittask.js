@@ -8,6 +8,7 @@ if (checkLSData(TASK_LIST_KEY)) {
     savedTasks.fromData(taskListData);
 }
 
+savedTasks=retrieveLSData(TASK_LIST_KEY);
 let selectedTask=[];
 let editTaskNameRef = document.getElementById("editTaskName");
 let editTaskAssigneeRef = document.getElementById("editTaskAssignee");
@@ -15,7 +16,7 @@ let editTaskDateRef = document.getElementById("editTaskDate");
 
 let editStoryPoint = document.getElementById("editStoryPoint");
 let editTaskDescriptionRef = document.getElementById("editTaskDescription");
-let itemIndex=0;
+let itemIndex=-1;
 
 let checkForLow2 = document.getElementById("edit_low");
 let checkForHigh2 = document.getElementById("edit_high");
@@ -23,8 +24,6 @@ let checkForMedium2 = document.getElementById("edit_medium");
 let checkForCritical2 = document.getElementById("edit_critical");
 let taskPriority2="";
 let taskTag2="";
-
-console.log(savedTasks);
 
 let selectedPrio="";
 let selectedType="";
@@ -36,31 +35,33 @@ let tempAssigneeArr=[];
 if (savedTasks._allTask.length > 0) {
 
     itemIndex = retrieveLSData(LIST_INDEX_KEY);
+    if (itemIndex != null){
+      selectedTask = savedTasks._allTask[itemIndex];
+      console.log(savedTasks._allTask[1][0]);
+      console.log(selectedTask);
+       
+      tempAssigneeArr=selectedTask[0]._taskAssignee;
+      edit_showAssignee();
+      editTaskNameRef.value = selectedTask[0]._taskName;
+      //editTaskAssigneeRef.value = selectedTask[0]._taskAssignee;
+      editTaskAssigneeRef.value="";
+      editTaskDateRef.value = selectedTask[0]._taskDate;
+      editStoryPoint.value=selectedTask[0]._taskStoryPoint;
+  
+      //radio buttons
+      selectedPrio = selectedTask[0]._taskPriority;
+      selectedType = selectedTask[0]._taskType;
+      selectedStatus = selectedTask[0]._taskStatus;
+      selectedTag=selectedTask[0]._taskTag;
+      document.getElementById("edit_"+selectedPrio).checked = true;
+      document.getElementById("edit_"+selectedType).checked = true;
+      document.getElementById("edit_"+selectedStatus).checked = true;
+      document.getElementById("edit_"+selectedTag).checked = true;
+  
+      editTaskDescriptionRef.value = selectedTask[0]._taskDescription;
+      editStoryPoint.value = selectedTask[0].storyPoint;
 
-    
-    selectedTask = savedTasks._allTask[itemIndex];
-    console.log(selectedTask);
-    tempAssigneeArr=selectedTask[0]._taskAssignee;
-    edit_showAssignee();
-
-    editTaskNameRef.value = selectedTask[0]._taskName;
-    //editTaskAssigneeRef.value = selectedTask[0]._taskAssignee;
-    editTaskAssigneeRef.value="";
-    editTaskDateRef.value = selectedTask[0]._taskDate;
-    editStoryPoint.value=selectedTask[0]._taskStoryPoint;
-
-    //radio buttons
-    selectedPrio = selectedTask[0]._taskPriority;
-    selectedType = selectedTask[0]._taskType;
-    selectedStatus = selectedTask[0]._taskStatus;
-    selectedTag=selectedTask[0]._taskTag;
-    document.getElementById("edit_"+selectedPrio).checked = true;
-    document.getElementById("edit_"+selectedType).checked = true;
-    document.getElementById("edit_"+selectedStatus).checked = true;
-    document.getElementById("edit_"+selectedTag).checked = true;
-
-    editTaskDescriptionRef.value = selectedTask[0]._taskDescription;
-    editStoryPoint.value = selectedTask[0].storyPoint;
+    }
 
 }
 

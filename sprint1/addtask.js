@@ -22,10 +22,6 @@ function addTask() {
   let taskType= "";
   let taskTag="";
 
-  if (taskName==""|| taskStatus=="" || taskType=="" || taskTag==""){
-    alert('task name, status,type and tag cannot be empty')
-    return
- }
 
   let storyPoint = document.getElementById("storyPoint").value;
   let taskDescription = document.getElementById("taskDescription").value;
@@ -77,6 +73,10 @@ function addTask() {
     taskTag = "testing";
   }
 
+  if (taskName==""|| taskStatus=="" || taskType=="" || taskTag==""){
+    alert('task name, status,type and tag cannot be empty')
+    return
+ }
 
   task.taskName = taskName;
   //task.taskAssignee = taskAssignee;
