@@ -18,22 +18,22 @@ function addSprint() {
         sprintStatus = "Completed";
     }
 
-    sprint.sprintName = sprintName;
+    sprint._sprintName = sprintName;
      if (sprintEndingDate >= sprintStartingDate) {
-        sprint.sprintStartingDate = sprintStartingDate;
-        sprint.sprintEndingDate = sprintEndingDate;
+        sprint._sprintStartingDate = sprintStartingDate;
+        sprint._sprintEndingDate = sprintEndingDate;
     }
     else {
         alert("Please ensure that the End Date must be later than Start Date. Try changing the dates, and try again.");
         return false;
     }
-    sprint.sprintStatus = sprintStatus;
+    sprint._sprintStatus = sprintStatus;
     updateLSData(SPRINT_KEY, sprint);
     console.log(sprint)
 
     console.log(savedSprints._allSprint);
 
-    savedSprints._allSprint.push([sprint]);
+    savedSprints._allSprint.push(sprint);
 
     updateLSData(SPRINT_LIST_KEY, savedSprints);
 

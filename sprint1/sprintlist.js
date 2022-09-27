@@ -4,6 +4,8 @@ if (checkLSData(SPRINT_LIST_KEY)) {
 	savedSprints.fromData(sprintListData);
 }
 
+//savedSprints=retrieveLSData(SPRINT_LIST_KEY);
+
 let arr = savedSprints._allSprint;
 
 /**
@@ -16,6 +18,7 @@ let arr = savedSprints._allSprint;
 
 	let sprintListInnerHTML = "";
 	for (let i in arr) {
+		console.log(arr[i][0])
 		sprintListInnerHTML += `  
 		<div class="mdl-cell mdl-cell--3-col" >
             <h5> 
@@ -23,13 +26,13 @@ let arr = savedSprints._allSprint;
             </h5>
 								<div class="mdl-card"  > 
 									<div class="mdl-card__supporting-text"> 
-                                    <b>Sprint name:</b> ${arr[i][0]._sprintName}
+                                    <b>Sprint name:</b> ${arr[i]._sprintName}
                                     <br><br>
-									<b>From:</b> ${arr[i][0]._sprintStartingDate}
+									<b>From:</b> ${arr[i]._sprintStartingDate}
 									<br><br>
-									<b>To: </b> ${arr[i][0]._sprintEndingDate}
+									<b>To: </b> ${arr[i]._sprintEndingDate}
 									<br><br>
-									<b> Status: </b><${arr[i][0]._sprintStatus}> ${arr[i][0]._sprintStatus} </${arr[i][0]._sprintStatus}>
+									<b> Status: </b><${arr[i]._sprintStatus}> ${arr[i]._sprintStatus} </${arr[i]._sprintStatus}>
 									<br><br>
 									<p>
 									<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick="deleteSprint(${i})">  <i class="material-icons">delete</i> </button>
