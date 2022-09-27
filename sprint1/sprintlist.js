@@ -33,7 +33,7 @@ let arr = savedSprints._allSprint;
 									<b>To: </b> ${arr[i]._sprintEndingDate}
 									<br><br>
 									<b> Time remaining: </b>
-									<p id="timer"></p>
+									<p id="timer${i}"></p>
 									<b> Status: </b><${arr[i]._sprintStatus}> ${arr[i]._sprintStatus} </${arr[i]._sprintStatus}>
 									<br><br>
 									<b><u> Description: </u></b>
@@ -49,7 +49,7 @@ let arr = savedSprints._allSprint;
 									</div> 
 								</div> 
 							</div>	`
-		countdown(arr[i]._sprintEndingDate);
+		countdown(arr[i]._sprintEndingDate,i);
 	}
 	sprintList.innerHTML = sprintListInnerHTML;
 }
@@ -62,7 +62,7 @@ function deleteSprint(index){
 	pageLoad();
 }
 
-function countdown(endDate){
+function countdown(endDate,index){
 	let countDownDate = new Date(endDate+ " 23:59:59").getTime();
 
 // Update the count down every 1 second
@@ -81,13 +81,13 @@ let x = setInterval(function() {
   let seconds = Math.floor((distance % (1000 * 60)) / 1000);
     
   // Output the result in an element with id="demo"
-  document.getElementById("timer").innerHTML = days + "d " + hours + "h "
+  document.getElementById("timer"+index).innerHTML = days + "d " + hours + "h "
   + minutes + "m " + seconds + "s ";
     
   // If the count down is over, write some text 
   if (distance < 0) {
     clearInterval(x);
-    document.getElementById("timer").innerHTML = "overdue";
+    document.getElementById("timer"+index).innerHTML = "overdue";
   }
 }, 1000);
 }
