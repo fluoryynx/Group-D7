@@ -85,16 +85,6 @@
       color: black;
     }
 
-    active {
-      background-color: orange;
-      color: black;
-    }
-
-    completed {
-      background-color: green;
-      color: black;
-    }
-
     .mdl-layout__header-row {
             background-image:url("img/background.png");
             height: 150px;
@@ -127,16 +117,6 @@
         <div class="mdl-cell mdl-cell--1-col"></div>
         <!-- second col -->
         <div class="mdl-cell mdl-cell--10-col">
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label has-placeholder">
-            <label class="mdl-textfield__label" for="sprint_boards_filter">Select sprint board</label>
-            <select class="mdl-textfield__input" id="sprint_boards_filter">
-              <option value=""></option> <!-- default option should always be empty -->
-            </select>
-            <button onclick="filterBySprintBoards()"
-            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-            Select
-            </button>
-          </div><br>
             <div class="mdl-grid" id="sprintList">
                 <!-- Placeholder for sprint cards -->
             </div>
@@ -150,22 +130,6 @@
         <!-- empty last col -->
         <div class="mdl-cell mdl-cell--1-col"></div>
       </div>
-
-      <dialog class="mdl-dialog" id="sprintInfoDialog">
-        <h5 class="mdl-dialog__title">Task information from product backlog</h5>
-        <div class="mdl-dialog__content">
-          <div class="mdl-grid">
-            <div class="mdl-cell mdl-cell--12-col">
-              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label has-placeholder" id="productBacklogInfo">
-                details from product backlog
-              </div>
-          </div>
-        </div>
-        <div class="mdl-dialog__actions">
-          <button type="button" class="mdl-button close" onclick="cancel2()">ok</button>
-        </div>
-      </dialog>
-
     </main>
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <script src="shared.js"></script>
