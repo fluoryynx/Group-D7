@@ -144,6 +144,22 @@
         <!-- empty last col -->
         <div class="mdl-cell mdl-cell--1-col"></div>
       </div>
+
+      <dialog class="mdl-dialog" id="sprintInfoDialog">
+        <h5 class="mdl-dialog__title">Task information from product backlog</h5>
+        <div class="mdl-dialog__content">
+          <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--12-col">
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label has-placeholder" id="productBacklogInfo">
+                details from product backlog
+              </div>
+          </div>
+        </div>
+        <div class="mdl-dialog__actions">
+          <button type="button" class="mdl-button close" onclick="cancel2()">ok</button>
+        </div>
+      </dialog>
+
     </main>
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <script src="shared.js"></script>
