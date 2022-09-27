@@ -4,16 +4,14 @@ if (checkLSData(TASK_LIST_KEY)) {
 	savedTasks.fromData(taskListData);
 }
 
-// console.log(TASK_LIST_KEY)
-// console.log(checkLSData(TASK_LIST_KEY))
-// console.log(retrieveLSData(TASK_LIST_KEY))
-// console.log(data)
+if (checkLSData(SPRINT_LIST_KEY)) {
+	savedSprints.fromData(sprintListData);
+}
 
 let arr = savedTasks._allTask;
 let filteredTag="";
 let taskInfo="";
 let taskIndex="";
-
 
 /**
  * pageLoad function
@@ -118,19 +116,18 @@ function cancel() {
   }
 
 function confirmAddSprint(){
+let sprintBoard=document.getElementById("sprintBoard");
 let sprintName=document.getElementById("sprintName");
 let startDate=document.getElementById("sprintStartDate");
 let endDate=document.getElementById("sprintEndDate");
 let temp= savedTasks._allTask[taskIndex][0];
 
-
-
-
-if(sprintName==""|| startDate=="" || endDate==""){
+if(sprintBoard==""||sprintName==""|| startDate=="" || endDate==""){
     alert('name and dates must be filled in')
     return
   }
 
+  sprint._sprintBoard=sprintBoard.value;
   sprint._sprintName=sprintName.value;
   sprint._sprintStartingDate=startDate.value;
   sprint._sprintEndingDate=endDate.value;
@@ -142,7 +139,6 @@ if(sprintName==""|| startDate=="" || endDate==""){
     dialog.close();
   }
   window.location = "sprintlist.html";
-
 }
 
 window.onload = function () {

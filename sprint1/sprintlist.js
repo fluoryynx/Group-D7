@@ -1,5 +1,6 @@
 // Check local storage whether there is data
 // If there is, store it into savedSprints
+
 if (checkLSData(SPRINT_LIST_KEY)) {
 	savedSprints.fromData(sprintListData);
 }
@@ -7,25 +8,57 @@ if (checkLSData(SPRINT_LIST_KEY)) {
 //savedSprints=retrieveLSData(SPRINT_LIST_KEY);
 
 let arr = savedSprints._allSprint;
+let filteredTag2="";
 
+let boards=[];
+
+function removeDuplicates(arr) {
+	return arr.filter((item,
+		index) => arr.indexOf(item) === index);
+}
+
+
+console.log(boards);
 /**
  * pageLoad function
  * runs when the list.html page is load
  * use to show list of planned vacation on the page in mdl cards sorted by date
  */
  function pageLoad() {
+
+	for (let i in arr){
+		boards.push(arr[i]._sprintBoard);
+	}
+
 	let sprintList = document.getElementById("sprintList");
+
+	let sprintBoardSelections=document.getElementById("sprint_boards_filter");
+
+	//dropdown list to select sprint board
+	let option="<option>" 
+    "</option>";
+    for (let i in removeDuplicates(boards))
+    {
+        option+=`<option>${boards[i]}</option>}`;
+    }
+    sprintBoardSelections.innerHTML = option;
+
+	if (filteredTag2 != "") {
+		console.log(filteredTag2);
+		arr = searchSprintWithBoard(filteredTag2);
+	}
 
 	let sprintListInnerHTML = "";
 	for (let i in arr) {
-		console.log(arr[i][0])
 		sprintListInnerHTML += `  
 		<div class="mdl-cell mdl-cell--3-col" >
             <h5> 
-            Sprint ${Number(i) + 1}
+            Task ${Number(i) + 1}
             </h5>
 								<div class="mdl-card"  > 
 									<div class="mdl-card__supporting-text"> 
+									<b>Sprint board name:</b> ${arr[i]._sprintBoard}
+                                    <br><br>
                                     <b>Sprint name:</b> ${arr[i]._sprintName}
                                     <br><br>
 									<b>From:</b> ${arr[i]._sprintStartingDate}
@@ -90,6 +123,21 @@ let x = setInterval(function() {
 }, 1000);
 }
 
+function filterBySprintBoards(){
+	let tagRef = document.getElementById("sprint_boards_filter");
+	filteredTag2 = tagRef.options[tagRef.selectedIndex].value;
+	pageLoad() 
+}
+
+function searchSprintWithBoard(sprint){
+	let searchedSprints=[];
+	for (let i in savedSprints._allSprint){
+		if (savedSprints._allSprint[i]._sprintBoard==sprint){
+			searchedSprints.push(savedSprints._allSprint[i]);
+		}
+	}
+	return searchedSprints;
+}
 
 window.onload = function () {
     pageLoad();

@@ -184,7 +184,8 @@ class Assignee{
 
 
 class Sprint {
-    constructor(name, startingdate, endingdate,status, info="") {
+    constructor(board,name, startingdate, endingdate,status, info="") {
+        this._sprintBoard=board;
         this._sprintName = name;
         this._sprintStartingDate = startingdate;
         this._sprintEndingDate = endingdate;
@@ -193,6 +194,11 @@ class Sprint {
     }
     
     //getters
+
+    get sprintBoard(){
+        return this._sprintBoard;
+    }
+
     get sprintName() {
         return this._sprintName;
     }
@@ -214,6 +220,10 @@ class Sprint {
     }
 
     //setters
+    set sprintBoard(newSprintBoard){
+        this._sprintBoard=newSprintBoard;
+    }
+
     set sprintName(newSprintName) {
         this._sprintName = newSprintName;
     }
@@ -235,6 +245,7 @@ class Sprint {
     }
 
     fromData(sprintData) {
+        this._sprintBoard=sprintData._sprintBoard;
         this._sprintName = sprintData._sprintName;
         this._sprintStartingDate = sprintData._sprintStartingDate;
         this._sprintEndingDate = sprintData._sprintEndingDate;
@@ -265,6 +276,7 @@ class SavedSprints{
 
         for (let i in sprintData._allSprint) {
              let obj = {
+                sprintBoard: sprintData._allSprint[i].sprintBoard,
                 sprintName: sprintData._allSprint[i].sprintName,
                 sprintStartingDate: sprintData._allSprint[i].sprintStartingDate,
                 sprintEndingDate: sprintData._allSprint[i].sprintEndingDate,
