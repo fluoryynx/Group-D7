@@ -38,17 +38,18 @@ let filteredTag="";
 									<div class="mdl-card__supporting-text"> 
                                     <taskname>Task name: </taskname> <tasknametext>${arr[i][0]._taskName}</tasknametext>
 									<br><br>
-									<${arr[i][0]._taskTag}> ${arr[i][0]._taskTag} </${arr[i][0]._taskTag}>
+									<img src="img/assignee.png" alt="lowpic" class="assigneeimg">  
+									<b> Assignee: </b> ${arr[i][0]._taskAssignee}
 									<br><br>
 									Date: ${arr[i][0]._taskDate}
-									<br><br>
-									<b> Assignee: </b> ${arr[i][0]._taskAssignee}
 									<br><br>
 									<b> Status: </b> ${arr[i][0]._taskStatus}
 									<br><br>
 									<b> Type: </b> ${arr[i][0]._taskType}
 									<br><br>
 									<b> Story Point: </b> ${arr[i][0].storyPoint}
+									<br><br>
+									<${arr[i][0]._taskTag}> ${arr[i][0]._taskTag} </${arr[i][0]._taskTag}>
 									<br><br>
 									<p>
 									<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick="deleteTask(${i})">  <i class="material-icons">delete</i> </button>
