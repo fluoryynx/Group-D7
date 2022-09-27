@@ -46,7 +46,8 @@ let filteredTag="";
 									<br><br>
 									<status> Status: </status> <statustext>${arr[i][0]._taskStatus}</statustext>
 									<br><br>
-									
+									<img src="img/${arr[i][0]._taskType}.png" width="40" height="35" class="typeimgmain">
+									<storypoint>${arr[i][0].storyPoint}</storypoint>
 									<br><br>
 									<${arr[i][0]._taskTag}> ${arr[i][0]._taskTag} </${arr[i][0]._taskTag}>
 									<br><br>
