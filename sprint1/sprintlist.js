@@ -32,8 +32,13 @@ let arr = savedSprints._allSprint;
 									<br><br>
 									<b>To: </b> ${arr[i]._sprintEndingDate}
 									<br><br>
+									<b> Time remaining: </b>
+									<p id="timer"></p>
 									<b> Status: </b><${arr[i]._sprintStatus}> ${arr[i]._sprintStatus} </${arr[i]._sprintStatus}>
 									<br><br>
+									<b><u> Description: </u></b>
+									<br>
+									${arr[i]._sprintInfo}
 									<p>
 									<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick="deleteSprint(${i})">  <i class="material-icons">delete</i> </button>
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -44,6 +49,7 @@ let arr = savedSprints._allSprint;
 									</div> 
 								</div> 
 							</div>	`
+		countdown(arr[i]._sprintEndingDate);
 	}
 	sprintList.innerHTML = sprintListInnerHTML;
 }
@@ -54,6 +60,36 @@ function deleteSprint(index){
 	savedSprints._allSprint.splice(index, 1);
 	updateLSData(SPRINT_LIST_KEY,savedSprints);
 	pageLoad();
+}
+
+function countdown(endDate){
+	let countDownDate = new Date(endDate+ " 23:59:59").getTime();
+
+// Update the count down every 1 second
+let x = setInterval(function() {
+
+  // Get today's date and time
+  let now = new Date().getTime();
+    
+  // Find the distance between now and the count down date
+  let distance = countDownDate - now;
+    
+  // Time calculations for days, hours, minutes and seconds
+  let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  // Output the result in an element with id="demo"
+  document.getElementById("timer").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+    
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("timer").innerHTML = "overdue";
+  }
+}, 1000);
 }
 
 
