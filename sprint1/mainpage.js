@@ -30,7 +30,7 @@ let taskInfo="";
 	let taskListInnerHTML = "";
 	console.log(arr);
 	for (let i in arr) {
-		temp=" task name: " + arr[i]._taskName + "\n" + "tag: " + arr[i][0]._taskTag + "\n" + "assignee(s): " + arr[i][0]._taskAssignee + "\n" + "story point: " + arr[i][0].storyPoint;
+		//temp=" task name: " + arr[i][0]._taskName , "\n" , "tag: " , (arr[i][0]._taskTag) , "\n" , "assignee(s): " , arr[i][0]._taskAssignee , "\n" , "story point: " , arr[i][0].storyPoint;
 		taskListInnerHTML += `  
 		<div class="mdl-cell mdl-cell--3-col" >
 								<h5> 
@@ -56,7 +56,7 @@ let taskInfo="";
 									<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick="deleteTask(${i})">  <i class="material-icons">delete</i> </button>
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									<button onclick="edit(${i})" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored"> <i class="large material-icons">edit</i> </button>
-									<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="addToSprint(${temp})"> Add to sprint board</button>
+									<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="addToSprint()"> Add to sprint board</button>
 									</p>
 									</div>
 									<div class="mdl-card__actions mdl-card--border">
@@ -107,7 +107,7 @@ if (!dialog.showModal) {
 }
 
 //show dialog for user to input sprint details
-function addToSprint(){
+function addToSprint(temp){
 	//taskInfo=temp;
 dialog.showModal();
 }
@@ -132,10 +132,11 @@ if(sprintName==""|| startDate=="" || endDate==""){
   sprint._sprintEndingDate=endDate.value;
 
   if (confirm(`Clicking this will add this task into the sprint list. Are you sure you want to continue?`)) {
-    savedSprints.allSprint.push(sprint);
+    savedSprints._allSprint.push(sprint);
     updateLSData(SPRINT_LIST_KEY, savedSprints);
     dialog.close();
   }
+  window.location = "sprintlist.html";
 
 }
 
