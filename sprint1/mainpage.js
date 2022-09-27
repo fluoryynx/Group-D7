@@ -38,7 +38,7 @@ let filteredTag="";
 									<div class="mdl-card__supporting-text"> 
                                     <b>Task name:</b> ${arr[i][0]._taskName}
 									<br><br>
-									<b>Tag:</b> <${arr[i][0]._taskTag}> ${arr[i][0]._taskTag} </${arr[i][0]._taskTag}>
+									<b><testing>Tag:</testing></b> <${arr[i][0]._taskTag}> ${arr[i][0]._taskTag} </${arr[i][0]._taskTag}>
 									<br><br>
 									<b>Date:</b> ${arr[i][0]._taskDate}
 									<br><br>
