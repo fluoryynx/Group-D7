@@ -1,4 +1,4 @@
-// Check local storage whether there is data
+
 // If there is, store it into savedSprints
 
 if (checkLSData(SPRINT_LIST_KEY)) {
