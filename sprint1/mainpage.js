@@ -30,24 +30,23 @@ let filteredTag="";
 	let taskListInnerHTML = "";
 	for (let i in arr) {
 		taskListInnerHTML += `  
-		<div class="mdl-cell mdl-cell--3-col" >
+		<div class="mdl-cell mdl-cell--4-col" >
 								<h5> 
 								<task> Task ${Number(i) + 1} </task> 
 								</h5>
 								<div class="mdl-card"  > 
 									<div class="mdl-card__supporting-text"> 
-                                    <taskname>Task name: </taskname> <tasknametext>${arr[i][0]._taskName}</tasknametext>
+									<taskname>Task name: </taskname><tasknametext>${arr[i][0]._taskName}</tasknametext>
 									<br><br>
 									<img src="img/assignee.png" alt="lowpic" class="assigneeimg">  
-									<b> Assignee: </b> ${arr[i][0]._taskAssignee}
+									<assignee>Assignee: </assignee><assigneetext>${arr[i][0]._taskAssignee}</assigneetext>
 									<br><br>
-									Date: ${arr[i][0]._taskDate}
+									<img src="img/date.png" alt="lowpic" class="dateimg">  
+									<datetext>${arr[i][0]._taskDate}</datetext>
 									<br><br>
-									<b> Status: </b> ${arr[i][0]._taskStatus}
+									<status> Status: </status> <statustext>${arr[i][0]._taskStatus}</statustext>
 									<br><br>
-									<b> Type: </b> ${arr[i][0]._taskType}
-									<br><br>
-									<b> Story Point: </b> ${arr[i][0].storyPoint}
+									
 									<br><br>
 									<${arr[i][0]._taskTag}> ${arr[i][0]._taskTag} </${arr[i][0]._taskTag}>
 									<br><br>
