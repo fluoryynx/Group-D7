@@ -32,15 +32,15 @@ let filteredTag="";
 		taskListInnerHTML += `  
 		<div class="mdl-cell mdl-cell--3-col" >
 								<h5> 
-								<${arr[i][0]._taskPriority}> Task ${Number(i) + 1} </${arr[i][0]._taskPriority}> 
+								<testing> Task ${Number(i) + 1} </testing> 
 								</h5>
 								<div class="mdl-card"  > 
 									<div class="mdl-card__supporting-text"> 
-                                    <b>Task name:</b> ${arr[i][0]._taskName}
+                                    <taskname>Task name: </taskname> <taskname>${arr[i][0]._taskName}</taskname>
 									<br><br>
 									<b><testing>Tag:</testing></b> <${arr[i][0]._taskTag}> ${arr[i][0]._taskTag} </${arr[i][0]._taskTag}>
 									<br><br>
-									<b>Date:</b> ${arr[i][0]._taskDate}
+									Date: ${arr[i][0]._taskDate}
 									<br><br>
 									<b> Assignee: </b> ${arr[i][0]._taskAssignee}
 									<br><br>
