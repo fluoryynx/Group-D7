@@ -19,17 +19,19 @@ function pageLoad() {
     let sprintName=savedSprints._allSprint[tempSprintIndex]._sprintName;
     console.log(sprintName);
     console.log(savedTasks._allTask[0][0]);
+	console.log(savedTasks._allTask[1][0]);
 
     for (let i in savedTasks._allTask){
-        console.log(savedTasks._allTask[0][i]);
-        if (savedTasks._allTask[0][i]._taskSprint==sprintName){
-            arr.push(savedTasks._allTask[i])
+        console.log(savedTasks._allTask[i][0]);
+        if (savedTasks._allTask[i][0]._taskSprint==sprintName){
+            arr.push(savedTasks._allTask[i][0])
         }
     }
 
 	let sprintBoardInnerHTML = "";
     console.log(arr);
 	for (let i in arr) {
+		console.log(arr[i])
 		sprintBoardInnerHTML += `  
 		<div class="mdl-cell mdl-cell--4-col" >
 								<h5> 
@@ -37,20 +39,20 @@ function pageLoad() {
 								</h5>
 								<div class="mdl-card"  > 
 									<div class="mdl-card__supporting-text"> 
-									<taskname>Task name: </taskname><tasknametext>${arr[i][0]._taskName}</tasknametext>
+									<taskname>Task name: </taskname><tasknametext>${arr[i]._taskName}</tasknametext>
 									<br><br>
-									<img src="img/assignee.png" alt="lowpic" class="assigneeimg">  
-									<assignee>Assignee: </assignee><assigneetext>${arr[i][0]._taskAssignee}</assigneetext>
+							
+									<assignee>Assignee: </assignee><assigneetext>${arr[i]._taskAssignee}</assigneetext>
 									<br><br>
-									<img src="img/date.png" alt="lowpic" class="dateimg">  
-									<datetext>${arr[i][0]._taskDate}</datetext>
+							  
+									<datetext>${arr[i]._taskDate}</datetext>
 									<br><br>
-									<status> Status: </status> <statustext>${arr[i][0]._taskStatus}</statustext>
+									<status> Status: </status> <statustext>${arr[i]._taskStatus}</statustext>
 									<br><br>
-									<img src="img/${arr[i][0]._taskType}.png" width="40" height="35" class="typeimgmain">
-									<storypoint>${arr[i][0].storyPoint}</storypoint>
+						
+									<storypoint> storypoint: ${arr[i].storyPoint}</storypoint>
 									<br><br>
-									<${arr[i][0]._taskTag}> ${arr[i][0]._taskTag} </${arr[i][0]._taskTag}>
+									Tag: <${arr[i]._taskTag}> ${arr[i]._taskTag} </${arr[i]._taskTag}>
 									<br><br>
 									</div>
 									<div class="mdl-card__actions mdl-card--border">

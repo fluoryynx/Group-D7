@@ -37,8 +37,8 @@ if (savedTasks._allTask.length > 0) {
     itemIndex = retrieveLSData(LIST_INDEX_KEY);
     if (itemIndex != null){
       selectedTask = savedTasks._allTask[itemIndex];
-      console.log(savedTasks._allTask[1][0]);
-      console.log(selectedTask);
+      //console.log(savedTasks._allTask[1][0]);
+      //console.log(selectedTask);
        
       tempAssigneeArr=selectedTask[0]._taskAssignee;
       edit_showAssignee();

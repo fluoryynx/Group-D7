@@ -44,7 +44,7 @@ function pageLoad() {
 		sprintListInnerHTML += `  
 		<div class="mdl-cell mdl-cell--3-col" >
             <h5> 
-            Task ${Number(i) + 1}
+            Sprint ${Number(i) + 1}
             </h5>
 								<div class="mdl-card"  > 
 									<div class="mdl-card__supporting-text"> 

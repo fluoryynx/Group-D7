@@ -4,6 +4,11 @@ if (checkLSData(TASK_LIST_KEY)) {
 	savedTasks.fromData(taskListData);
 }
 
+if (checkLSData(SPRINT_LIST_KEY)) {
+	savedSprints.fromData(sprintListData);
+}
+
+
 // console.log(TASK_LIST_KEY)
 // console.log(checkLSData(TASK_LIST_KEY))
 // console.log(retrieveLSData(TASK_LIST_KEY))
@@ -60,6 +65,7 @@ let sprintName="";
 											<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick="deleteTask(${i})">  <i class="material-icons">delete</i> </button>
 											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 											<button onclick="edit(${i})" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored"> <i class="large material-icons">edit</i> </button>
+											<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="addToSprint(${i})"> Add to sprint board</button>
 											</p>
 										</div>
 									</div>

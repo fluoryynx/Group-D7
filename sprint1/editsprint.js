@@ -16,18 +16,17 @@ if (savedSprints._allSprint.length > 0) {
 
   itemIndex = retrieveLSData(SPRINT_INDEX_KEY);
 
-  
   selectedSprint = savedSprints._allSprint[itemIndex];
   console.log(selectedSprint);
 
-  editSprintNameRef.value = selectedSprint[0]._sprintName;
+  editSprintNameRef.value = selectedSprint._sprintName;
   editSprintStartingDateRef.value="";
-  editSprintStartingDateRef.value = selectedSprint[0]._sprintStartingDate;
+  editSprintStartingDateRef.value = selectedSprint._sprintStartingDate;
   editSprintEndingDateRef.value="";
-  editSprintEndingDateRef.value = selectedSprint[0]._sprintEndingDate;
+  editSprintEndingDateRef.value = selectedSprint._sprintEndingDate;
 
   //radio buttons
-  selectedStatus = selectedSprint[0]._sprintStatus;
+  selectedStatus = selectedSprint._sprintStatus;
   document.getElementById("edit_"+selectedStatus).checked = true;
 }
 
@@ -49,16 +48,16 @@ function submit() {
     sprintStatus2 = "Completed";
   }
 
-  selectedSprint[0]._sprintName = editSprintNameRef.value;
+  selectedSprint._sprintName = editSprintNameRef.value;
   if (editSprintEndingDateRef.value >= editSprintStartingDateRef.value) {
-    selectedSprint[0]._sprintStartingDate = editSprintStartingDateRef.value;
-    selectedSprint[0]._sprintEndingDate = editSprintEndingDateRef.value;
+    selectedSprint._sprintStartingDate = editSprintStartingDateRef.value;
+    selectedSprint._sprintEndingDate = editSprintEndingDateRef.value;
   }
   else {
     alert("Please ensure that the End Date must be later than Start Date. Try changing the dates, and try again.");
     return false;
   }
-  selectedSprint[0]._sprintStatus = sprintStatus2;
+  selectedSprint._sprintStatus = sprintStatus2;
 
   savedSprints._allSprint[itemIndex] = selectedSprint;
 
