@@ -33,26 +33,34 @@ function pageLoad() {
 			sprintBoardInnerHTML += `  
 			<div class="mdl-cell mdl-cell--4-col" >
 									<h5> 
+							
 									</h5>
 									<div class="mdl-card"  > 
 										<div class="mdl-card__supporting-text"> 
-										<taskname>Task name: </taskname><tasknametext>${arr[i]._taskName}</tasknametext>
-										<br><br>
-								
-										<assignee>Assignee: </assignee><assigneetext>${arr[i]._taskAssignee}</assigneetext>
-										<br><br>
-								  
-										<datetext>${arr[i]._taskDate}</datetext>
-										<br><br>
-										<status> Status: </status> <statustext>${arr[i]._taskStatus}</statustext>
-										<br><br>
-							
-										<storypoint> storypoint: ${arr[i].storyPoint}</storypoint>
-										<br><br>
-										Tag: <${arr[i]._taskTag}> ${arr[i]._taskTag} </${arr[i]._taskTag}>
-										<br><br>
-										<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick="deleteSprintBoardTask(${i})">  <i class="material-icons">delete</i> </button>
-										<br>
+											<div class="row">
+												<div class="column">
+													<taskname>Task name: </taskname><tasknametext>${arr[i]._taskName}</tasknametext>
+													<br><br>
+													<img src="img/assignee.png" alt="lowpic" class="assigneeimg">  
+													<assignee>Assignee: </assignee><assigneetext>${arr[i]._taskAssignee}</assigneetext>
+													<br><br>
+													<img src="img/date.png" alt="lowpic" class="dateimg">  
+													<datetext>${arr[i]._taskDate}</datetext>
+													<br><br>
+													<status> Status: </status> <statustext>${arr[i]._taskStatus}</statustext>
+													<br><br>
+													<${arr[i]._taskTag}> ${arr[i]._taskTag} </${arr[i]._taskTag}>
+												</div>
+												<div class="column2">
+													<img src="img/${arr[i]._taskType}.png" width="40" height="35" class="typeimgmain">
+													<storypoint>${arr[i].storyPoint}</storypoint>
+												</div>
+												<p>
+												<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick="deleteTask(${i})">  <i class="material-icons">delete</i> </button>
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+												<button onclick="edit(${i})" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored"> <i class="large material-icons">edit</i> </button>
+												</p>
+											</div>
 										</div>
 										<div class="mdl-card__actions mdl-card--border">
 										</div> 
