@@ -220,10 +220,6 @@ class Sprint {
     }
 
     //setters
-    set sprintBoard(newSprintBoard){
-        this._sprintBoard=newSprintBoard;
-    }
-
     set sprintName(newSprintName) {
         this._sprintName = newSprintName;
     }

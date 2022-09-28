@@ -4,9 +4,10 @@ if (checkLSData(TASK_LIST_KEY)) {
 	savedTasks.fromData(taskListData);
 }
 
-if (checkLSData(SPRINT_LIST_KEY)) {
-	savedSprints.fromData(sprintListData);
-}
+// console.log(TASK_LIST_KEY)
+// console.log(checkLSData(TASK_LIST_KEY))
+// console.log(retrieveLSData(TASK_LIST_KEY))
+// console.log(data)
 
 let arr = savedTasks._allTask;
 let filteredTag="";
@@ -22,15 +23,14 @@ let sprintName="";
  function pageLoad() {
 	let taskList = document.getElementById("taskList");
 
+
 	if (filteredTag != "") {
 		arr = searchTaskWithTag(filteredTag);
 
 	}
 	// console.log(arr);
 	let taskListInnerHTML = "";
-	console.log(arr);
 	for (let i in arr) {
-		//temp="Task name: " + arr[i][0]._taskName , "\n" , "tag: " , (arr[i][0]._taskTag) , "\n description: ",arr[i][0]._taskDescription,"\n" , "assignee(s): " , arr[i][0]._taskAssignee , "\n" , "story point: " , arr[i][0]._storyPoint, "\n Priority: ", arr[i][0]._taskPriority;
 		taskListInnerHTML += `  
 		<div class="mdl-cell mdl-cell--4-col" >
 								<h5> 
@@ -38,27 +38,30 @@ let sprintName="";
 								</h5>
 								<div class="mdl-card"  > 
 									<div class="mdl-card__supporting-text"> 
-									<taskname>Task name: </taskname><tasknametext>${arr[i][0]._taskName}</tasknametext>
-									<br><br>
-									<img src="img/assignee.png" alt="lowpic" class="assigneeimg">  
-									<assignee>Assignee: </assignee><assigneetext>${arr[i][0]._taskAssignee}</assigneetext>
-									<br><br>
-									<img src="img/date.png" alt="lowpic" class="dateimg">  
-									<datetext>${arr[i][0]._taskDate}</datetext>
-									<br><br>
-									<status> Status: </status> <statustext>${arr[i][0]._taskStatus}</statustext>
-									<br><br>
-									<img src="img/${arr[i][0]._taskType}.png" width="40" height="35" class="typeimgmain">
-									<storypoint>${arr[i][0].storyPoint}</storypoint>
-									<br><br>
-									<${arr[i][0]._taskTag}> ${arr[i][0]._taskTag} </${arr[i][0]._taskTag}>
-									<br><br>
-									<p>
-									<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick="deleteTask(${i})">  <i class="material-icons">delete</i> </button>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									<button onclick="edit(${i})" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored"> <i class="large material-icons">edit</i> </button>
-									<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="addToSprint(${i})"> Add to sprint board</button>
-									</p>
+										<div class="row">
+											<div class="column">
+												<taskname>Task name: </taskname><tasknametext>${arr[i][0]._taskName}</tasknametext>
+												<br><br>
+												<img src="img/assignee.png" alt="lowpic" class="assigneeimg">  
+												<assignee>Assignee: </assignee><assigneetext>${arr[i][0]._taskAssignee}</assigneetext>
+												<br><br>
+												<img src="img/date.png" alt="lowpic" class="dateimg">  
+												<datetext>${arr[i][0]._taskDate}</datetext>
+												<br><br>
+												<status> Status: </status> <statustext>${arr[i][0]._taskStatus}</statustext>
+												<br><br>
+												<${arr[i][0]._taskTag}> ${arr[i][0]._taskTag} </${arr[i][0]._taskTag}>
+											</div>
+											<div class="column2">
+												<img src="img/${arr[i][0]._taskType}.png" width="40" height="35" class="typeimgmain">
+												<storypoint>${arr[i][0].storyPoint}</storypoint>
+											</div>
+											<p>
+											<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick="deleteTask(${i})">  <i class="material-icons">delete</i> </button>
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											<button onclick="edit(${i})" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored"> <i class="large material-icons">edit</i> </button>
+											</p>
+										</div>
 									</div>
 									<div class="mdl-card__actions mdl-card--border">
 									</div> 
@@ -84,6 +87,7 @@ function searchTaskWithTag(tag){
 	}
 	return searchedTasks;
 }
+
 
 function filterByTag(){
 	let tagRef = document.getElementById("filterBy");
@@ -149,4 +153,3 @@ if(sprintBoard==""||sprintName==""|| startDate=="" || endDate==""){
 window.onload = function () {
     pageLoad();
 };
-

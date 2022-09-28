@@ -1,0 +1,64 @@
+.page-content {
+    margin-left: 35%;
+    text-align: left;
+    font-family: "Arial";
+}
+
+.h1 {
+    font-family: "Alegreya";
+}
+
+.tags {
+    font-family: "Alegreya";
+    font-size: 25px;
+}
+
+.status spanactive {
+    font-family: "Alegreya";
+    font-size: 20px;
+    background-color: #ffa9a9;
+    color: black;
+    border-radius: 10px;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    padding: 0 10px 0 10px;
+}
+
+.status spancompleted {
+    font-family: "Alegreya";
+    font-size: 20px;
+    background-color: #c6f8b1;
+    color: black;
+    border-radius: 10px;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    padding: 0 10px 0 10px;
+}
+
+.sprintname {
+    font-family: 'Open Sans';
+    font-size: 30px;
+    color: black;
+    font-weight: bolder;
+}
+
+.sprintname::placeholder {
+    color: black;
+}
+
+.sprintname:placeholder-shown {
+    border: none;
+}
+
+textarea {
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border: none;
+}
+
+.mdl-layout__header-row {
+    background-image:url("img/background.png");
+    height: 150px;
+    background-size: contain;
+}

@@ -72,13 +72,13 @@ function pageLoad() {
 		countdown(arr[i]._sprintEndingDate, i);
 	}
 	sprintList.innerHTML = sprintListInnerHTML;
-}
-
-
-function deleteSprint(index) {
+ }
+ 
+ 
+ function deleteSprint(index){
 	deleteIndex = index
 	savedSprints._allSprint.splice(index, 1);
-	updateLSData(SPRINT_LIST_KEY, savedSprints);
+	updateLSData(SPRINT_LIST_KEY,savedSprints);
 	pageLoad();
 }
 
