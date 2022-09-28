@@ -90,4 +90,5 @@ function countdown(endDate, index) {
 		}
 	}, 1000);
 }
-	pageLoad();
+
+pageLoad();
