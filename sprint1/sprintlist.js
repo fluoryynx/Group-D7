@@ -1,8 +1,3 @@
-
-if (checkLSData(TASK_LIST_KEY)) {
-	savedTasks.fromData(taskListData);
-}
-
 // If there is, store it into savedSprints
 if (checkLSData(SPRINT_LIST_KEY)) {
 	savedSprints.fromData(sprintListData);
@@ -18,54 +13,48 @@ let content = "";
 
 function pageLoad() {
 
+function pageLoad() {
+
 	let sprintList = document.getElementById("sprintList");
 
 	let sprintListInnerHTML = "";
 
 	for (let i in arr) {
-		sprintListInnerHTML += `  
-		<div class="mdl-cell mdl-cell--3-col" >
-            <h5> 
-            </h5>
-								<div class="mdl-card"  > 
-									<div class="mdl-card__supporting-text"> 
-                                    <b>Sprint name:</b> ${arr[i]._sprintName}
-                                    <br><br>
-									<b>From:</b> ${arr[i]._sprintStartingDate}
-									<br><br>
-									<b>To: </b> ${arr[i]._sprintEndingDate}
-									<br><br>
-									<b> Time remaining: </b>
-									<p id="timer${i}"></p>
-									<b> Status: </b><${arr[i]._sprintStatus}> ${arr[i]._sprintStatus} </${arr[i]._sprintStatus}>
-									<br><br>
-									<p>
-									<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick="deleteSprint(${i})">  <i class="material-icons">delete</i> </button>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="viewBoard(${i})"> Sprint board </button>
-									<button onclick="editSprint(${i})" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored"> <i class="large material-icons">edit</i> </button>
-									</p>
-									</div>
-									<div class="mdl-card__actions mdl-card--border">
-									</div> 
-								</div> 
-							</div>	`
-		countdown(arr[i]._sprintEndingDate, i);
+		sprintListInnerHTML += ` 
+		<div class="mdl-cell mdl-cell--4-col" >
+		<h5> 
+		Sprint ${Number(i) + 1}
+		</h5>
+						<div class="mdl-card"  > 
+							<div class="mdl-card__supporting-text"> 
+							<b>Sprint name:</b> ${arr[i][0]._sprintName}
+							<br><br>
+							<b>From:</b> ${arr[i][0]._sprintStartingDate}
+							<br><br>
+							<b>To: </b> ${arr[i][0]._sprintEndingDate}
+							<br><br>
+							<b> Status: </b><${arr[i][0]._sprintStatus}> ${arr[i][0]._sprintStatus} </${arr[i][0]._sprintStatus}>
+							<br><br>
+							<p>
+							<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick="deleteSprint(${i})">  <i class="material-icons">delete</i> </button>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick="editSprint(${i})"> <i class="large material-icons">edit</i> </button>
+							<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="viewBoard(${i})"> Sprint board </button>
+							</p>
+							</div>
+							<div class="mdl-card__actions mdl-card--border">
+							</div> 
+						</div> 
+					</div>	`
+		countdown(arr[i][0]._sprintEndingDate, i);
 	}
 	sprintList.innerHTML = sprintListInnerHTML;
  }
  
  
  function deleteSprint(index){
+	deleteIndex = index
 	savedSprints._allSprint.splice(index, 1);
-	theSelectedSprint=arr[index];
-
-	for (let i in savedTasks._allTask){
-		if (savedTasks._allTask[i][0]._sprintName==theSelectedSprint){
-			savedTasks._allTask[i][0]._inSprint=false;
-		}
-	}
-
 	updateLSData(SPRINT_LIST_KEY,savedSprints);
 	updateLSData(TASK_LIST_KEY,savedTasks);
 
@@ -107,23 +96,4 @@ function countdown(endDate, index) {
 	}, 1000);
 }
 
-// function filterBySprintBoards() {
-// 	let tagRef = document.getElementById("sprint_boards_filter");
-// 	filteredTag2 = tagRef.options[tagRef.selectedIndex].value;
-// 	pageLoad()
-// }
-
-// function searchSprintWithBoard(sprint) {
-// 	let searchedSprints = [];
-// 	for (let i in savedSprints._allSprint) {
-// 		if (savedSprints._allSprint[i]._sprintBoard == sprint) {
-// 			searchedSprints.push(savedSprints._allSprint[i]);
-// 		}
-// 	}
-// 	return searchedSprints;
-// }
-
 pageLoad();
-
-
-
