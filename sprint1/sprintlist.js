@@ -64,4 +64,4 @@ if (checkLSData(SPRINT_LIST_KEY)) {
  window.onload = function () {
 	pageLoad();
  };
- 
+  

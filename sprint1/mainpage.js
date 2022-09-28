@@ -105,4 +105,4 @@ function removeFilter(){
 
 window.onload = function () {
     pageLoad();
-};
+}; 

@@ -65,3 +65,4 @@ function submit() {
   updateLSData(SPRINT_LIST_KEY, savedSprints);
   window.location = "sprintlist.html";
 }
+ 
