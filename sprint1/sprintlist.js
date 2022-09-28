@@ -20,16 +20,6 @@ function pageLoad() {
 
 	let sprintList = document.getElementById("sprintList");
 
-	//let sprintBoardSelections = document.getElementById("sprint_boards_filter");
-
-	//dropdown list to select sprint board
-	// let option = "<option>"
-	// "</option>";
-	// for (let i in removeDuplicates(boards)) {
-	// 	option += `<option>${boards[i]}</option>}`;
-	// }
-	// sprintBoardSelections.innerHTML = option;
-
 	let sprintListInnerHTML = "";
 
 	for (let i in arr) {

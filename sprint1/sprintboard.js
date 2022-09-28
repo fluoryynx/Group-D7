@@ -9,26 +9,23 @@ if (checkLSData(SPRINT_LIST_KEY)) {
 	savedSprints.fromData(sprintListData);
 }
 
+arr=[]
+let sprintName=savedSprints._allSprint[tempSprintIndex]._sprintName;
+
+for (let i in savedTasks._allTask){
+	console.log(savedTasks._allTask[i][0]);
+	if (savedTasks._allTask[i][0]._taskSprint==sprintName){
+		arr.push(savedTasks._allTask[i][0])
+	}
+}
+
 
 function pageLoad() {
 
 	let sprintBoard = document.getElementById("sprint_board");
 
-    arr=[]
-
-    let sprintName=savedSprints._allSprint[tempSprintIndex]._sprintName;
-
-    for (let i in savedTasks._allTask){
-        console.log(savedTasks._allTask[i][0]);
-        if (savedTasks._allTask[i][0]._taskSprint==sprintName){
-            arr.push(savedTasks._allTask[i][0])
-        }
-    }
-
 	let sprintBoardInnerHTML = "";
-    console.log(arr);
 	for (let i in arr) {
-		console.log(arr[i])
 		sprintBoardInnerHTML += `  
 		<div class="mdl-cell mdl-cell--4-col" >
 								<h5> 
@@ -51,6 +48,8 @@ function pageLoad() {
 									<br><br>
 									Tag: <${arr[i]._taskTag}> ${arr[i]._taskTag} </${arr[i]._taskTag}>
 									<br><br>
+									<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick="deleteSprintBoardTask(${i})">  <i class="material-icons">delete</i> </button>
+									<br>
 									</div>
 									<div class="mdl-card__actions mdl-card--border">
 									</div> 
@@ -58,6 +57,13 @@ function pageLoad() {
 							</div>	`
 	}
 	sprintBoard.innerHTML = sprintBoardInnerHTML;
+}
+
+function deleteSprintBoardTask(index){
+	deleteIndex = index
+	arr.splice(index, 1);
+	//updateLSData(SPRINT_LIST_KEY,savedSprints);
+	pageLoad();
 }
 
 pageLoad();
