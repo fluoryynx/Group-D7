@@ -8,20 +8,13 @@ if (checkLSData(SPRINT_LIST_KEY)) {
 	savedSprints.fromData(sprintListData);
 }
 
-
 let arr = savedSprints._allSprint;
-console.log(arr);
+// arr=arr1.filter((v,i,a)=>a.findLastIndex(v2=>(v2._sprintName === v._sprintName))===i)
+// console.log(arr1);
+// updateLSData(SPRINT_LIST_KEY,arr);
 let filteredTag2 = "";
 let sprintIndex = "";
 let content = "";
-
-// let boards = [];
-
-// function removeDuplicates(arr) {
-// 	return arr.filter((item,
-// 		index) => arr.indexOf(item) === index);
-// }
-
 
 function pageLoad() {
 
@@ -40,7 +33,7 @@ function pageLoad() {
 	let sprintListInnerHTML = "";
 
 	for (let i in arr) {
-		console.log(arr[i]._sprintName)
+		sprint_name=arr[i]._sprintName
 		sprintListInnerHTML += `  
 		<div class="mdl-cell mdl-cell--3-col" >
             <h5> 

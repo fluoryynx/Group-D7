@@ -2,9 +2,13 @@ if (checkLSData(SPRINT_KEY)) {
   sprint.fromData(sprintData);
 }
 
+
+
 if (checkLSData(SPRINT_LIST_KEY)) {
   savedSprints.fromData(sprintListData);
 }
+
+//savedSprints._allSprint=retrieveLSData(SPRINT_LIST_KEY);
 
 let selectedSprint=[];
 let editSprintNameRef = document.getElementById("editSprintName");
@@ -12,9 +16,10 @@ let editSprintStartingDateRef = document.getElementById("editSprintStartingDate"
 let editSprintEndingDateRef = document.getElementById("editSprintEndingDate");
 let selectedStatus="";
 
-if (savedSprints._allSprint.length > 0) {
 
   itemIndex = retrieveLSData(SPRINT_INDEX_KEY);
+  console.log(savedSprints._allSprint)
+  console.log(itemIndex);
 
   selectedSprint = savedSprints._allSprint[itemIndex];
   console.log(selectedSprint);
@@ -28,7 +33,6 @@ if (savedSprints._allSprint.length > 0) {
   //radio buttons
   selectedStatus = selectedSprint._sprintStatus;
   document.getElementById("edit_"+selectedStatus).checked = true;
-}
 
 function editSprint(index) {
   updateLSData(SPRINT_INDEX_KEY, index)

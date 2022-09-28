@@ -7,9 +7,9 @@ const TASK_LIST_KEY="duh5498treifnv";
 const LIST_INDEX_KEY="9438hrtfio";
 
 // Declaration of constants for sprint
-const SPRINT_KEY="cdbhsv9923cww";
-const SPRINT_LIST_KEY="hbdsj9321fewf";
-const SPRINT_INDEX_KEY="8231bbjnd";
+const SPRINT_KEY="tasksinthesprintlist";
+const SPRINT_LIST_KEY="sprintlistkey";
+const SPRINT_INDEX_KEY="sprintindexkey";
 const SPRINT_NAME_KEY="sprintnamekey";
 
 class Task {
@@ -195,13 +195,13 @@ class Assignee{
 
 
 class Sprint {
-    constructor(board,name, startingdate, endingdate,status) {
+    constructor(name, startingdate="", endingdate="",status="") {
         this._sprintName = name;
-        this._sprintStartingDate = startingdate;
+        this._sprintStartingDate =startingdate;
         this._sprintEndingDate = endingdate;
         this._sprintStatus = status;
     }
-    
+
     //getters
     get sprintName() {
         return this._sprintName;

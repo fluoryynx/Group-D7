@@ -17,9 +17,6 @@ function pageLoad() {
     arr=[]
 
     let sprintName=savedSprints._allSprint[tempSprintIndex]._sprintName;
-    console.log(sprintName);
-    console.log(savedTasks._allTask[0][0]);
-	console.log(savedTasks._allTask[1][0]);
 
     for (let i in savedTasks._allTask){
         console.log(savedTasks._allTask[i][0]);
