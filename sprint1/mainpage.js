@@ -31,25 +31,26 @@ let taskIndex="";
 	for (let i in arr) {
 		//temp="Task name: " + arr[i][0]._taskName , "\n" , "tag: " , (arr[i][0]._taskTag) , "\n description: ",arr[i][0]._taskDescription,"\n" , "assignee(s): " , arr[i][0]._taskAssignee , "\n" , "story point: " , arr[i][0]._storyPoint, "\n Priority: ", arr[i][0]._taskPriority;
 		taskListInnerHTML += `  
-		<div class="mdl-cell mdl-cell--3-col" >
+		<div class="mdl-cell mdl-cell--4-col" >
 								<h5> 
-								<${arr[i][0]._taskPriority}> Task ${Number(i) + 1} </${arr[i][0]._taskPriority}> 
+								<task> Task ${Number(i) + 1} </task> 
 								</h5>
 								<div class="mdl-card"  > 
 									<div class="mdl-card__supporting-text"> 
-                                    <b>Task name:</b> ${arr[i][0]._taskName}
+									<taskname>Task name: </taskname><tasknametext>${arr[i][0]._taskName}</tasknametext>
 									<br><br>
-									<b>Tag:</b> <${arr[i][0]._taskTag}> ${arr[i][0]._taskTag} </${arr[i][0]._taskTag}>
+									<img src="img/assignee.png" alt="lowpic" class="assigneeimg">  
+									<assignee>Assignee: </assignee><assigneetext>${arr[i][0]._taskAssignee}</assigneetext>
 									<br><br>
-									<b>Date:</b> ${arr[i][0]._taskDate}
+									<img src="img/date.png" alt="lowpic" class="dateimg">  
+									<datetext>${arr[i][0]._taskDate}</datetext>
 									<br><br>
-									<b> Assignee: </b> ${arr[i][0]._taskAssignee}
+									<status> Status: </status> <statustext>${arr[i][0]._taskStatus}</statustext>
 									<br><br>
-									<b> Status: </b> ${arr[i][0]._taskStatus}
+									<img src="img/${arr[i][0]._taskType}.png" width="40" height="35" class="typeimgmain">
+									<storypoint>${arr[i][0].storyPoint}</storypoint>
 									<br><br>
-									<b> Type: </b> ${arr[i][0]._taskType}
-									<br><br>
-									<b> Story Point: </b> ${arr[i][0].storyPoint}
+									<${arr[i][0]._taskTag}> ${arr[i][0]._taskTag} </${arr[i][0]._taskTag}>
 									<br><br>
 									<p>
 									<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick="deleteTask(${i})">  <i class="material-icons">delete</i> </button>
