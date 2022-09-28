@@ -4,14 +4,9 @@ if (checkLSData(SPRINT_LIST_KEY)) {
 }
 
 let arr = savedSprints._allSprint;
-// arr=arr1.filter((v,i,a)=>a.findLastIndex(v2=>(v2._sprintName === v._sprintName))===i)
-// console.log(arr1);
-// updateLSData(SPRINT_LIST_KEY,arr);
 let filteredTag2 = "";
 let sprintIndex = "";
 let content = "";
-
-function pageLoad() {
 
 function pageLoad() {
 
@@ -95,5 +90,4 @@ function countdown(endDate, index) {
 		}
 	}, 1000);
 }
-
-pageLoad();
+	pageLoad();
