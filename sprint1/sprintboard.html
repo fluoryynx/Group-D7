@@ -116,31 +116,9 @@
 
     <main class="mdl-layout__content">
       <!-- Main Content of page -->
-      <div class="mdl-grid">
-        <!-- empty first col -->
-        <div class="mdl-cell mdl-cell--1-col"></div>
-        <!-- second col -->
-        <div class="mdl-cell mdl-cell--10-col">
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label has-placeholder">
-            <label class="mdl-textfield__label" for="sprint_boards_filter">Select sprint board</label>
-            <select class="mdl-textfield__input" id="sprint_boards_filter">
-              <option value=""></option> <!-- default option should always be empty -->
-            </select>
-            <button onclick="filterBySprintBoards()"
-            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-            Select
-            </button>
-          </div><br>
-            <div class="mdl-grid" id="sprintList">
-                <!-- Placeholder for sprint cards -->
-            </div>
-          <button
-          class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent"
-          id="add" onclick="proceedToAddSprint()">
-          <i class="material-icons">add</i>
-          </button>
-          
-        </div>
+      <div class="mdl-grid" id="sprint_board">
+        <!-- Placeholder for sprint cards -->
+    </div>
         <!-- empty last col -->
         <div class="mdl-cell mdl-cell--1-col"></div>
       </div>
@@ -149,8 +127,6 @@
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <script src="shared.js"></script>
     <script src="start.js"></script>
-    <script src="sprintlist.js"></script>
-    <script src="editsprint.js"></script>
     <script src="sprintboard.js"></script>
 </body>
 

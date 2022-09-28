@@ -12,6 +12,7 @@ let arr = savedTasks._allTask;
 let filteredTag="";
 let taskInfo="";
 let taskIndex="";
+let sprintName="";
 
 /**
  * pageLoad function
@@ -128,14 +129,17 @@ if(sprintBoard==""||sprintName==""|| startDate=="" || endDate==""){
     return
   }
 
-  sprint._sprintBoard=sprintBoard.value;
+  temp._taskSprint=sprintName.value;
+  console.log(temp._taskSprint);
+
   sprint._sprintName=sprintName.value;
   sprint._sprintStartingDate=startDate.value;
   sprint._sprintEndingDate=endDate.value;
-  sprint._sprintInfo="Task name: " + temp._taskName + " Tag: " + temp._taskTag + " Description: "+ temp._taskDescription + "\n" + "assignee(s): " + temp._taskAssignee , "\n" + "story point: " + temp._storyPoint+ "\n Priority: "+ temp._taskPriority;
+  //sprint._sprintInfo="Task name: " + temp._taskName + " Tag: " + temp._taskTag + " Description: "+ temp._taskDescription + "\n" + "assignee(s): " + temp._taskAssignee , "\n" + "story point: " + temp._storyPoint+ "\n Priority: "+ temp._taskPriority;
 
   if (confirm(`Clicking this will add this task into the sprint list. Are you sure you want to continue?`)) {
     savedSprints._allSprint.push(sprint);
+	updateLSData(TASK_LIST_KEY,savedTasks);
     updateLSData(SPRINT_LIST_KEY, savedSprints);
     dialog.close();
   }

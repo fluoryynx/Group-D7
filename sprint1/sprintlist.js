@@ -1,57 +1,46 @@
 
-// If there is, store it into savedSprints
+if (checkLSData(TASK_LIST_KEY)) {
+	savedTasks.fromData(taskListData);
+}
 
+// If there is, store it into savedSprints
 if (checkLSData(SPRINT_LIST_KEY)) {
 	savedSprints.fromData(sprintListData);
 }
 
-//savedSprints=retrieveLSData(SPRINT_LIST_KEY);
 
 let arr = savedSprints._allSprint;
+console.log(arr);
 let filteredTag2 = "";
 let sprintIndex = "";
 let content = "";
 
-let boards = [];
+// let boards = [];
 
-function removeDuplicates(arr) {
-	return arr.filter((item,
-		index) => arr.indexOf(item) === index);
-}
+// function removeDuplicates(arr) {
+// 	return arr.filter((item,
+// 		index) => arr.indexOf(item) === index);
+// }
 
 
-console.log(boards);
-/**
- * pageLoad function
- * runs when the list.html page is load
- * use to show list of planned vacation on the page in mdl cards sorted by date
- */
 function pageLoad() {
-
-	for (let i in arr) {
-		boards.push(arr[i]._sprintBoard);
-	}
 
 	let sprintList = document.getElementById("sprintList");
 
-	let sprintBoardSelections = document.getElementById("sprint_boards_filter");
+	//let sprintBoardSelections = document.getElementById("sprint_boards_filter");
 
 	//dropdown list to select sprint board
-	let option = "<option>"
-	"</option>";
-	for (let i in removeDuplicates(boards)) {
-		option += `<option>${boards[i]}</option>}`;
-	}
-	sprintBoardSelections.innerHTML = option;
-
-	if (filteredTag2 != "") {
-		console.log(filteredTag2);
-		arr = searchSprintWithBoard(filteredTag2);
-	}
+	// let option = "<option>"
+	// "</option>";
+	// for (let i in removeDuplicates(boards)) {
+	// 	option += `<option>${boards[i]}</option>}`;
+	// }
+	// sprintBoardSelections.innerHTML = option;
 
 	let sprintListInnerHTML = "";
+
 	for (let i in arr) {
-		console.log(arr[i]._sprintInfo);
+		console.log(arr[i]._sprintName)
 		sprintListInnerHTML += `  
 		<div class="mdl-cell mdl-cell--3-col" >
             <h5> 
@@ -59,8 +48,6 @@ function pageLoad() {
             </h5>
 								<div class="mdl-card"  > 
 									<div class="mdl-card__supporting-text"> 
-									<b>Sprint board name:</b> ${arr[i]._sprintBoard}
-                                    <br><br>
                                     <b>Sprint name:</b> ${arr[i]._sprintName}
                                     <br><br>
 									<b>From:</b> ${arr[i]._sprintStartingDate}
@@ -74,7 +61,7 @@ function pageLoad() {
 									<p>
 									<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick="deleteSprint(${i})">  <i class="material-icons">delete</i> </button>
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="viewInfo(${i})"> Task information </button>
+									<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="viewBoard(${i})"> Sprint board </button>
 									<button onclick="editSprint(${i})" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored"> <i class="large material-icons">edit</i> </button>
 									</p>
 									</div>
@@ -96,22 +83,9 @@ function deleteSprint(index) {
 }
 
 
-let dialog2 = document.getElementById("sprintInfoDialog");
-if (!dialog2.showModal) {
-	dialogPolyfill.registerDialog(dialog2);
-}
-
-function viewInfo(index) {
-	sprintIndex = index;
-//	content=info
-	dialog2.showModal();
-//	let infoPlaceholder=document.getElementById("productBacklogInfo");
-	//infoPlaceholder.value=info;
-}
-
-// close dialog
-function cancel2() {
-	dialog2.close();
+function viewBoard(index) {
+	updateLSData(SPRINT_NAME_KEY, index)
+    window.location = "sprintboard.html";
 }
 
 function countdown(endDate, index) {
@@ -158,6 +132,7 @@ function searchSprintWithBoard(sprint) {
 	return searchedSprints;
 }
 
-window.onload = function () {
-	pageLoad();
-};
+pageLoad();
+
+
+

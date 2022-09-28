@@ -10,9 +10,10 @@ const LIST_INDEX_KEY="9438hrtfio";
 const SPRINT_KEY="cdbhsv9923cww";
 const SPRINT_LIST_KEY="hbdsj9321fewf";
 const SPRINT_INDEX_KEY="8231bbjnd";
+const SPRINT_NAME_KEY="sprintnamekey";
 
 class Task {
-    constructor(name, date,priority,tag,status,description,type) {
+    constructor(name, date,priority,tag,status,description,type,sprint) {
         this._taskName = name;
         this._taskAssignee=[];
         this._taskDate=date;
@@ -21,6 +22,7 @@ class Task {
         this._taskDescription=description;
         this._taskType=type;
         this._taskTag=tag;
+        this._taskSprint=sprint;
     }
     
     //getters
@@ -56,6 +58,10 @@ class Task {
         return this._taskTag;
     }
 
+    get taskSprint(){
+        return this._taskSprint;
+    }
+
     //setters
     set taskName(newtaskName) {
         this._taskName = newtaskName;
@@ -89,6 +95,10 @@ class Task {
         this._taskTag=newTaskTag;
     }
 
+    set taskSprint(newTaskSprint){
+        this._taskSprint=newTaskSprint;
+    }
+
     addAssignee(assignee) {
         this._taskAssignee.push(assignee);
 }
@@ -103,6 +113,7 @@ class Task {
         this._taskType=data._taskType;
         this._taskTag=data._taskTag;
         this._taskAssignee=data._taskAssignee;
+        this._taskSprint=data._taskSprint;
 
         // this._taskAssignee=[];
         // for (let i in data.taskAssignee) {
@@ -184,21 +195,14 @@ class Assignee{
 
 
 class Sprint {
-    constructor(board,name, startingdate, endingdate,status, info="") {
-        this._sprintBoard=board;
+    constructor(board,name, startingdate, endingdate,status) {
         this._sprintName = name;
         this._sprintStartingDate = startingdate;
         this._sprintEndingDate = endingdate;
-        this._sprintInfo=info;
         this._sprintStatus = status;
     }
     
     //getters
-
-    get sprintBoard(){
-        return this._sprintBoard;
-    }
-
     get sprintName() {
         return this._sprintName;
     }
@@ -213,10 +217,6 @@ class Sprint {
 
     get sprintStatus() {
         return this._sprintStatus;
-    }
-
-    get sprintInfo(){
-        return this._sprintInfo;
     }
 
     //setters
@@ -240,17 +240,11 @@ class Sprint {
         this._sprintStatus = newSprintStatus;
     }
 
-    set sprintInfo(newSprintInfo){
-        this._sprintInfo=newSprintInfo;
-    }
-
     fromData(sprintData) {
-        this._sprintBoard=sprintData._sprintBoard;
         this._sprintName = sprintData._sprintName;
         this._sprintStartingDate = sprintData._sprintStartingDate;
         this._sprintEndingDate = sprintData._sprintEndingDate;
         this._sprintStatus = sprintData._sprintStatus;
-        this._sprintInfo=sprintData._sprintInfo;
     }
 }
 
@@ -276,11 +270,9 @@ class SavedSprints{
 
         for (let i in sprintData._allSprint) {
              let obj = {
-                sprintBoard: sprintData._allSprint[i].sprintBoard,
                 sprintName: sprintData._allSprint[i].sprintName,
                 sprintStartingDate: sprintData._allSprint[i].sprintStartingDate,
                 sprintEndingDate: sprintData._allSprint[i].sprintEndingDate,
-                sprintInfo: sprintData._allSprint[i].sprintInfo,
                 sprintStatus: sprintData._allSprint[i].sprintStatus,
              }
              this._allSprint.push(obj)
@@ -288,7 +280,6 @@ class SavedSprints{
          this._allSprint = sprintData._allSprint;
     }
 }
-
 
 // Declaration of global variables for task
 let task = new Task();
