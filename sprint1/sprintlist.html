@@ -29,6 +29,8 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_purple-pink.min.css">
   <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Alegreya:300,400,700" rel="stylesheet">
   <style>
     #view-source {
       position: fixed;
@@ -39,31 +41,143 @@
       margin-bottom: 40px;
       z-index: 900;
     }
-
+  
     .h1 {
       font-family: "Alegreya";
     }
-
-    active {
-      background-color: #ffa9a9;
+  
+    sprint {
+            font-family: 'Open Sans';
+            font-size: 25px;
+            color: black;
+    }
+  
+    sprintname {
+            font-family: 'Open Sans';
+            font-size: 21.2px;
+            color: black;
+    }
+  
+    sprintnametext {
+            font-family: 'Open Sans';
+            font-size: 21.2px;
+            font-weight: bolder;
+            color: black;
+    }
+  
+    fromdate {
+            font-family: 'Open Sans';
+            font-size: 16px;
+            /* font-weight: bolder; */
+            color: black;
+    }
+  
+    fromdatetext {
+            font-family: 'Open Sans';
+            font-size: 16px;
+            /* font-weight: bolder; */
+            color: black;
+    }
+  
+    todate {
+            font-family: 'Open Sans';
+            font-size: 16px;
+            /* font-weight: bolder; */
+            color: black;
+    }
+  
+    todatetext {
+            font-family: 'Open Sans';
+            font-size: 16px;
+            /* font-weight: bolder; */
+            color: black;
+    }
+  
+    /* Create two equal columns that floats next to each other */
+    .column {
+      float: left;
+      width: 60%;
+      /* padding: 1px; */
+      height: 100px; /* Should be removed. Only for demonstration */
+    }
+ 
+    .column2 {
+      float: left;
+      width: 40%;
+      /* padding: 1px; */
+      height: 100px; /* Should be removed. Only for demonstration */
+    }
+  
+    /* Clear floats after the columns */
+    .row:after {
+      /* width: 30%; */
+      content: "";
+      display: table;
+      clear: both;
+    }
+  
+    ui {
+      background-color: yellow;
       color: black;
     }
-
-    completed {
-      background-color: #c6f8b1;
-      color: black;
-    }
-
-    active {
+  
+    core {
       background-color: orange;
       color: black;
     }
-
-    completed {
+  
+    testing {
       background-color: green;
       color: black;
     }
-
+  
+    critical {
+      background-color: red;
+      color: black;
+    }
+  
+    medium {
+      background-color: yellow;
+      color: black;
+    }
+  
+    high {
+      background-color: orange;
+      color: black;
+    }
+  
+    low {
+      background-color: green;
+      color: black;
+    }
+  
+    active {
+      font-family: 'Open Sans';
+      font-size: 15.8px;
+      background-color: #ffa9a9;
+      color: black;
+      border-radius: 10px;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+      padding: 0 10px 0 10px;
+    }
+  
+    completed {
+      font-family: 'Open Sans';
+      font-size: 15.8px;
+      background-color: #c6f8b1;
+      color: black;
+      border-radius: 10px;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+      padding: 0 10px 0 10px;
+    }
+  
+    .dateimgsprint {
+            width: 25px;
+            height: 25px;
+    }
+  
     .mdl-layout__header-row {
             background-image:url("img/background.png");
             height: 150px;
