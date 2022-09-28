@@ -23,7 +23,6 @@ function pageLoad() {
 	let sprintListInnerHTML = "";
 
 	for (let i in arr) {
-		sprint_name=arr[i]._sprintName
 		sprintListInnerHTML += `  
 		<div class="mdl-cell mdl-cell--3-col" >
             <h5> 
@@ -59,9 +58,18 @@ function pageLoad() {
  
  
  function deleteSprint(index){
-	deleteIndex = index
 	savedSprints._allSprint.splice(index, 1);
+	theSelectedSprint=arr[index];
+
+	for (let i in savedTasks._allTask){
+		if (savedTasks._allTask[i][0]._sprintName==theSelectedSprint){
+			savedTasks._allTask[i][0]._inSprint=false;
+		}
+	}
+
 	updateLSData(SPRINT_LIST_KEY,savedSprints);
+	updateLSData(TASK_LIST_KEY,savedTasks);
+
 	pageLoad();
 }
 
@@ -70,6 +78,7 @@ function viewBoard(index) {
 	updateLSData(SPRINT_NAME_KEY, index)
     window.location = "sprintboard.html";
 }
+
 
 function countdown(endDate, index) {
 	let countDownDate = new Date(endDate + " 23:59:59").getTime();
@@ -99,21 +108,21 @@ function countdown(endDate, index) {
 	}, 1000);
 }
 
-function filterBySprintBoards() {
-	let tagRef = document.getElementById("sprint_boards_filter");
-	filteredTag2 = tagRef.options[tagRef.selectedIndex].value;
-	pageLoad()
-}
+// function filterBySprintBoards() {
+// 	let tagRef = document.getElementById("sprint_boards_filter");
+// 	filteredTag2 = tagRef.options[tagRef.selectedIndex].value;
+// 	pageLoad()
+// }
 
-function searchSprintWithBoard(sprint) {
-	let searchedSprints = [];
-	for (let i in savedSprints._allSprint) {
-		if (savedSprints._allSprint[i]._sprintBoard == sprint) {
-			searchedSprints.push(savedSprints._allSprint[i]);
-		}
-	}
-	return searchedSprints;
-}
+// function searchSprintWithBoard(sprint) {
+// 	let searchedSprints = [];
+// 	for (let i in savedSprints._allSprint) {
+// 		if (savedSprints._allSprint[i]._sprintBoard == sprint) {
+// 			searchedSprints.push(savedSprints._allSprint[i]);
+// 		}
+// 	}
+// 	return searchedSprints;
+// }
 
 pageLoad();
 

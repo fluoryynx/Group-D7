@@ -13,7 +13,7 @@ const SPRINT_INDEX_KEY="sprintindexkey";
 const SPRINT_NAME_KEY="sprintnamekey";
 
 class Task {
-    constructor(name, date,priority,tag,status,description,type,sprint) {
+    constructor(name, date,priority,tag,status,description,type,sprint,isSprint=false) {
         this._taskName = name;
         this._taskAssignee=[];
         this._taskDate=date;
@@ -23,6 +23,7 @@ class Task {
         this._taskType=type;
         this._taskTag=tag;
         this._taskSprint=sprint;
+        this._inSprint=isSprint;
     }
     
     //getters
@@ -62,6 +63,10 @@ class Task {
         return this._taskSprint;
     }
 
+    get inSprint(){
+        return this._inSprint;
+    }
+
     //setters
     set taskName(newtaskName) {
         this._taskName = newtaskName;
@@ -99,6 +104,10 @@ class Task {
         this._taskSprint=newTaskSprint;
     }
 
+    set inSprint(newInSprint){
+        this._inSprint=newInSprint;
+    }
+
     addAssignee(assignee) {
         this._taskAssignee.push(assignee);
 }
@@ -114,6 +123,7 @@ class Task {
         this._taskTag=data._taskTag;
         this._taskAssignee=data._taskAssignee;
         this._taskSprint=data._taskSprint;
+        this._inSprint=data._inSprint;
 
         // this._taskAssignee=[];
         // for (let i in data.taskAssignee) {
@@ -121,7 +131,6 @@ class Task {
         //     let assignee = new Assignee(assigneeName);
         //     this._taskAssignee.push(assignee);
         // }
-
     }
 }
 
