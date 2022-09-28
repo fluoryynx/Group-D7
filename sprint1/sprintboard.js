@@ -30,7 +30,6 @@ function pageLoad() {
 			sprintBoardInnerHTML += `  
 			<div class="mdl-cell mdl-cell--4-col" >
 									<h5> 
-									<task> Task ${Number(i) + 1} </task> 
 									</h5>
 									<div class="mdl-card"  > 
 										<div class="mdl-card__supporting-text"> 
