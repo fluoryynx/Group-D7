@@ -214,17 +214,6 @@
         <h3 class="h1">&nbsp; &nbsp; Product Backlog</h3>
       </div>
 
-      <!-- Redundant code for task bar (can remove later) -->
-      <!-- <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
-        <a href="#mainpage" class="mdl-layout__tab is-active">Main Page</a>
-        <a href="#sprintList" class="mdl-layout__tab">Sprint List</a>
-        <button
-          class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent"
-          id="add" onclick="proceedToAdd()">
-          <i class="material-icons">add</i>
-        </button>
-      </div> -->
-      
     </header>
 
     <div class="mdl-layout__drawer">
@@ -285,7 +274,25 @@
           </div> -->
           <!-- empty last col -->
           <!-- <div class="mdl-cell mdl-cell--1-col"></div>
-        </div> --> 
+        </div> -->
+        
+        <dialog class="mdl-dialog" id="sprintDialog">
+          <h5 class="mdl-dialog__title">Enter details for your sprint</h5>
+          <div class="mdl-dialog__content">
+            <div class="mdl-grid">
+              <div class="mdl-cell mdl-cell--12-col">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label has-placeholder">
+                  <input class="mdl-textfield__input" type="text" id="sprintName">
+                  <label class="mdl-textfield__label" >Name of sprint:</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mdl-dialog__actions">
+            <button type="button" class="mdl-button" onclick="confirmAddSprint()">Add to sprint</button>
+            <button type="button" class="mdl-button close" onclick="cancel()">Cancel</button>
+          </div>
+        </dialog>
 
       </main>
 

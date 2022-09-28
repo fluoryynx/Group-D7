@@ -7,12 +7,13 @@ const TASK_LIST_KEY="duh5498treifnv";
 const LIST_INDEX_KEY="9438hrtfio";
 
 // Declaration of constants for sprint
-const SPRINT_KEY="cdbhsv9923cww";
-const SPRINT_LIST_KEY="hbdsj9321fewf";
-const SPRINT_INDEX_KEY="8231bbjnd";
+const SPRINT_KEY="tasksinthesprintlist";
+const SPRINT_LIST_KEY="sprintlistkey";
+const SPRINT_INDEX_KEY="sprintindexkey";
+const SPRINT_NAME_KEY="sprintnamekey";
 
 class Task {
-    constructor(name, date,priority,tag,status,description,type) {
+    constructor(name, date,priority,tag,status,description,type,sprint,isSprint=false) {
         this._taskName = name;
         this._taskAssignee=[];
         this._taskDate=date;
@@ -21,6 +22,8 @@ class Task {
         this._taskDescription=description;
         this._taskType=type;
         this._taskTag=tag;
+        this._taskSprint=sprint;
+        this._inSprint=isSprint;
     }
     
     //getters
@@ -56,6 +59,14 @@ class Task {
         return this._taskTag;
     }
 
+    get taskSprint(){
+        return this._taskSprint;
+    }
+
+    get inSprint(){
+        return this._inSprint;
+    }
+
     //setters
     set taskName(newtaskName) {
         this._taskName = newtaskName;
@@ -89,6 +100,14 @@ class Task {
         this._taskTag=newTaskTag;
     }
 
+    set taskSprint(newTaskSprint){
+        this._taskSprint=newTaskSprint;
+    }
+
+    set inSprint(newInSprint){
+        this._inSprint=newInSprint;
+    }
+
     addAssignee(assignee) {
         this._taskAssignee.push(assignee);
 }
@@ -103,6 +122,8 @@ class Task {
         this._taskType=data._taskType;
         this._taskTag=data._taskTag;
         this._taskAssignee=data._taskAssignee;
+        this._taskSprint=data._taskSprint;
+        this._inSprint=data._inSprint;
 
         // this._taskAssignee=[];
         // for (let i in data.taskAssignee) {
@@ -110,7 +131,6 @@ class Task {
         //     let assignee = new Assignee(assigneeName);
         //     this._taskAssignee.push(assignee);
         // }
-
     }
 }
 
@@ -184,13 +204,13 @@ class Assignee{
 
 
 class Sprint {
-    constructor(name, startingdate, endingdate, status) {
+    constructor(name, startingdate="", endingdate="",status="") {
         this._sprintName = name;
-        this._sprintStartingDate = startingdate;
+        this._sprintStartingDate =startingdate;
         this._sprintEndingDate = endingdate;
         this._sprintStatus = status;
     }
-    
+
     //getters
     get sprintName() {
         return this._sprintName;
@@ -265,7 +285,6 @@ class SavedSprints{
          this._allSprint = sprintData._allSprint;
     }
 }
-
 
 // Declaration of global variables for task
 let task = new Task();
