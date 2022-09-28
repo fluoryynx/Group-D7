@@ -15,7 +15,8 @@ function pageLoad() {
 	let sprintListInnerHTML = "";
 
 	for (let i in arr) {
-		sprintListInnerHTML += ` 
+		if (i != "1") {
+			sprintListInnerHTML += ` 
 		<div class="mdl-cell mdl-cell--4-col" >
 		<h5> 
 		Sprint ${Number(i) + 1}
@@ -41,7 +42,38 @@ function pageLoad() {
 							</div> 
 						</div> 
 					</div>	`
-		countdown(arr[i][0]._sprintEndingDate, i);
+			//countdown(arr[i][0]._sprintEndingDate, i);
+		}
+		else{
+			sprintListInnerHTML += ` 
+		<div class="mdl-cell mdl-cell--4-col" >
+		<h5> 
+		Sprint ${Number(i) + 1}
+		</h5>
+						<div class="mdl-card"  > 
+							<div class="mdl-card__supporting-text"> 
+							<b>Sprint name:</b> ${arr[i]._sprintName}
+							<br><br>
+							<b>From:</b> ${arr[i]._sprintStartingDate}
+							<br><br>
+							<b>To: </b> ${arr[i]._sprintEndingDate}
+							<br><br>
+							<b> Status: </b><${arr[i]._sprintStatus}> ${arr[i]._sprintStatus} </${arr[i]._sprintStatus}>
+							<br><br>
+							<p>
+							<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick="deleteSprint(${i})">  <i class="material-icons">delete</i> </button>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick="editSprint(${i})"> <i class="large material-icons">edit</i> </button>
+							<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="viewBoard(${i})"> Sprint board </button>
+							</p>
+							</div>
+							<div class="mdl-card__actions mdl-card--border">
+							</div> 
+						</div> 
+					</div>	`
+		//countdown(arr[i]._sprintEndingDate, i);
+		}
+		
 	}
 	sprintList.innerHTML = sprintListInnerHTML;
  }
