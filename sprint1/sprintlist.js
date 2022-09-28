@@ -17,30 +17,25 @@ function pageLoad() {
 	for (let i in arr) {
 		sprintListInnerHTML += ` 
 		<div class="mdl-cell mdl-cell--4-col" >
-		<h5> 
-		Sprint ${Number(i) + 1}
-		</h5>
-						<div class="mdl-card"  > 
-							<div class="mdl-card__supporting-text"> 
-							<b>Sprint name:</b> ${arr[i][0]._sprintName}
-							<br><br>
-							<b>From:</b> ${arr[i][0]._sprintStartingDate}
-							<br><br>
-							<b>To: </b> ${arr[i][0]._sprintEndingDate}
-							<br><br>
-							<b> Status: </b><${arr[i][0]._sprintStatus}> ${arr[i][0]._sprintStatus} </${arr[i][0]._sprintStatus}>
+			<sprint>Sprint ${Number(i) + 1}</sprint>
+			<br><br>
+				<div class="mdl-card">
+					<div class="mdl-card__supporting-text">
+						<div class="row">
+							
+							</b><${arr[i][0]._sprintStatus}> ${arr[i][0]._sprintStatus} </${arr[i][0]._sprintStatus}>
 							<br><br>
 							<p>
 							<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick="deleteSprint(${i})">  <i class="material-icons">delete</i> </button>
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick="editSprint(${i})"> <i class="large material-icons">edit</i> </button>
-							<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="viewBoard(${i})"> Sprint board </button>
+							<button onclick="editSprint(${i})" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored"> <i class="large material-icons">edit</i> </button>
 							</p>
-							</div>
-							<div class="mdl-card__actions mdl-card--border">
-							</div> 
-						</div> 
-					</div>	`
+						</div>
+					</div>
+					<div class="mdl-card__actions mdl-card--border">
+					</div>
+				</div>
+			</div>  `
 		countdown(arr[i][0]._sprintEndingDate, i);
 	}
 	sprintList.innerHTML = sprintListInnerHTML;
