@@ -15,7 +15,8 @@ function pageLoad() {
 	let sprintListInnerHTML = "";
 
 	for (let i in arr) {
-		sprintListInnerHTML += ` 
+		if (i != "1") {
+			sprintListInnerHTML += ` 
 		<div class="mdl-cell mdl-cell--4-col" >
 			<sprint>Sprint ${Number(i) + 1}</sprint>
 			<br><br>
