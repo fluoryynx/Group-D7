@@ -1,177 +1,222 @@
 <!doctype html>
-
+ 
 <html lang="en">
-
+ 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <title>Projectify</title>
-  <script src="services.js"></script>
-  <!-- Add to homescreen for Chrome on Android -->
-  <meta name="mobile-web-app-capable" content="yes">
-  <link rel="icon" sizes="192x192" href="images/android-desktop.png">
-
-  <!-- Add to homescreen for Safari on iOS -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="Material Design Lite">
-  <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
-
-  <!-- Tile icon for Win8 (144x144 + tile color) -->
-  <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
-  <meta name="msapplication-TileColor" content="#3372DF">
-
-  <link rel="shortcut icon" href="">
-
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_purple-pink.min.css">
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Alegreya:300,400,700" rel="stylesheet">
-  <style>
-    #view-source {
-      position: fixed;
-      display: block;
-      right: 0;
-      bottom: 0;
-      margin-right: 40px;
-      margin-bottom: 40px;
-      z-index: 900;
-    }
-
-    .h1 {
-      font-family: "Alegreya";
-    }
-
-    .h5 {
-            font-family: "Alegreya";
-        }
-
-    ui {
-      background-color: yellow;
-      color: black;
-    }
-
-    core {
-      background-color: orange;
-      color: black;
-    }
-
-    testing {
-      background-color: green;
-      color: black;
-    }
-
-    critical {
-      background-color: red;
-      color: black;
-    }
-
-    medium {
-      background-color: yellow;
-      color: black;
-    }
-
-    high {
-      background-color: orange;
-      color: black;
-    }
-
-    low {
-      background-color: green;
-      color: black;
-    }
-
-    active {
-      background-color: orange;
-      color: black;
-    }
-
-    completed {
-      background-color: green;
-      color: black;
-    }
-
-    .mdl-layout__header-row {
-            background-image:url("img/background.png");
-            height: 150px;
-            background-size: contain;
-    }
-  </style>
+ <meta charset="utf-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+ <title>Projectify</title>
+ <script src="services.js"></script>
+ <!-- Add to homescreen for Chrome on Android -->
+ <meta name="mobile-web-app-capable" content="yes">
+ <link rel="icon" sizes="192x192" href="images/android-desktop.png">
+ 
+ <!-- Add to homescreen for Safari on iOS -->
+ <meta name="apple-mobile-web-app-capable" content="yes">
+ <meta name="apple-mobile-web-app-status-bar-style" content="black">
+ <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+ <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
+ 
+ <!-- Tile icon for Win8 (144x144 + tile color) -->
+ <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+ <meta name="msapplication-TileColor" content="#3372DF">
+ 
+ <link rel="shortcut icon" href="">
+ 
+ <link rel="stylesheet"
+   href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+ <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+ <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_purple-pink.min.css">
+ <link rel="stylesheet" href="styles.css">
+ <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css?family=Alegreya:300,400,700" rel="stylesheet">
+ <style>
+   #view-source {
+     position: fixed;
+     display: block;
+     right: 0;
+     bottom: 0;
+     margin-right: 40px;
+     margin-bottom: 40px;
+     z-index: 900;
+   }
+ 
+   .h1 {
+     font-family: "Alegreya";
+   }
+ 
+   sprint {
+           font-family: 'Open Sans';
+           font-size: 25px;
+           color: black;
+   }
+ 
+   sprintname {
+           font-family: 'Open Sans';
+           font-size: 21.2px;
+           color: black;
+   }
+ 
+   sprintnametext {
+           font-family: 'Open Sans';
+           font-size: 21.2px;
+           font-weight: bolder;
+           color: black;
+   }
+ 
+   fromdate {
+           font-family: 'Open Sans';
+           font-size: 16px;
+           /* font-weight: bolder; */
+           color: black;
+   }
+ 
+   fromdatetext {
+           font-family: 'Open Sans';
+           font-size: 16px;
+           /* font-weight: bolder; */
+           color: black;
+   }
+ 
+   todate {
+           font-family: 'Open Sans';
+           font-size: 16px;
+           /* font-weight: bolder; */
+           color: black;
+   }
+ 
+   todatetext {
+           font-family: 'Open Sans';
+           font-size: 16px;
+           /* font-weight: bolder; */
+           color: black;
+   }
+ 
+   /* Create two equal columns that floats next to each other */
+   x
+ 
+   /* Clear floats after the columns */
+   .row:after {
+     /* width: 30%; */
+     content: "";
+     display: table;
+     clear: both;
+   }
+ 
+   ui {
+     background-color: yellow;
+     color: black;
+   }
+ 
+   core {
+     background-color: orange;
+     color: black;
+   }
+ 
+   testing {
+     background-color: green;
+     color: black;
+   }
+ 
+   critical {
+     background-color: red;
+     color: black;
+   }
+ 
+   medium {
+     background-color: yellow;
+     color: black;
+   }
+ 
+   high {
+     background-color: orange;
+     color: black;
+   }
+ 
+   low {
+     background-color: green;
+     color: black;
+   }
+ 
+   active {
+     font-family: 'Open Sans';
+     font-size: 15.8px;
+     background-color: #ffa9a9;
+     color: black;
+     border-radius: 10px;
+     -webkit-box-decoration-break: clone;
+     box-decoration-break: clone;
+     padding: 0 10px 0 10px;
+   }
+ 
+   completed {
+     font-family: 'Open Sans';
+     font-size: 15.8px;
+     background-color: #c6f8b1;
+     color: black;
+     border-radius: 10px;
+     -webkit-box-decoration-break: clone;
+     box-decoration-break: clone;
+     padding: 0 10px 0 10px;
+   }
+ 
+   .dateimgsprint {
+           width: 25px;
+           height: 25px;
+   }
+ 
+   .mdl-layout__header-row {
+           background-image:url("img/background.png");
+           height: 150px;
+           background-size: contain;
+   }
+ </style>
 </head>
-
+ 
 <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-        <header class="mdl-layout__header mdl-layout__header--transparent">
-          <div class="mdl-layout--large-screen-only mdl-layout__header-row">
-            <h3 class="h1">&nbsp; &nbsp; Sprint List</h3>            
-          </div>
-    </header>
-
-    <div class="mdl-layout__drawer">
-      <span class="mdl-layout-title"></span>
-      <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="home.html">Home Page</a>
-          <a class="mdl-navigation__link" href="mainpage.html">Product Backlog</a>
-          <a class="mdl-navigation__link" href="sprintlist.html">Sprint List</a>
-      </nav>
-    </div>
-
-    <main class="mdl-layout__content">
-      <!-- Main Content of page -->
-      <div class="mdl-grid">
-        <!-- empty first col -->
-        <div class="mdl-cell mdl-cell--1-col"></div>
-        <!-- second col -->
-        <div class="mdl-cell mdl-cell--10-col">
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label has-placeholder">
-            <label class="mdl-textfield__label" for="sprint_boards_filter">Select sprint board</label>
-            <select class="mdl-textfield__input" id="sprint_boards_filter">
-              <option value=""></option> <!-- default option should always be empty -->
-            </select>
-            <button onclick="filterBySprintBoards()"
-            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-            Select
-            </button>
-          </div><br>
-            <div class="mdl-grid" id="sprintList">
-                <!-- Placeholder for sprint cards -->
-            </div>
-          <button
-          class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent"
-          id="add" onclick="proceedToAddSprint()">
-          <i class="material-icons">add</i>
-          </button>
-          
-        </div>
-        <!-- empty last col -->
-        <div class="mdl-cell mdl-cell--1-col"></div>
-      </div>
-
-      <dialog class="mdl-dialog" id="sprintInfoDialog">
-        <h5 class="mdl-dialog__title">Task information from product backlog</h5>
-        <div class="mdl-dialog__content">
-          <div class="mdl-grid">
-            <div class="mdl-cell mdl-cell--12-col">
-              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label has-placeholder" id="productBacklogInfo">
-                details from product backlog
-              </div>
-          </div>
-        </div>
-        <div class="mdl-dialog__actions">
-          <button type="button" class="mdl-button close" onclick="cancel2()">ok</button>
-        </div>
-      </dialog>
-
-    </main>
-    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-    <script src="shared.js"></script>
-    <script src="start.js"></script>
-    <script src="sprintlist.js"></script>
-    <script src="editsprint.js"></script>
+   <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+       <header class="mdl-layout__header mdl-layout__header--transparent">
+         <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+           <h3 class="h1">&nbsp; &nbsp; Sprint List</h3>           
+         </div>
+   </header>
+ 
+   <div class="mdl-layout__drawer">
+     <span class="mdl-layout-title"></span>
+     <nav class="mdl-navigation">
+         <a class="mdl-navigation__link" href="home.html">Home Page</a>
+         <a class="mdl-navigation__link" href="mainpage.html">Product Backlog</a>
+         <a class="mdl-navigation__link" href="sprintlist.html">Sprint List</a>
+     </nav>
+   </div>
+ 
+   <main class="mdl-layout__content">
+     <!-- Main Content of page -->
+     <div class="mdl-grid">
+       <!-- empty first col -->
+       <div class="mdl-cell mdl-cell--1-col"></div>
+       <!-- second col -->
+       <div class="mdl-cell mdl-cell--10-col">
+           <div class="mdl-grid" id="sprintList">
+               <!-- Placeholder for sprint cards -->
+           </div>
+         <button
+         class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent"
+         id="add" onclick="proceedToAddSprint()">
+         <i class="material-icons">add</i>
+         </button>
+        
+       </div>
+       <!-- empty last col -->
+       <div class="mdl-cell mdl-cell--1-col"></div>
+     </div>
+   </main>
+   <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+   <script src="shared.js"></script>
+   <script src="start.js"></script>
+   <script src="sprintlist.js"></script>
+   <script src="editsprint.js"></script>
 </body>
-
+ 
 </html>

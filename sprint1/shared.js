@@ -184,21 +184,14 @@ class Assignee{
 
 
 class Sprint {
-    constructor(board,name, startingdate, endingdate,status, info="") {
-        this._sprintBoard=board;
+    constructor(name, startingdate, endingdate, status) {
         this._sprintName = name;
         this._sprintStartingDate = startingdate;
         this._sprintEndingDate = endingdate;
-        this._sprintInfo=info;
         this._sprintStatus = status;
     }
     
     //getters
-
-    get sprintBoard(){
-        return this._sprintBoard;
-    }
-
     get sprintName() {
         return this._sprintName;
     }
@@ -215,15 +208,7 @@ class Sprint {
         return this._sprintStatus;
     }
 
-    get sprintInfo(){
-        return this._sprintInfo;
-    }
-
     //setters
-    set sprintBoard(newSprintBoard){
-        this._sprintBoard=newSprintBoard;
-    }
-
     set sprintName(newSprintName) {
         this._sprintName = newSprintName;
     }
@@ -240,17 +225,11 @@ class Sprint {
         this._sprintStatus = newSprintStatus;
     }
 
-    set sprintInfo(newSprintInfo){
-        this._sprintInfo=newSprintInfo;
-    }
-
     fromData(sprintData) {
-        this._sprintBoard=sprintData._sprintBoard;
         this._sprintName = sprintData._sprintName;
         this._sprintStartingDate = sprintData._sprintStartingDate;
         this._sprintEndingDate = sprintData._sprintEndingDate;
         this._sprintStatus = sprintData._sprintStatus;
-        this._sprintInfo=sprintData._sprintInfo;
     }
 }
 
@@ -276,11 +255,9 @@ class SavedSprints{
 
         for (let i in sprintData._allSprint) {
              let obj = {
-                sprintBoard: sprintData._allSprint[i].sprintBoard,
                 sprintName: sprintData._allSprint[i].sprintName,
                 sprintStartingDate: sprintData._allSprint[i].sprintStartingDate,
                 sprintEndingDate: sprintData._allSprint[i].sprintEndingDate,
-                sprintInfo: sprintData._allSprint[i].sprintInfo,
                 sprintStatus: sprintData._allSprint[i].sprintStatus,
              }
              this._allSprint.push(obj)

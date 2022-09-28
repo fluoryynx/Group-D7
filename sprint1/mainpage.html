@@ -1,5 +1,7 @@
+<!doctype html>
 
-<html>
+<html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -141,6 +143,20 @@
       padding: 2px 10px 2px 10px;
     }
 
+    .column {
+     float: left;
+     width: 75%;
+     /* padding: 1px; */
+     height: 200px; /* Should be removed. Only for demonstration */
+   }
+
+   .column2 {
+     float: left;
+     width: 25%;
+     /* padding: 1px; */
+     height: 200px; /* Should be removed. Only for demonstration */
+   }
+
 
     progress {
       
@@ -233,9 +249,9 @@
           
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <select class="mdl-textfield__input" id="filterBy" name="tag">
-              <option value="UI">UI </option>
-              <option value="Core">Core</option>
-              <option value="Testing">Testing</option>
+              <option value="ui">UI </option>
+              <option value="core">Core</option>
+              <option value="testing">Testing</option>
             </select>
             <label class="mdl-textfield__label"> Filter by tags:</label>
           </div>
@@ -269,38 +285,7 @@
           </div> -->
           <!-- empty last col -->
           <!-- <div class="mdl-cell mdl-cell--1-col"></div>
-        </div> -->
-        
-        <dialog class="mdl-dialog" id="sprintDialog">
-          <h5 class="mdl-dialog__title">Enter details for your sprint</h5>
-          <div class="mdl-dialog__content">
-            <div class="mdl-grid">
-              <div class="mdl-cell mdl-cell--12-col">
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label has-placeholder">
-                  <input class="mdl-textfield__input" type="text" id="sprintBoard">
-                  <label class="mdl-textfield__label" for="vacationName">Name of sprint board : </label>
-                </div>
-              <div class="mdl-cell mdl-cell--12-col">
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label has-placeholder">
-                  <input class="mdl-textfield__input" type="text" id="sprintName">
-                  <label class="mdl-textfield__label" for="vacationName">Name of sprint:</label>
-                </div>
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label has-placeholder">
-                  <input class="mdl-textfield__input" type="date" id="sprintStartDate" required>
-                  <label class="mdl-textfield__label" for="newPOIIndex">Start date:</label>
-                </div>
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label has-placeholder">
-                  <input class="mdl-textfield__input" type="date" id="sprintEndDate" required>
-                  <label class="mdl-textfield__label" for="newPOIIndex">End date:</label>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="mdl-dialog__actions">
-            <button type="button" class="mdl-button" onclick="confirmAddSprint()">Add to sprint</button>
-            <button type="button" class="mdl-button close" onclick="cancel()">Cancel</button>
-          </div>
-        </dialog>
+        </div> --> 
 
       </main>
 
