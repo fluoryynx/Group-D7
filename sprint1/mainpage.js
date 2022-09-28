@@ -36,26 +36,30 @@ let filteredTag="";
 								</h5>
 								<div class="mdl-card"  > 
 									<div class="mdl-card__supporting-text"> 
-									<taskname>Task name: </taskname><tasknametext>${arr[i][0]._taskName}</tasknametext>
-									<br><br>
-									<img src="img/assignee.png" alt="lowpic" class="assigneeimg">  
-									<assignee>Assignee: </assignee><assigneetext>${arr[i][0]._taskAssignee}</assigneetext>
-									<br><br>
-									<img src="img/date.png" alt="lowpic" class="dateimg">  
-									<datetext>${arr[i][0]._taskDate}</datetext>
-									<br><br>
-									<status> Status: </status> <statustext>${arr[i][0]._taskStatus}</statustext>
-									<br><br>
-									<img src="img/${arr[i][0]._taskType}.png" width="40" height="35" class="typeimgmain">
-									<storypoint>${arr[i][0].storyPoint}</storypoint>
-									<br><br>
-									<${arr[i][0]._taskTag}> ${arr[i][0]._taskTag} </${arr[i][0]._taskTag}>
-									<br><br>
-									<p>
-									<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick="deleteTask(${i})">  <i class="material-icons">delete</i> </button>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									<button onclick="edit(${i})" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored"> <i class="large material-icons">edit</i> </button>
-									</p>
+										<div class="row">
+											<div class="column">
+												<taskname>Task name: </taskname><tasknametext>${arr[i][0]._taskName}</tasknametext>
+												<br><br>
+												<img src="img/assignee.png" alt="lowpic" class="assigneeimg">  
+												<assignee>Assignee: </assignee><assigneetext>${arr[i][0]._taskAssignee}</assigneetext>
+												<br><br>
+												<img src="img/date.png" alt="lowpic" class="dateimg">  
+												<datetext>${arr[i][0]._taskDate}</datetext>
+												<br><br>
+												<status> Status: </status> <statustext>${arr[i][0]._taskStatus}</statustext>
+												<br><br>
+												<${arr[i][0]._taskTag}> ${arr[i][0]._taskTag} </${arr[i][0]._taskTag}>
+											</div>
+											<div class="column2">
+												<img src="img/${arr[i][0]._taskType}.png" width="40" height="35" class="typeimgmain">
+												<storypoint>${arr[i][0].storyPoint}</storypoint>
+											</div>
+											<p>
+											<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick="deleteTask(${i})">  <i class="material-icons">delete</i> </button>
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											<button onclick="edit(${i})" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored"> <i class="large material-icons">edit</i> </button>
+											</p>
+										</div>
 									</div>
 									<div class="mdl-card__actions mdl-card--border">
 									</div> 
