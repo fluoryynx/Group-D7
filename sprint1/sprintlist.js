@@ -22,7 +22,19 @@ function pageLoad() {
 				<div class="mdl-card">
 					<div class="mdl-card__supporting-text">
 						<div class="row">
-							
+							<div class="column">
+								<sprintname>Sprint </sprintname><sprintnametext>${arr[i][0]._sprintName}</sprintnametext>
+								<br><br>
+								<fromdate>From:</fromdate>
+								<br>
+								<fromdatetext>${arr[i][0]._sprintStartingDate}</fromdatetext>
+								<img src="img/date.png" class="dateimgsprint">
+							</div>
+							<div class="column2">
+								<br><br>
+								<todate>To: </todate><br><todatetext>${arr[i][0]._sprintEndingDate}</todatetext>
+								<img src="img/date.png" class="dateimgsprint">
+							</div>
 							</b><${arr[i][0]._sprintStatus}> ${arr[i][0]._sprintStatus} </${arr[i][0]._sprintStatus}>
 							<br><br>
 							<p>
