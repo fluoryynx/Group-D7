@@ -237,16 +237,13 @@
         <div class="mdl-cell mdl-cell--10-col">
           
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <select class="mdl-textfield__input" id="filterBy" name="tag">
+            <select class="mdl-textfield__input" id="filterBy" name="tag" onchange="filterByTag()">
               <option value="ui">UI </option>
               <option value="core">Core</option>
               <option value="testing">Testing</option>
             </select>
             <label class="mdl-textfield__label"> Filter by tags:</label>
           </div>
-          <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick="filterByTag()">
-            <i class="material-icons">filter_alt</i>
-          </button>
           <button onclick="removeFilter()"
             class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
             Remove Filter 
