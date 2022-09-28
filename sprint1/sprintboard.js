@@ -1,4 +1,4 @@
-tempSprintIndex=retrieveLSData(SPRINT_NAME_KEY);
+tempSprintIndex = retrieveLSData(SPRINT_NAME_KEY);
 console.log(tempSprintIndex);
 
 if (checkLSData(TASK_LIST_KEY)) {
@@ -9,12 +9,12 @@ if (checkLSData(SPRINT_LIST_KEY)) {
 	savedSprints.fromData(sprintListData);
 }
 
-arr=[]
-let sprintName=savedSprints._allSprint[tempSprintIndex][0]._sprintName;
+arr = []
+let sprintName = savedSprints._allSprint[tempSprintIndex][0]._sprintName;
 
-for (let i in savedTasks._allTask){
+for (let i in savedTasks._allTask) {
 	console.log(savedTasks._allTask[i][0]);
-	if (savedTasks._allTask[i][0]._taskSprint==sprintName){
+	if (savedTasks._allTask[i][0]._taskSprint == sprintName) {
 		arr.push(savedTasks._allTask[i][0])
 	}
 }
@@ -29,7 +29,7 @@ function pageLoad() {
 
 	let sprintBoardInnerHTML = "";
 	for (let i in arr) {
-		if (arr[i]._inSprint==true){
+		if (arr[i]._inSprint == true) {
 			sprintBoardInnerHTML += `  
 			<div class="mdl-cell mdl-cell--4-col" >
 									<h5> 
@@ -50,15 +50,31 @@ function pageLoad() {
 													<status> Status: </status> <statustext>${arr[i]._taskStatus}</statustext>
 													<br><br>
 													<${arr[i]._taskTag}> ${arr[i]._taskTag} </${arr[i]._taskTag}>
+													<br><br>
+													<br><br>
 												</div>
 												<div class="column2">
 													<img src="img/${arr[i]._taskType}.png" width="40" height="35" class="typeimgmain">
 													<storypoint>${arr[i].storyPoint}</storypoint>
 												</div>
+												<img src="img/timer_icon.png" alt="lowpic" class="timerimg">
+												<timertext>
+												<p id = "timer">
+													00 : 00 : 00
+												</p>
+												</timertext>
+												<br><br>
+												<div>
+													<button onclick="startTimer()" id="startButton">Start</button>
+													<button onclick="stopTimer()" id="stopButton">Stop</button>
+													<button onclick="resetTimer()" id="resetButton">Reset</button>
+												</div>
+												<br>
 												<p>
 												<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick="deleteTask(${i})">  <i class="material-icons">delete</i> </button>
 												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 												<button onclick="edit(${i})" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored"> <i class="large material-icons">edit</i> </button>
+
 												</p>
 											</div>
 										</div>
@@ -72,25 +88,72 @@ function pageLoad() {
 	sprintBoard.innerHTML = sprintBoardInnerHTML;
 }
 
-function deleteSprintBoardTask(index){
-	arr[index]._inSprint=false;
+function deleteSprintBoardTask(index) {
+	arr[index]._inSprint = false;
 
-	theSelectedTask=arr[index];
+	theSelectedTask = arr[index];
 
-	let tempIndex="";
+	let tempIndex = "";
 
 	console.log(savedTasks._allTask);
 
-	for (let i in savedTasks._allTask){
-		if (savedTasks._allTask[i][0]==theSelectedTask){
-			tempIndex=i;
+	for (let i in savedTasks._allTask) {
+		if (savedTasks._allTask[i][0] == theSelectedTask) {
+			tempIndex = i;
 		}
 	}
 
-	savedTasks._allTask[tempIndex]._inSprint=false;
-	updateLSData(TASK_LIST_KEY,savedTasks);
+	savedTasks._allTask[tempIndex]._inSprint = false;
+	updateLSData(TASK_LIST_KEY, savedTasks);
 	//updateLSData(SPRINT_LIST_KEY,savedSprints);
 	pageLoad();
+}
+
+//variables for timer
+let [seconds, minutes, hours] = [0,0,0];
+// var startButton = document.getElementById("startButton");
+// var stopButton = document.getElementById("stopButton");
+// var resetButton = document.getElementById("resetButton");
+//let timerView = document.querySelector(".timer");
+console.log(document.getElementById("timer").innerHTML);
+let Interval = null;
+
+function startTimer(){
+	if(Interval !== null){
+		clearInterval(Interval);
+	}
+	Interval = setInterval(displayTimer, 10);
+};
+
+function stopTimer(){
+	clearInterval(Interval);
+};
+
+function resetTimer(){
+	clearInterval(Interval);
+    [seconds,minutes,hours] = [0,0,0,0];
+    timerView.innerHTML = '00 : 00 : 00';
+	// displaySeconds.innerHTML = seconds;
+	// displayMinutes.innerHTML = minutes;
+};
+
+function displayTimer(){
+
+	seconds++;
+        if(seconds == 60){
+            seconds = 0;
+            minutes++;
+
+            if(minutes == 60){
+                minutes = 0;
+                hours++;
+            }
+        }
+		let h = hours < 10 ? "0" + hours : hours;
+		let m = minutes < 10 ? "0" + minutes : minutes;
+		let s = seconds < 10 ? "0" + seconds : seconds;
+
+		timerView.innerHTML = `${h} : ${m} : ${s}`;
 }
 
 pageLoad();
