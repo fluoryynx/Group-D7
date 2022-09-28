@@ -10,7 +10,7 @@ if (checkLSData(SPRINT_LIST_KEY)) {
 }
 
 arr=[]
-let sprintName=savedSprints._allSprint[tempSprintIndex]._sprintName;
+let sprintName=savedSprints._allSprint[tempSprintIndex][0]._sprintName;
 
 for (let i in savedTasks._allTask){
 	console.log(savedTasks._allTask[i][0]);
@@ -23,6 +23,9 @@ for (let i in savedTasks._allTask){
 function pageLoad() {
 
 	let sprintBoard = document.getElementById("sprint_board");
+
+	//change sprint board name according to the sprint name
+	document.getElementById("sprint_board_title").innerHTML = "&nbsp; &nbsp;" + sprintName + " Board"
 
 	let sprintBoardInnerHTML = "";
 	for (let i in arr) {
