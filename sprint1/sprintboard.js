@@ -10,7 +10,7 @@ if (checkLSData(SPRINT_LIST_KEY)) {
 }
 
 arr = []
-let sprintName = savedSprints._allSprint[tempSprintIndex][0]._sprintName;
+let sprintName = savedSprints._allSprint[tempSprintIndex]._sprintName;
 
 for (let i in savedTasks._allTask) {
 	console.log(savedTasks._allTask[i][0]);
@@ -19,6 +19,7 @@ for (let i in savedTasks._allTask) {
 	}
 }
 
+console.log(arr)
 
 function pageLoad() {
 
@@ -67,7 +68,7 @@ function pageLoad() {
 												<div>
 													<button onclick="startTimer()" id="startButton">Start</button>
 													<button onclick="stopTimer()" id="stopButton">Stop</button>
-													<button onclick="resetTimer()" id="resetButton">Reset</button>
+													<button onclick="resetTimer(${i})" id="resetButton">Reset</button>
 												</div>
 												<br>
 												<p>
@@ -111,11 +112,6 @@ function deleteSprintBoardTask(index) {
 
 //variables for timer
 let [milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
-// var startButton = document.getElementById("startButton");
-// var stopButton = document.getElementById("stopButton");
-// var resetButton = document.getElementById("resetButton");
-//let timerView = document.querySelector(".timer");
-//console.log(document.getElementById("timer").innerHTML);
 let startTime;
 let Interval = null;
 
@@ -123,25 +119,27 @@ function startTimer() {
 	if (Interval !== null) {
 		clearInterval(Interval);
 	}
-	startTime = parseInt(localStorage.getItem('startTime') || Date.now());
-	localStorage.setItem('startTime', startTime);
+	// startTime = parseInt(localStorage.getItem('startTime') || Date.now());
+	// localStorage.setItem('startTime', startTime);
 	Interval = setInterval(displayTimer, 10);
-	window.onload = function () {
-		startTimer();
-	}
 };
 
 function stopTimer() {
 	clearInterval(Interval);
 };
 
-function resetTimer() {
+function resetTimer(index) {
+	// change to hours and minutes
+	taskDuration = arr[index]
+	taskDuration._taskDuration = [seconds, milliseconds]
+	  
 	clearInterval(Interval);
-	localStorage.removeItem('startTime');
+	//localStorage.removeItem('startTime');
 	[milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
 	document.getElementById("timer").innerHTML = '00 : 00 : 00 : 000';
 	// displaySeconds.innerHTML = seconds;
 	// displayMinutes.innerHTML = minutes;
+	//addTaskDuration()
 };
 
 function displayTimer() {

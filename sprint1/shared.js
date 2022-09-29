@@ -24,6 +24,8 @@ class Task {
         this._taskTag=tag;
         this._taskSprint=sprint;
         this._inSprint=isSprint;
+        this._taskDuration=[];
+
     }
     
     //getters
@@ -67,6 +69,10 @@ class Task {
         return this._inSprint;
     }
 
+    get taskDuration(){
+        return this._taskDuration;
+    }
+
     //setters
     set taskName(newtaskName) {
         this._taskName = newtaskName;
@@ -108,9 +114,17 @@ class Task {
         this._inSprint=newInSprint;
     }
 
+    set taskDuration(newtaskDuration){
+        this._taskDuration=newtaskDuration;
+    }
+
     addAssignee(assignee) {
         this._taskAssignee.push(assignee);
-}
+    }
+    
+    addTaskDuration(newtaskDuration){
+        this._taskDuration.push(newtaskDuration);
+    }
 
     fromData(data) {
         this._taskName = data._taskName;
@@ -124,6 +138,7 @@ class Task {
         this._taskAssignee=data._taskAssignee;
         this._taskSprint=data._taskSprint;
         this._inSprint=data._inSprint;
+        this._taskDuration=data._taskDuration;
 
         // this._taskAssignee=[];
         // for (let i in data.taskAssignee) {
@@ -163,7 +178,8 @@ class SavedTasks{
                  taskStatus: data._allTask[i].taskStatus,
                  taskType: data._allTask[i].taskType,
                  taskDescription: data._allTask[i].taskDescription,
-                 taskTag: data._allTask[i].taskTag
+                 taskTag: data._allTask[i].taskTag,
+                 taskDuration: data._allTask[i].taskDuration
              }
              this._allTask.push(obj)
          }
@@ -199,6 +215,24 @@ class Assignee{
 
     fromData(data){
         this._assigneeName=data._assigneeName;
+    }
+}
+
+class TaskDuration{
+    constructor(duration){
+        this._taskDuration=duration;
+    }
+
+    getTaskDuration(){
+        return this._taskDuration;
+    }
+
+    setAssigneeName(newTaskDuration){
+        this._taskDuration=newTaskDuration;
+    }
+
+    fromData(data){
+        this._taskDuration=data._taskDuration;
     }
 }
 
@@ -290,6 +324,7 @@ class SavedSprints{
 let task = new Task();
 let savedTasks = new SavedTasks();
 let assignee = new Assignee();
+let taskDuration = new TaskDuration();
 let taskListData = retrieveLSData(TASK_LIST_KEY);
 let taskData = retrieveLSData(TASK_KEY);
 

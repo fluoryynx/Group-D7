@@ -33,7 +33,7 @@ function addSprint() {
 
     console.log(savedSprints._allSprint);
 
-    savedSprints._allSprint.push([sprint]);
+    savedSprints._allSprint.push(sprint);
 
     updateLSData(SPRINT_LIST_KEY, savedSprints);
 
