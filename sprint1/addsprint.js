@@ -3,7 +3,6 @@
 if (checkLSData(SPRINT_LIST_KEY)) {
 	savedSprints.fromData(sprintListData);
 }
-
   
 function addSprint() {
     let sprintName = document.getElementById("sprintName").value;

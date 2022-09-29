@@ -3,6 +3,10 @@ if (checkLSData(SPRINT_LIST_KEY)) {
 	savedSprints.fromData(sprintListData);
 }
 
+if (checkLSData(TASK_LIST_KEY)) {
+	savedTasks.fromData(taskListData);
+}
+
 let arr = savedSprints._allSprint;
 let filteredTag2 = "";
 let sprintIndex = "";
@@ -59,11 +63,20 @@ function pageLoad() {
  
  
  function deleteSprint(index){
-	deleteIndex = index
+	 console.log(arr)
+	selectedSprintName=arr[index]._sprintName;
 	savedSprints._allSprint.splice(index, 1);
+	console.log(selectedSprintName);
+	console.log(savedTasks._allTask);
+
+	for (let i in savedTasks._allTask){
+		console.log(savedTasks._allTask);
+		if (savedTasks._allTask[i][0]._taskSprint==selectedSprintName){
+			savedTasks._allTask[i][0]._inSprint=false;
+		}
+	}
 	updateLSData(SPRINT_LIST_KEY,savedSprints);
 	updateLSData(TASK_LIST_KEY,savedTasks);
-
 	pageLoad();
 }
 
