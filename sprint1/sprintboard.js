@@ -59,9 +59,9 @@ function pageLoad() {
 												</div>
 												<img src="img/timer_icon.png" alt="lowpic" class="timerimg">
 												<timertext>
-												<p id = "timer">
-													00 : 00 : 00
-												</p>
+												<span id = "timer">
+													00 : 00 : 00 : 000
+												</span>
 												</timertext>
 												<br><br>
 												<div>
@@ -71,7 +71,7 @@ function pageLoad() {
 												</div>
 												<br>
 												<p>
-												<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick="deleteTask(${i})">  <i class="material-icons">delete</i> </button>
+												<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick="deleteSprintBoardTask(${i})">  <i class="material-icons">delete</i> </button>
 												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 												<button onclick="edit(${i})" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored"> <i class="large material-icons">edit</i> </button>
 
@@ -110,50 +110,66 @@ function deleteSprintBoardTask(index) {
 }
 
 //variables for timer
-let [seconds, minutes, hours] = [0,0,0];
+let [milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
 // var startButton = document.getElementById("startButton");
 // var stopButton = document.getElementById("stopButton");
 // var resetButton = document.getElementById("resetButton");
 //let timerView = document.querySelector(".timer");
-console.log(document.getElementById("timer").innerHTML);
+//console.log(document.getElementById("timer").innerHTML);
+let startTime;
 let Interval = null;
 
-function startTimer(){
-	if(Interval !== null){
+function startTimer() {
+	if (Interval !== null) {
 		clearInterval(Interval);
 	}
+	startTime = parseInt(localStorage.getItem('startTime') || Date.now());
+	localStorage.setItem('startTime', startTime);
 	Interval = setInterval(displayTimer, 10);
+	window.onload = function () {
+		startTimer();
+	}
 };
 
-function stopTimer(){
+function stopTimer() {
 	clearInterval(Interval);
 };
 
-function resetTimer(){
+function resetTimer() {
 	clearInterval(Interval);
-    [seconds,minutes,hours] = [0,0,0,0];
-    timerView.innerHTML = '00 : 00 : 00';
+	localStorage.removeItem('startTime');
+	[milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
+	document.getElementById("timer").innerHTML = '00 : 00 : 00 : 000';
 	// displaySeconds.innerHTML = seconds;
 	// displayMinutes.innerHTML = minutes;
 };
 
-function displayTimer(){
+function displayTimer() {
+	milliseconds += 10;
+	if (milliseconds == 1000) {
+		milliseconds = 0;
+		seconds++;
+		if (seconds == 60) {
+			seconds = 0;
+			minutes++;
 
-	seconds++;
-        if(seconds == 60){
-            seconds = 0;
-            minutes++;
+			if (minutes == 60) {
+				minutes = 0;
+				hours++;
+			}
+		}
+	}
+	let h = hours < 10 ? "0" + hours : hours;
+	let m = minutes < 10 ? "0" + minutes : minutes;
+	let s = seconds < 10 ? "0" + seconds : seconds;
+	let ms = milliseconds < 10 ? "00" + milliseconds : milliseconds < 100 ? "0" + milliseconds : milliseconds;
 
-            if(minutes == 60){
-                minutes = 0;
-                hours++;
-            }
-        }
-		let h = hours < 10 ? "0" + hours : hours;
-		let m = minutes < 10 ? "0" + minutes : minutes;
-		let s = seconds < 10 ? "0" + seconds : seconds;
+	document.getElementById("timer").innerHTML = `${h} : ${m} : ${s} : ${ms}`;
 
-		timerView.innerHTML = `${h} : ${m} : ${s}`;
+	window.onload = function () {
+		displayTimer();
+	}
+
 }
 
 pageLoad();
