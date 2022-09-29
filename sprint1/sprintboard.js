@@ -118,6 +118,10 @@ let taskList = []
 let taskDurationList = []
 let storyPointList = []
 
+// Timer
+/**
+ * Retrieved from https://www.foolishdeveloper.com/2021/10/simple-stopwatch-using-javascript.html
+ */
 function startTimer() {
 	if (Interval !== null) {
 		clearInterval(Interval);
@@ -189,6 +193,11 @@ for (let i = 0; i < arr.length; i++){
 console.log(taskList)
 console.log(taskDurationList)
 
+
+// Burndown Chart
+/**
+ * Retrieved from https://jsfiddle.net/user/bcmoney/fiddles/
+ */
 $(function () {
 	$('#burndown').highcharts({
 	  title: {
