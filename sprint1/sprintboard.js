@@ -10,7 +10,7 @@ if (checkLSData(SPRINT_LIST_KEY)) {
 }
 
 arr=[]
-let sprintName=savedSprints._allSprint[tempSprintIndex][0]._sprintName;
+let sprintName=savedSprints._allSprint[tempSprintIndex]._sprintName;
 
 for (let i in savedTasks._allTask){
 	console.log(savedTasks._allTask[i][0]);
