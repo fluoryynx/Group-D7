@@ -55,6 +55,7 @@ function pageLoad() {
 	}
 	sprintList.innerHTML = sprintListInnerHTML;
  }
+}
  
  
  function deleteSprint(index){
