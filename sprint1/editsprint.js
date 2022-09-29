@@ -24,14 +24,14 @@ let selectedStatus="";
   selectedSprint = savedSprints._allSprint[itemIndex];
   console.log(selectedSprint);
 
-  editSprintNameRef.value = selectedSprint[0]._sprintName;
+  editSprintNameRef.value = selectedSprint._sprintName;
   editSprintStartingDateRef.value="";
-  editSprintStartingDateRef.value = selectedSprint[0]._sprintStartingDate;
+  editSprintStartingDateRef.value = selectedSprint._sprintStartingDate;
   editSprintEndingDateRef.value="";
-  editSprintEndingDateRef.value = selectedSprint[0]._sprintEndingDate;
+  editSprintEndingDateRef.value = selectedSprint._sprintEndingDate;
 
   //radio buttons
-  selectedStatus = selectedSprint[0]._sprintStatus;
+  selectedStatus = selectedSprint._sprintStatus;
   document.getElementById("edit_"+selectedStatus).checked = true;
 
 function editSprint(index) {

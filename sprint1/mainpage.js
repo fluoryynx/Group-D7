@@ -9,7 +9,7 @@ if (checkLSData(SPRINT_LIST_KEY)) {
 }
 
 console.log(savedSprints._allSprint);
-
+console.log(savedTasks._allTask)
 let existingSprintNames=[]
 
 for (let i in savedSprints._allSprint){
@@ -36,11 +36,11 @@ let sprintName="";
 	let taskList = document.getElementById("taskList");
 
 
-	if (filteredTag != "") {
-		arr = searchTaskWithTag(filteredTag);
+	// if (filteredTag != "") {
+	// 	arr = searchTaskWithTag(filteredTag);
 
-	}
-	// console.log(arr);
+	// }
+	 console.log(arr);
 	let taskListInnerHTML = "";
 	for (let i in arr) {
 		if (arr[i][0]._inSprint==false){

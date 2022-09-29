@@ -15,7 +15,7 @@ function pageLoad() {
 	let sprintListInnerHTML = "";
 
 	for (let i in arr) {
-		if (i != "1") {
+	//	if (i != "1") {
 			sprintListInnerHTML += ` 
 		<div class="mdl-cell mdl-cell--4-col" >
 			<sprint>Sprint ${Number(i) + 1}</sprint>
@@ -51,8 +51,8 @@ function pageLoad() {
 					</div>
 				</div>
 			</div>  `
-		countdown(arr[i]._sprintEndingDate, i);
-	}
+	//	countdown(arr[i]._sprintEndingDate, i);
+//	}
 	sprintList.innerHTML = sprintListInnerHTML;
  }
 }
@@ -74,32 +74,32 @@ function viewBoard(index) {
 }
 
 
-function countdown(endDate, index) {
-	let countDownDate = new Date(endDate + " 23:59:59").getTime();
+// function countdown(endDate, index) {
+// 	let countDownDate = new Date(endDate + " 23:59:59").getTime();
 
-	// Update the count down every 1 second
-	let x = setInterval(function () {
+// 	// Update the count down every 1 second
+// 	let x = setInterval(function () {
 
-		// Get today's date and time
-		let now = new Date().getTime();
+// 		// Get today's date and time
+// 		let now = new Date().getTime();
 
-		// Find the distance between now and the count down date
-		let distance = countDownDate - now;
+// 		// Find the distance between now and the count down date
+// 		let distance = countDownDate - now;
 
-		// Time calculations for days, hours, minutes and seconds
-		let days = Math.floor(distance / (1000 * 60 * 60 * 24));
-		let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-		let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-		let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+// 		// Time calculations for days, hours, minutes and seconds
+// 		let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+// 		let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+// 		let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+// 		let seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-		document.getElementById("timer" + index).innerHTML = days + "d " + hours + "h "
-			+ minutes + "m " + seconds + "s ";
+// 		document.getElementById("timer" + index).innerHTML = days + "d " + hours + "h "
+// 			+ minutes + "m " + seconds + "s ";
 
-		if (distance < 0) {
-			clearInterval(x);
-			document.getElementById("timer" + index).innerHTML = "overdue";
-		}
-	}, 1000);
-}
+// 		if (distance < 0) {
+// 			clearInterval(x);
+// 			document.getElementById("timer" + index).innerHTML = "overdue";
+// 		}
+// 	}, 1000);
+// }
 
 pageLoad();
