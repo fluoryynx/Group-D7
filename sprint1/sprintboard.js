@@ -114,6 +114,9 @@ function deleteSprintBoardTask(index) {
 let [milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
 let startTime;
 let Interval = null;
+let taskList = []
+let taskDurationList = []
+let storyPointList = []
 
 function startTimer() {
 	if (Interval !== null) {
@@ -130,9 +133,14 @@ function stopTimer() {
 
 function resetTimer(index) {
 	// change to hours and minutes
-	taskDuration = arr[index]
-	taskDuration._taskDuration = [seconds, milliseconds]
-	  
+	taskDurationIndex = arr[index]
+	taskDurationIndex._taskDuration = [hours, minutes, seconds, milliseconds]
+
+	for (let i = 0; i < arr.length; i++){
+		taskDurationList.push(arr[i]._taskDuration.seconds)
+		storyPointList.push(arr[i].storyPoint * 2)
+	}
+
 	clearInterval(Interval);
 	//localStorage.removeItem('startTime');
 	[milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
@@ -141,6 +149,8 @@ function resetTimer(index) {
 	// displayMinutes.innerHTML = minutes;
 	//addTaskDuration()
 };
+
+console.log(taskDurationList)
 
 function displayTimer() {
 	milliseconds += 10;
@@ -169,5 +179,71 @@ function displayTimer() {
 	}
 
 }
+
+for (let i = 0; i < arr.length; i++){
+	taskList.push(arr[i]._taskName)
+	taskDurationList.push(arr[i]._taskDuration[0])
+	storyPointList.push(arr[i].storyPoint * 2)
+}
+
+console.log(taskList)
+console.log(taskDurationList)
+
+$(function () {
+	$('#burndown').highcharts({
+	  title: {
+		text: 'Burndown Chart',
+		x: -20 //center
+	  },
+	  colors: ['blue', 'red'],
+	  plotOptions: {
+		line: {
+		  lineWidth: 3
+		},
+		tooltip: {
+		  hideDelay: 200
+		}
+	  },
+	  xAxis: {
+		title: {
+			text: 'Task'
+		  },
+		categories: [taskList[0], taskList[1], taskList[2]]
+	  },
+	  yAxis: {
+		title: {
+		  text: 'Hours'
+		},
+		plotLines: [{
+		  value: 0,
+		  width: 1
+		}]
+	  },
+	  tooltip: {
+		valueSuffix: ' hrs',
+		crosshairs: true,
+		shared: true
+	  },
+	  legend: {
+		layout: 'vertical',
+		align: 'right',
+		verticalAlign: 'middle',
+		borderWidth: 0
+	  },
+	  series: [{
+		name: 'Ideal Velocity',
+		color: 'rgba(255,0,0,0.25)',
+		lineWidth: 2,
+		data: [storyPointList[0], storyPointList[1], storyPointList[2]]
+	  }, {
+		name: 'Actual Velocity',
+		color: 'rgba(0,120,200,0.75)',
+		marker: {
+		  radius: 6
+		},
+		data: [taskDurationList[0], taskDurationList[1], taskDurationList[2]]
+	  }]
+	});
+  });
 
 pageLoad();
