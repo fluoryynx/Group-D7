@@ -19,8 +19,8 @@ function pageLoad() {
 	let sprintListInnerHTML = "";
 
 	for (let i in arr) {
-	//	if (i != "1") {
-			sprintListInnerHTML += ` 
+		//	if (i != "1") {
+		sprintListInnerHTML += ` 
 		<div class="mdl-cell mdl-cell--4-col" >
 			<sprint>Sprint ${Number(i) + 1}</sprint>
 			<br><br>
@@ -55,35 +55,37 @@ function pageLoad() {
 					</div>
 				</div>
 			</div>  `
-	//	countdown(arr[i]._sprintEndingDate, i);
-//	}
-	sprintList.innerHTML = sprintListInnerHTML;
- }
+		//	countdown(arr[i]._sprintEndingDate, i);
+		//	}
+		sprintList.innerHTML = sprintListInnerHTML;
+	}
 }
- 
- 
- function deleteSprint(index){
-	 console.log(arr)
-	selectedSprintName=arr[index]._sprintName;
+
+
+function deleteSprint(index) {
+	console.log(arr)
+	selectedSprintName = arr[index]._sprintName;
 	savedSprints._allSprint.splice(index, 1);
 	console.log(selectedSprintName);
 	console.log(savedTasks._allTask);
 
-	for (let i in savedTasks._allTask){
+	for (let i in savedTasks._allTask) {
 		console.log(savedTasks._allTask);
-		if (savedTasks._allTask[i][0]._taskSprint==selectedSprintName){
-			savedTasks._allTask[i][0]._inSprint=false;
+		if (savedTasks._allTask[i][0]._taskSprint == selectedSprintName) {
+			savedTasks._allTask[i][0]._inSprint = false;
 		}
 	}
-	updateLSData(SPRINT_LIST_KEY,savedSprints);
-	updateLSData(TASK_LIST_KEY,savedTasks);
+	updateLSData(SPRINT_LIST_KEY, savedSprints);
+	updateLSData(TASK_LIST_KEY, savedTasks);
+
 	pageLoad();
+
 }
 
 
 function viewBoard(index) {
 	updateLSData(SPRINT_NAME_KEY, index)
-    window.location = "sprintboard.html";
+	window.location = "sprintboard.html";
 }
 
 
