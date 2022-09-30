@@ -96,15 +96,17 @@ function deleteSprintBoardTask(index) {
 
 	let tempIndex = "";
 
-	console.log(savedTasks._allTask);
-
 	for (let i in savedTasks._allTask) {
-		if (savedTasks._allTask[i][0] == theSelectedTask) {
+		console.log(savedTasks._allTask[i][0]==theSelectedTask)
+		console.log(savedTasks._allTask[i][0])
+		console.log(theSelectedTask)
+		if (savedTasks._allTask[i][0]._taskName == theSelectedTask._taskName) {
+			console.log('found')
 			tempIndex = i;
 		}
 	}
-
-	savedTasks._allTask[tempIndex]._inSprint = false;
+	console.log(tempIndex)
+	savedTasks._allTask[tempIndex][0]._inSprint = false;
 	updateLSData(TASK_LIST_KEY, savedTasks);
 	//updateLSData(SPRINT_LIST_KEY,savedSprints);
 	pageLoad();
@@ -186,7 +188,7 @@ function displayTimer() {
 
 for (let i = 0; i < arr.length; i++){
 	taskList.push(arr[i]._taskName)
-	taskDurationList.push(arr[i]._taskDuration[0])
+	taskDurationList.push(arr[i]._taskDuration)
 	storyPointList.push(arr[i].storyPoint * 2)
 }
 
