@@ -31,7 +31,7 @@ function pageLoad() {
 					<div class="mdl-card__supporting-text">
 						<div class="row">
 							<div class="column">
-								<sprintname>Sprint </sprintname><sprintnametext>${arr[i]._sprintName}</sprintnametext>
+								<sprintname></sprintname><sprintnametext>${arr[i]._sprintName}</sprintnametext>
 								<br><br>
 								<fromdate>From:</fromdate>
 								<br>

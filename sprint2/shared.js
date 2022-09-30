@@ -25,12 +25,17 @@ class Task {
         this._taskSprint=sprint;
         this._inSprint=isSprint;
         this._taskDuration=[];
-
+        this._startTime="";
+        this._taskCompletionTime="";
     }
     
     //getters
     get taskName() {
         return this._taskName;
+    }
+
+    get taskCompletionTime(){
+        return this._taskCompletionTime;
     }
 
     get taskAssignee() {
@@ -71,6 +76,10 @@ class Task {
 
     get taskDuration(){
         return this._taskDuration;
+    }
+
+    get startTime(){
+        return this._startTime;
     }
 
     //setters
@@ -118,6 +127,14 @@ class Task {
         this._taskDuration=newtaskDuration;
     }
 
+    set taskTime(newTaskTime){
+        this._taskName=newTaskTime;
+    }
+
+    set taskCompletionTime(newTaskCompletionTime){
+this._taskCompletionTime=newTaskCompletionTime;
+    }
+
     addAssignee(assignee) {
         this._taskAssignee.push(assignee);
     }
@@ -139,6 +156,8 @@ class Task {
         this._taskSprint=data._taskSprint;
         this._inSprint=data._inSprint;
         this._taskDuration=data._taskDuration;
+        this._taskTime=data._taskTime;
+        this._taskCompletionTime=data._taskCompletionTime;
 
         // this._taskAssignee=[];
         // for (let i in data.taskAssignee) {
@@ -179,7 +198,9 @@ class SavedTasks{
                  taskType: data._allTask[i].taskType,
                  taskDescription: data._allTask[i].taskDescription,
                  taskTag: data._allTask[i].taskTag,
-                 taskDuration: data._allTask[i].taskDuration
+                 taskDuration: data._allTask[i].taskDuration,
+                 taskTime: data._allTask[i].taskTime,
+                 taskCompletionTime: data._allTask[i].taskCompletionTime
              }
              this._allTask.push(obj)
          }
