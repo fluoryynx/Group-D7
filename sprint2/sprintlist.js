@@ -19,7 +19,6 @@ function pageLoad() {
 	let sprintListInnerHTML = "";
 
 	for (let i in arr) {
-		//	if (i != "1") {
 		sprintListInnerHTML += ` 
 		<div class="mdl-cell mdl-cell--4-col" >
 			<sprint>Sprint ${Number(i) + 1}</sprint>
@@ -55,8 +54,6 @@ function pageLoad() {
 					</div>
 				</div>
 			</div>  `
-		//	countdown(arr[i]._sprintEndingDate, i);
-		//	}
 		sprintList.innerHTML = sprintListInnerHTML;
 	}
 }
