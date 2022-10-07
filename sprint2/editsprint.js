@@ -18,11 +18,8 @@ let selectedStatus="";
 
 
   itemIndex = retrieveLSData(SPRINT_INDEX_KEY);
-  console.log(savedSprints._allSprint)
-  console.log(itemIndex);
 
   selectedSprint = savedSprints._allSprint[itemIndex];
-  console.log(selectedSprint);
 
   editSprintNameRef.value = selectedSprint._sprintName;
   editSprintStartingDateRef.value="";
@@ -30,27 +27,15 @@ let selectedStatus="";
   editSprintEndingDateRef.value="";
   editSprintEndingDateRef.value = selectedSprint._sprintEndingDate;
 
-  //radio buttons
-  selectedStatus = selectedSprint._sprintStatus;
-  document.getElementById("edit_"+selectedStatus).checked = true;
-
 function editSprint(index) {
   updateLSData(SPRINT_INDEX_KEY, index)
   window.location = "editsprint.html";
 }
 
-
 /**
 * Redirect user to main page 
 */
 function submit() {
-
-  if (edit_Active.checked) {
-    sprintStatus2 = "Active";
-  }
-  else if (edit_Completed.checked) {
-    sprintStatus2 = "Completed";
-  }
 
   selectedSprint._sprintName = editSprintNameRef.value;
   if (editSprintEndingDateRef.value >= editSprintStartingDateRef.value) {
@@ -61,7 +46,25 @@ function submit() {
     alert("Please ensure that the End Date must be later than Start Date. Try changing the dates, and try again.");
     return false;
   }
+
+  let sprintStatus2 ="";
+  let today=new Date().toISOString();
+
+  if (editSprintStartingDateRef.value>today){
+      sprintStatus2="have_not_started";
+  }
+  if (editSprintStartingDateRef.value<=today && editSprintEndingDateRef.value>=today) {
+      sprintStatus2 = "Active";
+  }
+  if (editSprintEndingDateRef.value<today && editSprintStartingDateRef.value<today) {
+      sprintStatus2 = "Completed";
+  }
+
   selectedSprint._sprintStatus = sprintStatus2;
+
+  console.log(editSprintStartingDateRef.value)
+  console.log(today)
+  console.log(sprintStatus2)
 
   savedSprints._allSprint[itemIndex] = selectedSprint;
 

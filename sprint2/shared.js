@@ -259,7 +259,7 @@ class TaskDuration{
 
 
 class Sprint {
-    constructor(name, startingdate="", endingdate="",status="") {
+    constructor(name, startingdate="", endingdate="",status="have_not_started") {
         this._sprintName = name;
         this._sprintStartingDate =startingdate;
         this._sprintEndingDate = endingdate;
