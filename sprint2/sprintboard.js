@@ -104,6 +104,10 @@ function deleteSprintBoardTask(index) {
 			tempIndex = i;
 		}
 	}
+
+		savedTasks._allTask[tempIndex][0]._inSprint = false;
+		updateLSData(TASK_LIST_KEY, savedTasks);
+		pageLoad();
 }
 
 function markAsDone(index){
@@ -120,7 +124,7 @@ function markAsDone(index){
 		}
 	}
 	//savedTasks._allTask[tempIndex][0]._inSprint = false;
-	savedTasks._allTask[tempIndex][0]._taskStatus = "";
+	savedTasks._allTask[tempIndex][0]._taskStatus = "done";
 	updateLSData(TASK_LIST_KEY, savedTasks);
 	pageLoad();
 }
