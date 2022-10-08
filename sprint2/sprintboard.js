@@ -64,7 +64,7 @@ function pageLoad() {
 												<p id=${stopwatchId}> ${arr[i]._taskCompletionTime}</p>
 												<br><br>
 												<div>
-													<button onclick="startTimer(${i})" id="startButton">Start/ Reset</button>
+													<button onclick="startTimer(${i})" id="startButton">Start / Reset </button>
 													<button onclick="stopTimer(${i})" id="stopButton">Stop</button>
 												</div>
 												<br>
@@ -72,7 +72,9 @@ function pageLoad() {
 												<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick="deleteSprintBoardTask(${i})">  <i class="material-icons">delete</i> </button>
 												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 												<button onclick="edit(${i})" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored"> <i class="large material-icons">edit</i> </button>
-
+												<br>
+												<br>
+												<button onclick="markAsDone(${i})" id="markAsDone">Mark as done ✅</button>
 												</p>
 												<br>
 											</div>
@@ -102,12 +104,27 @@ function deleteSprintBoardTask(index) {
 			tempIndex = i;
 		}
 	}
+}
 
-	savedTasks._allTask[tempIndex][0]._inSprint = false;
+function markAsDone(index){
+	//arr[index]._inSprint = false;
+	arr[index]._taskStatus= "done"
+
+	theSelectedTask = arr[index];
+
+	let tempIndex = "";
+
+	for (let i in savedTasks._allTask) {
+		if (savedTasks._allTask[i][0]._taskName == theSelectedTask._taskName) {
+			tempIndex = i;
+		}
+	}
+	//savedTasks._allTask[tempIndex][0]._inSprint = false;
+	savedTasks._allTask[tempIndex][0]._taskStatus = "";
 	updateLSData(TASK_LIST_KEY, savedTasks);
-	//updateLSData(SPRINT_LIST_KEY,savedSprints);
 	pageLoad();
 }
+
 
 //variables for timer
 let [milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
@@ -137,13 +154,6 @@ function startTimer(index) {
 
 	updateLSData(TASK_LIST_KEY, savedTasks);
 	countup(savedTasks._allTask[tempIndex][0]._startTime, index);
-
-	// if (Interval !== null) {
-	// 	clearInterval(Interval);
-	// }
-	// startTime = parseInt(localStorage.getItem('startTime') || Date.now());
-	// localStorage.setItem('startTime', startTime);
-	//Interval = setInterval(displayTimer, 10);
 };
 
 function stopTimer(index) {
@@ -173,12 +183,9 @@ function resetTimer(index) {
 	}
 
 	clearInterval(Interval);
-	//localStorage.removeItem('startTime');
 	[milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
 	document.getElementById("timer").innerHTML = '00 : 00 : 00 : 000';
-	// displaySeconds.innerHTML = seconds;
-	// displayMinutes.innerHTML = minutes;
-	//addTaskDuration()
+
 };
 
 console.log(taskDurationList)
@@ -217,33 +224,6 @@ function countup(startTime, index) {
 
 }
 
-// function displayTimer() {
-// 	milliseconds += 10;
-// 	if (milliseconds == 1000) {
-// 		milliseconds = 0;
-// 		seconds++;
-// 		if (seconds == 60) {
-// 			seconds = 0;
-// 			minutes++;
-
-// 			if (minutes == 60) {
-// 				minutes = 0;
-// 				hours++;
-// 			}
-// 		}
-// 	}
-
-// 	let h = hours < 10 ? "0" + hours : hours;
-// 	let m = minutes < 10 ? "0" + minutes : minutes;
-// 	let s = seconds < 10 ? "0" + seconds : seconds;
-// 	let ms = milliseconds < 10 ? "00" + milliseconds : milliseconds < 100 ? "0" + milliseconds : milliseconds;
-
-// 	document.getElementById("timer").innerHTML = `${h} : ${m} : ${s} : ${ms}`;
-
-// 	window.onload = function () {
-// 		displayTimer();
-// 	}
-// }
 
 for (let i = 0; i < arr.length; i++) {
 	taskList.push(arr[i]._taskName)
