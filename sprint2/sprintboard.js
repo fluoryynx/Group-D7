@@ -64,8 +64,8 @@ function pageLoad() {
 												<p id=${stopwatchId}> ${arr[i]._taskCompletionTime}</p>
 												<br><br>
 												<div>
-													<button onclick="startTimer(${i})" id="startButton">Start / Reset </button>
-													<button onclick="stopTimer(${i})" id="stopButton">Stop</button>
+													<button onclick="startTimer(${i})" id="startButton">Start / Reset ⏯ </button>
+													<button onclick="stopTimer(${i})" id="stopButton">Stop ⏹</button>
 												</div>
 												<br>
 												<p>
