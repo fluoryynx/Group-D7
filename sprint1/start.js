@@ -10,3 +10,4 @@ function proceedToAdd(){
 function proceedToAddSprint(){
     window.location = "addsprint.html";
 }
+ 

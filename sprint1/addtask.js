@@ -29,17 +29,19 @@ function addTask() {
   let taskStatus="";
   let taskType= "";
   let taskTag="";
+  let taskPriority = "";
 
   let storyPoint = document.getElementById("storyPoint").value;
   let taskDescription = document.getElementById("taskDescription").value;
 
-  let taskPriority = "";
   //priorities 
   let checkForLow = document.getElementById("lowPrio");
   let checkForHigh = document.getElementById("highPrio");
   let checkForMedium = document.getElementById("mediumPrio");
   let checkForCritical = document.getElementById("criticalPrio");
+
   if (checkForLow.checked) {
+    console.log("low checked")
     taskPriority = "low";
   }
   else if (checkForMedium.checked) {
@@ -110,12 +112,17 @@ function addTask() {
   
     // updateLSData(TASK_KEY, task);
 
-    savedTasks._allTask.push([task]);
-    updateLSData(TASK_LIST_KEY, savedTasks);
+    // savedTasks._allTask.push([task]);
+    // updateLSData(TASK_LIST_KEY, savedTasks);
 
-    window.location = "mainpage.html";
+    // window.location = "mainpage.html";
 
   //}
+
+  if (story.checked) {
+    taskType = "story";
+  }
+
   if (bug.checked) {
     taskType = "bug";
   }
@@ -131,14 +138,21 @@ function addTask() {
   }
 
   if (taskName==""|| taskStatus=="" || taskType=="" || taskTag==""){
+    console.log(taskName);
+    console.log(taskStatus);
+    console.log(taskType);
+    console.log(taskTag);
+    console.log("sjadnjiwrfnerg")
+
     alert('task name, status,type and tag cannot be empty');
     return;
  }
+
  else{
   task.taskName = taskName;
   //task.taskAssignee = taskAssignee;
-  task.taskAssignee=tempArray;
-  console.log(tempArray);
+  task.taskAssignee=assigneeList;
+  console.log(assigneeList);
   console.log(task.taskAssignee);
   task.taskDate = taskDate;
   task.taskPriority = taskPriority;
@@ -189,4 +203,4 @@ function showAssignee(){
 function deleteAssignee(index){
 	assigneeList.splice(index, 1);
   showAssignee();
-}
+} 
