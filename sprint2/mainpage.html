@@ -205,6 +205,8 @@
             background-size: contain;
     }
   </style>
+
+<link rel="icon" type="image/x-icon" href="img/favicon.ico"/>
 </head>
 
 <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
@@ -219,9 +221,9 @@
     <div class="mdl-layout__drawer">
       <span class="mdl-layout-title"></span>
       <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="home.html">Home Page</a>
-          <a class="mdl-navigation__link" href="mainpage.html">Product Backlog</a>
-          <a class="mdl-navigation__link" href="sprintlist.html">Sprint List</a>
+        <a class="mdl-navigation__link" href="home.html">Home Page 🏠</a>
+        <a class="mdl-navigation__link" href="mainpage.html">Product Backlog 📝</a>
+        <a class="mdl-navigation__link" href="sprintlist.html">Sprint List ⏱</a>
       </nav>
     </div>
 
@@ -237,16 +239,13 @@
         <div class="mdl-cell mdl-cell--10-col">
           
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <select class="mdl-textfield__input" id="filterBy" name="tag">
+            <select class="mdl-textfield__input" id="filterBy" name="tag" onchange="filterByTag();">
               <option value="ui">UI </option>
               <option value="core">Core</option>
               <option value="testing">Testing</option>
             </select>
             <label class="mdl-textfield__label"> Filter by tags:</label>
           </div>
-          <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick="filterByTag()">
-            <i class="material-icons">filter_alt</i>
-          </button>
           <button onclick="removeFilter()"
             class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
             Remove Filter 

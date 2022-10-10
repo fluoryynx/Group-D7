@@ -8,9 +8,11 @@
     <link href="https://fonts.googleapis.com/css?family=Alegreya:300,400,700" rel="stylesheet">
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <script src="services.js"></script>
-    <link rel="stylesheet" href="addsprint.css">
+    <link rel="stylesheet" href="editsprint.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
+    <!-- favicon -->
     <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
     <title>Projectify</title>
 </head>
@@ -29,9 +31,9 @@
         <div class="mdl-layout__drawer">
             <span class="mdl-layout-title"></span>
             <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" href="home.html">Home Page</a>
-                <a class="mdl-navigation__link" href="mainpage.html">Product Backlog</a>
-                <a class="mdl-navigation__link" href="sprintlist.html">Sprint List</a>
+                <a class="mdl-navigation__link" href="home.html">Home Page 🏠</a>
+                <a class="mdl-navigation__link" href="mainpage.html">Product Backlog 📝</a>
+                <a class="mdl-navigation__link" href="sprintlist.html">Sprint List ⏱</a>
             </nav>
         </div>
         <main class="mdl-layout__content">
@@ -41,33 +43,27 @@
                         <br>
                         <br>
                         <img src="img/task.png" width="40" height="35" class="taskimage">
-                        <input type="text" class="sprintname" id="sprintName" placeholder="Sprint Name" style="text-align: left">
+                        <input type="text" class="sprintname" id="editSprintName" placeholder="Sprint Name" style="text-align: left">
                         <br>
                         <br>
                         <span class="tags">From</span>
                         <br>
                         <br>
-                        <input type="date" id="sprintStartingDate">
+                        <input type="date" id="editSprintStartingDate">
                         <br>
                         <br>
                         <span class="tags">To</span>
                         <br>
                         <br>
-                        <input type="date" id="sprintEndingDate">
+                        <input type="date" id="editSprintEndingDate">
                         <br>
                         <br>
                         <span class="tags">Status</span>
                         <br> 
-                        <br> 
-                        <input type="radio" id="active"  name="sprintStatus">
-                            <label class="status"> <spanactive>Active</spanactive></label>
-                        <input type="radio" id="completed"  name="sprintStatus">
-                            <label class="status"> <spancompleted>Completed</spancompleted></label>
-                        <br> 
                         <br>
                         <br>        
                         <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" 
-                        id="addSprint" onclick="addSprint()">Add Sprint</button>
+                        onclick=submit()>Save Changes</button>
                         <br>
                         <br>
                     </div>
@@ -78,8 +74,10 @@
         </main>
     </div>
     <script src="shared.js"></script>
-    <script src="addsprint.js"></script>
+    <script src="start.js"></script>
+    <script src="sprintlist.js"></script>
+    <script src="editsprint.js"></script>
 </body>
 
 </html>
-   
+ 
