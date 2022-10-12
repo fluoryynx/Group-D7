@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_purple-purple.min.css" />
+    <link rel="stylesheet" href="addtask.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya:300,400,700" rel="stylesheet">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script src="services.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico"/>
+<title>Projectify</title>
+</head>
+
+<body>
+    <!-- Always shows a header, even in smaller screens. -->
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header mdl-layout__header--transparent">
+            <div class="mdl-layout__header-row">
+                <span>
+                    <img src="img/logo.png" width="80" height="80"></span>
+                    <h3 class="h1">Projectify</h3>
+                <div class="mdl-layout-spacer"></div>
+            </div>
+        </header>
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title"></span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="home.html">Home Page 🏠</a>
+                <a class="mdl-navigation__link" href="mainpage.html">Product Backlog 📝</a>
+                <a class="mdl-navigation__link" href="sprintlist.html">Sprint List ⏱</a>
+                <a class="mdl-navigation__link" href="teamdashboard.html">Team Dashboard</a>
+            </nav>
+        </div>
+        <main class="mdl-layout__content">
+            <div class="page-content">
+                <div class = "inner">
+                    <div class = "left">
+                        <br>
+                        <br>
+                        <span class="tags">New Member Name</span>
+                        <br>
+                        <br>
+                        <input type="text" class="mdl-textfield__input" id="memberName" placeholder="New Member Name">
+                        <br>
+                        <br>
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" id="add" onclick="addNewMember()">Add New Member</button>
+                        <br>
+                        <br>
+                    </div>
+                    <div class = "left"></div>
+            </div> 
+        </div>
+        </main>
+    </div>
+    <script src="shared.js"></script>
+    <script src="addnewmember.js"></script>
+</body>
+
+</html>
