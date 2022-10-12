@@ -12,6 +12,10 @@ const SPRINT_LIST_KEY="sprintlistkey";
 const SPRINT_INDEX_KEY="sprintindexkey";
 const SPRINT_NAME_KEY="sprintnamekey";
 
+// Declaration of constants for member
+const MEMBER_KEY="memberkey";
+const MEMBER_LIST_KEY="memberlistkey";
+
 class Task {
     constructor(name, date,priority,tag,status,description,type,sprint,isSprint=false) {
         this._taskName = name;
@@ -341,6 +345,56 @@ class SavedSprints{
     }
 }
 
+class Member {
+    constructor(name) {
+        this._memberName = name;
+    }
+
+    //getters
+    get memberName() {
+        return this._memberName;
+    }
+
+    //setters
+    set memberName(newMemberName) {
+        this._memberName = newMemberName;
+    }
+
+    fromData(memberData) {
+        this._memberName = memberData._memberName;
+    }
+}
+
+class SavedMembers{
+    constructor() {
+        this._allMember = [];
+    }
+
+    get allMember() {
+        return this._allMember
+    }
+
+    set allMember(newAllMember) {
+        this._allMember = newAllMember;
+    }
+
+    addMember(member) {
+        this._allMember.push(member);
+    }
+
+    fromData(memberData) {
+        this._allMember = [];
+
+        for (let i in memberData._allMember) {
+             let obj = {
+                memberName: memberData._allMember[i].memberName,
+             }
+             this._allMember.push(obj)
+         }
+         this._allMember = memberData._allMember;
+    }
+}
+
 // Declaration of global variables for task
 let task = new Task();
 let savedTasks = new SavedTasks();
@@ -354,4 +408,9 @@ let sprint = new Sprint();
 let savedSprints = new SavedSprints();
 let sprintListData = retrieveLSData(SPRINT_LIST_KEY);
 let sprintData = retrieveLSData(SPRINT_KEY);
- 
+
+// Declaration of global variables for member 
+let member = new Member();
+let savedMember = new SavedMembers();
+let memberListData = retrieveLSData(MEMBER_LIST_KEY);
+let memberData = retrieveLSData(MEMBER_KEY);
