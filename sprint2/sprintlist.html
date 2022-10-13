@@ -151,10 +151,21 @@
       color: black;
     }
   
+    have_not_started {
+      font-family: 'Open Sans';
+      font-size: 15.8px;
+      background-color: red;
+      color: black;
+      border-radius: 10px;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+      padding: 0 10px 0 10px;
+    }
+
     active {
       font-family: 'Open Sans';
       font-size: 15.8px;
-      background-color: #ffa9a9;
+      background-color: orange;
       color: black;
       border-radius: 10px;
       -webkit-box-decoration-break: clone;
@@ -184,6 +195,7 @@
             background-size: contain;
     }
   </style>
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico"/>
 </head>
  
 <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
@@ -197,9 +209,10 @@
     <div class="mdl-layout__drawer">
       <span class="mdl-layout-title"></span>
       <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="home.html">Home Page</a>
-          <a class="mdl-navigation__link" href="mainpage.html">Product Backlog</a>
-          <a class="mdl-navigation__link" href="sprintlist.html">Sprint List</a>
+        <a class="mdl-navigation__link" href="home.html">Home Page 🏠</a>
+        <a class="mdl-navigation__link" href="mainpage.html">Product Backlog 📝</a>
+        <a class="mdl-navigation__link" href="sprintlist.html">Sprint List ⏱</a>
+        <a class="mdl-navigation__link" href="teamdashboard.html">Team Dashboard</a>
       </nav>
     </div>
 
@@ -234,4 +247,4 @@
     <script src="editsprint.js"></script>
 </body>
  
-</html> 
+</html>  

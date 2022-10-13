@@ -16,7 +16,7 @@ for (let i in savedSprints._allSprint){
 	existingSprintNames.push(savedSprints._allSprint[i]._sprintName);
 }
 
-let arr = savedTasks._allTask;
+
 let filteredTag="";
 let taskInfo="";
 let taskIndex="";
@@ -29,13 +29,12 @@ let sprintName="";
  */
  function pageLoad() {
 	let taskList = document.getElementById("taskList");
-
+	let arr = savedTasks._allTask;
 
 	if (filteredTag != "") {
 		arr = searchTaskWithTag(filteredTag);
 	}
 
-	 console.log(arr);
 	let taskListInnerHTML = "";
 	for (let i in arr) {
 		if (arr[i][0]._inSprint==false){

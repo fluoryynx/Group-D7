@@ -10,4 +10,7 @@ function proceedToAdd(){
 function proceedToAddSprint(){
     window.location = "addsprint.html";
 }
- 
+
+function proceedToAddNewNember(){
+    window.location = "addnewmember.html";
+}
