@@ -89,12 +89,13 @@ function pageLoad() {
 	updateLSData(TASK_LIST_KEY,savedTasks);
 
 	pageLoad();
+
 }
 
 
 function viewBoard(index) {
 	updateLSData(SPRINT_NAME_KEY, index)
-    window.location = "sprintboard.html";
+	window.location = "sprintboard.html";
 }
 
 
