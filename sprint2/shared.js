@@ -31,6 +31,7 @@ class Task {
         this._taskDuration=[];
         this._startTime="";
         this._taskCompletionTime="";
+        this._taskTimeinHours=0;
     }
     
     //getters
@@ -40,6 +41,10 @@ class Task {
 
     get taskCompletionTime(){
         return this._taskCompletionTime;
+    }
+
+    get taskTimeinHours(){
+        return this._taskTimeinHours;
     }
 
     get taskAssignee() {
@@ -93,6 +98,9 @@ class Task {
 
     set taskAssignee(newtaskAssignee) {
         this._taskAssignee = newtaskAssignee;
+    }
+    set taskTimeinHours(newtaskTimeinHours) {
+        this._taskTimeinHours = newtaskTimeinHours;
     }
 
     set taskDate(newtaskDate) {

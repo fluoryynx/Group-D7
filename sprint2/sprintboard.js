@@ -218,6 +218,9 @@ function countup(startTime, index) {
 		savedTasks._allTask[index][0]._taskCompletionTime = days + "d " + hours + "h "
 		+ minutes + "m " + seconds + "s ";
 
+		savedTasks._allTask[index][0]._taskTimeinHours = days*24 + hours + minutes/60 + 
+		seconds/3600;
+
 		updateLSData(TASK_LIST_KEY, savedTasks);
 
 		if (savedTasks._allTask[index][0]._startTime == "") {
@@ -231,7 +234,7 @@ function countup(startTime, index) {
 
 for (let i = 0; i < arr.length; i++) {
 	taskList.push(arr[i]._taskName)
-	taskDurationList.push(arr[i]._taskDuration)
+	taskDurationList.push(arr[i]._taskTimeinHours)
 	storyPointList.push(arr[i].storyPoint * 2)
 }
 

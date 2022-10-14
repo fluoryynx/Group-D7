@@ -1,7 +1,7 @@
 // Check local storage whether there is data
 // If there is, store it into savedTasks
-if (checkLSData(MEMBER_LIST_KEY)) {
-	savedMember.fromData(memberListData);
+if (checkLSData(TASK_LIST_KEY)) {
+	savedTasks.fromData(taskListData);
 }
 
 if (checkLSData(MEMBER_LIST_KEY)) {
@@ -39,6 +39,64 @@ function deleteMember(index){
 	savedMember._allMember.splice(index, 1);
 	updateLSData(MEMBER_LIST_KEY,savedMember);
 	pageLoad();
+}
+
+let memberList = []
+let taskDurationList = []
+let arr = []
+let arr_member = savedMember._allMember
+
+console.log("member", arr_member)
+
+for (let i in savedTasks._allTask) {
+	arr.push(savedTasks._allTask[i][0])
+}
+
+console.log("task", arr)
+console.log('a', arr[1]._taskAssignee[0])
+
+for (let i = 0; i < arr_member.length; i++) {
+	memberList.push(arr_member[i][0]._memberName)
+}
+
+for (let i = 0; i < arr.length; i++) {
+	for (let j = 0; j < arr[i]._taskAssignee.length; j++) {
+		for (let k = 0; k < memberList.length; k++) {
+			if (arr[i]._taskAssignee[j] == memberList[k]){ 
+				taskDurationList.push(arr[i]._taskTimeinHours);
+			}
+		}
+		
+	}
+}
+
+console.log("task list", taskDurationList);
+console.log("members list", memberList);
+
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+function drawChart() {
+var data = google.visualization.arrayToDataTable([
+  ['Member', 'Number of Hours'],
+  [memberList[0], taskDurationList[0]],
+  [memberList[1], taskDurationList[1]],
+  [memberList[2], taskDurationList[2]],
+  [memberList[3], taskDurationList[3]],
+  [memberList[4], taskDurationList[4]],
+  [memberList[5], taskDurationList[5]],
+  [memberList[6], taskDurationList[6]],
+  [memberList[7], taskDurationList[7]],
+  [memberList[8], taskDurationList[8]],
+  [memberList[9], taskDurationList[9]]
+]);
+
+var options = {
+  title:'Total Number of Hours spent per member'
+};
+
+var chart = new google.visualization.BarChart(document.getElementById('myChart'));
+  chart.draw(data, options);
 }
 
 pageLoad();
