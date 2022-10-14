@@ -24,7 +24,6 @@ console.log(arr)
 function pageLoad() {
 
 	let sprintBoard = document.getElementById("sprint_board");
-
 	//change sprint board name according to the sprint name
 	document.getElementById("sprint_board_title").innerHTML = "&nbsp; &nbsp;" + sprintName + " Board"
 
@@ -90,6 +89,7 @@ function pageLoad() {
 
 	}
 	sprintBoard.innerHTML = sprintBoardInnerHTML;
+	countActualVelocity(tempSprintIndex)
 }
 
 function deleteSprintBoardTask(index) {
@@ -131,7 +131,7 @@ function markAsDone(index){
 
 
 //variables for timer
-let [milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
+let [days, hours, minutes, seconds] = [0, 0, 0, 0];
 let startTime;
 let Interval = null;
 let taskList = []
@@ -176,20 +176,27 @@ function stopTimer(index) {
 	updateLSData(TASK_LIST_KEY, savedTasks);
 };
 
-function resetTimer(index) {
+function countActualVelocity(index) {
 	// change to hours and minutes
-	taskDurationIndex = arr[index]
-	taskDurationIndex._taskDuration = [hours, minutes, seconds, milliseconds]
+	extractedDate = document.getElementById("stopwatch" + index).innerHTML;
+	var arr = extractedDate.split(" ");
+	console.log(extractedDate)
+	console.log(arr)
+	days = arr[1].split("d");
+	console.log(days[0])
+
+	taskDurationIndex = arr[index];
+	taskDurationIndex._taskDuration = [days[0], hours, minutes, seconds]
+
 
 	for (let i = 0; i < arr.length; i++) {
-		taskDurationList.push(arr[i]._taskDuration.seconds)
+		taskDurationList.push(arr[i]._taskDuration)
 		storyPointList.push(arr[i].storyPoint * 2)
 	}
 
-	clearInterval(Interval);
-	[milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
-	document.getElementById("timer").innerHTML = '00 : 00 : 00 : 000';
-
+	//clearInterval(Interval);
+	//[milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
+	//document.getElementById("stopwatch" + index).innerHTML;
 };
 
 console.log(taskDurationList)
@@ -231,13 +238,47 @@ function countup(startTime, index) {
 
 for (let i = 0; i < arr.length; i++) {
 	taskList.push(arr[i]._taskName)
-	taskDurationList.push(arr[i]._taskDuration)
+	taskDurationList.push(arr[i]._taskCompletionTime)
 	storyPointList.push(arr[i].storyPoint * 2)
 }
 
 console.log(taskList)
 console.log(taskDurationList)
 
+// create an array of date
+var startDate = savedSprints._allSprint[tempSprintIndex]._sprintStartingDate; //YYYY-MM-DD
+var endDate = savedSprints._allSprint[tempSprintIndex]._sprintEndingDate; //YYYY-MM-DD
+
+var getDateArray = function(start, end) {
+    var arr = new Array();
+    var dt = new Date(start);
+	var end2 = new Date(end)
+
+    while (dt <= end2) {
+        arr.push(new Date(dt));
+        dt.setDate(dt.getDate() + 1);
+    }
+    return arr;
+}
+
+var dateArr = getDateArray(startDate, endDate);
+var formattedDate = new Array();
+
+for (var i = 0; i < dateArr.length; i++) {
+	var d = new Date(dateArr[i]),
+		month = '' + (d.getMonth() + 1),
+		day = '' + d.getDate(),
+		year = d.getFullYear();
+
+	if (month.length < 2) 
+		month = '0' + month;
+	if (day.length < 2) 
+		day = '0' + day;
+	formattedDate.push([year, month, day].join('-'));
+}
+
+//console.log(dateArr)
+//console.log(formattedDate)
 
 // Burndown Chart
 /**
@@ -260,9 +301,9 @@ $(function () {
 		},
 		xAxis: {
 			title: {
-				text: 'Task'
+				text: 'Days'
 			},
-			categories: [taskList[0], taskList[1], taskList[2]]
+			categories: [formattedDate[0], formattedDate[1], formattedDate[2], formattedDate[3], formattedDate[4], formattedDate[5], formattedDate[6], formattedDate[7]]
 		},
 		yAxis: {
 			title: {
