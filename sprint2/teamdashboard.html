@@ -58,7 +58,13 @@
 
     membername {
             font-family: 'Open Sans';
-            font-size: 16px;
+            font-size: 18px;
+            color: black;
+    }
+
+    membermainpage {
+            font-family: 'Open Sans';
+            font-size: 30px;
             color: black;
     }
 
@@ -68,11 +74,17 @@
             color: gray;
     }
 
-    member {
-            font-family: 'Open Sans';
-            font-size: 16px;
-            color: gray;
+    .assigneeimg {
+          width: 60px;
+          height: 60px;
     }
+
+    .memberimg {
+    width: 55px;
+    height: 40px;
+    margin-bottom: 16px;
+}
+
   </style>
 
 <link rel="icon" type="image/x-icon" href="img/favicon.ico"/>
@@ -112,7 +124,9 @@
             id="add" onclick="proceedToAddNewNember()">
             <i class="material-icons">add</i>
             </button>
-            <h3 class="h1">&nbsp; &nbsp; Member(s)</h3>
+            <br><br>
+            <membermainpage>&nbsp; &nbsp; Member(s)&nbsp;</membermainpage>
+            <img src="img/member.png" width="40" height="40" class="memberimg">
           <div class="mdl-grid" id="memberList">
             <!-- Placeholder for members list -->
         </div>
