@@ -89,7 +89,8 @@ function pageLoad() {
 
 	}
 	sprintBoard.innerHTML = sprintBoardInnerHTML;
-	countActualVelocity(tempSprintIndex)
+	calActualVelocity()
+	calIdealVelocity()
 }
 
 function deleteSprintBoardTask(index) {
@@ -137,6 +138,7 @@ let Interval = null;
 let taskList = []
 let taskDurationList = []
 let storyPointList = []
+let idealVelocity = []
 
 // Timer
 /**
@@ -176,22 +178,21 @@ function stopTimer(index) {
 	updateLSData(TASK_LIST_KEY, savedTasks);
 };
 
-function countActualVelocity(index) {
+function calActualVelocity() {
 	// change to hours and minutes
-	extractedDate = document.getElementById("stopwatch" + index).innerHTML;
-	var arr = extractedDate.split(" ");
-	console.log(extractedDate)
-	console.log(arr)
-	days = arr[1].split("d");
-	console.log(days[0])
-
-	taskDurationIndex = arr[index];
-	taskDurationIndex._taskDuration = [days[0], hours, minutes, seconds]
-
-
 	for (let i = 0; i < arr.length; i++) {
-		taskDurationList.push(arr[i]._taskDuration)
-		storyPointList.push(arr[i].storyPoint * 2)
+		extractedDate = document.getElementById("stopwatch" + i ).innerHTML;
+		var arr1 = extractedDate.split(" ");
+		console.log(extractedDate)
+		console.log(arr1)
+		days = arr1[1].split("d");
+		console.log(days[0])
+
+		// taskDurationIndex = arr1[index];
+		// taskDurationIndex._taskDuration = [days[0], hours, minutes, seconds]
+
+		// taskDurationList.push(arr[i]._taskDuration)
+		// storyPointList.push(arr[i].storyPoint * 2)
 	}
 
 	//clearInterval(Interval);
@@ -200,7 +201,6 @@ function countActualVelocity(index) {
 };
 
 console.log(taskDurationList)
-
 
 function countup(startTime, index) {
 
@@ -238,7 +238,7 @@ function countup(startTime, index) {
 
 for (let i = 0; i < arr.length; i++) {
 	taskList.push(arr[i]._taskName)
-	taskDurationList.push(arr[i]._taskCompletionTime)
+	taskDurationList.push(arr[i]._taskDuration)
 	storyPointList.push(arr[i].storyPoint * 2)
 }
 
@@ -279,6 +279,26 @@ for (var i = 0; i < dateArr.length; i++) {
 
 //console.log(dateArr)
 //console.log(formattedDate)
+console.log(storyPointList)
+
+function linspace(startVal, endVal, space){
+	var arr = [];
+	var step = (endVal - startVal) / (space - 1);
+	for (var i = 0; i < space; i++){
+		arr.push(startVal + (step * i));
+	}
+	return arr
+}
+
+var totalStoryPoints = 0;
+for(var j = 0; j < storyPointList.length; j++){
+	totalStoryPoints += Number(storyPointList[j])
+}
+
+function calIdealVelocity(){
+	idealVelocity = linspace(totalStoryPoints, 0, arr.length)
+	//console.log(idealVelocity)
+}
 
 // Burndown Chart
 /**
@@ -303,7 +323,7 @@ $(function () {
 			title: {
 				text: 'Days'
 			},
-			categories: [formattedDate[0], formattedDate[1], formattedDate[2], formattedDate[3], formattedDate[4], formattedDate[5], formattedDate[6], formattedDate[7]]
+			categories: [formattedDate[0], formattedDate[1], formattedDate[2], formattedDate[3], formattedDate[4]]
 		},
 		yAxis: {
 			title: {
@@ -329,7 +349,7 @@ $(function () {
 			name: 'Ideal Velocity',
 			color: 'rgba(255,0,0,0.25)',
 			lineWidth: 2,
-			data: [storyPointList[0], storyPointList[1], storyPointList[2]]
+			data: [idealVelocity[0], idealVelocity[1], idealVelocity[2], idealVelocity[3], idealVelocity[4]]
 		}, {
 			name: 'Actual Velocity',
 			color: 'rgba(0,120,200,0.75)',
