@@ -20,19 +20,17 @@ if (checkLSData(MEMBER_LIST_KEY)) {
 	let memberListInnerHTML = "";
 	for (let i in arr) {
 			memberListInnerHTML += `  
-			<div class="mdl-cell mdl-cell--4-col" >
-				<div class="demo-list-action mdl-list">
-                    <div class="mdl-list__item">
+			<div class="mdl-cell mdl-cell--4-col" style="background-color:#ebdae3; border: 1px solid black; border-radius: 40px; height: auto">
+
                         <span class="mdl-list__item-primary-content">
-                            <i class="material-icons mdl-list__item-avatar">person</i>
-                            <span>${arr[i][0]._memberName}</span>
+							<img src="img/assignee.png" alt="lowpic" class="assigneeimg">
+                            <membername>&nbsp;&nbsp;${arr[i][0]._memberName}&nbsp;&nbsp;</membername>
                         </span>
 						<button class="mdl-button mdl-js-button mdl-button--primary" onclick="viewMemberDetails(${i})">
   							Details
 						</button>
                         <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick="deleteMember(${i})">  <i class="material-icons">delete</i> </button>
-					</div>
-				</div>
+				
 			</div>	`
 	}
 	memberList.innerHTML = memberListInnerHTML;
