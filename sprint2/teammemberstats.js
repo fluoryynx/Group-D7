@@ -12,16 +12,17 @@ if (checkLSData(MEMBER_LIST_KEY)) {
 	savedMember.fromData(memberListData);
 }
 
-let memberName = savedMember._allMember[tempIndex][0]._memberName;
+if (checkLSData(SPRINT_LIST_KEY)) {
+	savedSprints.fromData(sprintListData);
+}
 
+let memberName = savedMember._allMember[tempIndex][0]._memberName;
 let filteredTask="";
 let memberList = []
 let taskDurationList = []
 let arr = []
 let arr_member = savedMember._allMember
-
-
-
+let assignedTask = [];
 
 for (let i in savedTasks._allTask) {
 	arr.push(savedTasks._allTask[i][0])
@@ -48,6 +49,7 @@ console.log("task list", taskDurationList);
 console.log("members list", memberList);
 
 function pageLoad() {
+
     filteredTask = memberName
 
 	let taskList = document.getElementById("taskList");
@@ -83,9 +85,77 @@ function pageLoad() {
 //one function to calculate average time spent
 //1. get value from input date
 //2. use that to count average time spent
+// create an array of date
+var startDate = savedSprints._allSprint[tempIndex]._sprintStartingDate; //YYYY-MM-DD
+var endDate = savedSprints._allSprint[tempIndex]._sprintEndingDate; //YYYY-MM-DD
+
+var getDateArray = function(start, end) {
+    var arr = new Array();
+    var date = new Date(start);
+	var end2 = new Date(end)
+
+    while (date <= end2) {
+        arr.push(new Date(date));
+        date.setDate(date.getDate() + 1);
+    }
+    return arr;
+}
+
+function getInputDate(start, end){
+    daterange = getDateArray(start, end)
+    var formattedDate = new Array();
+
+    for (var i = 0; i < daterange.length; i++) {
+        var d = new Date(daterange[i]),
+            month = '' + (d.getMonth() + 1),
+            day = '' + d.getDate(),
+            year = d.getFullYear();
+    
+        if (month.length < 2) 
+            month = '0' + month;
+        if (day.length < 2) 
+            day = '0' + day;
+        formattedDate.push([year, month, day].join('-'));
+    }
+    console.log(formattedDate)
+    return formattedDate
+}
+
+function calAverageTimePerDay(array1){
+    sum = 0
+    result = 0
+    for (let i = 0; i < assignedTask.length; i++){
+        sum += assignedTask[i][0]._taskTimeinHours
+        result = sum / array1.length
+    }
+    console.log(sum)
+    console.log(result)
+    return result
+}
+// for (var i = 0; i < dateArr.length; i++) {
+// 	var d = new Date(dateArr[i]),
+// 		month = '' + (d.getMonth() + 1),
+// 		day = '' + d.getDate(),
+// 		year = d.getFullYear();
+
+// 	if (month.length < 2) 
+// 		month = '0' + month;
+// 	if (day.length < 2) 
+// 		day = '0' + day;
+// 	formattedDate.push([year, month, day].join('-'));
+// }
+
+// function linspace(startVal, endVal, space){
+// 	var arr = [];
+// 	var step = (endVal - startVal) / (space - 1);
+// 	for (var i = 0; i < space; i++){
+// 		arr.push(startVal + (step * i));
+// 	}
+// 	return arr
+// }
 
 function searchAssignedTask(name){
-    let assignedTask = [];
+    
     for (let i in savedTasks._allTask){
         if (savedTasks._allTask[i][0]._taskAssignee == name){
             assignedTask.push([savedTasks._allTask[i][0]])

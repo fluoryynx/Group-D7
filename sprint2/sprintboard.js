@@ -254,12 +254,12 @@ var endDate = savedSprints._allSprint[tempSprintIndex]._sprintEndingDate; //YYYY
 
 var getDateArray = function(start, end) {
     var arr = new Array();
-    var dt = new Date(start);
+    var date = new Date(start);
 	var end2 = new Date(end)
 
-    while (dt <= end2) {
-        arr.push(new Date(dt));
-        dt.setDate(dt.getDate() + 1);
+    while (date <= end2) {
+        arr.push(new Date(date));
+        date.setDate(date.getDate() + 1);
     }
     return arr;
 }
