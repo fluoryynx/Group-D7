@@ -67,8 +67,11 @@ function pageLoad() {
 										<div class="demo-list-action mdl-list"> 
                                         <div class="mdl-list__item">
                                         <span class="mdl-list__item-primary-content">
-                                            <i class="material-icons mdl-list__item-avatar">person</i>
-                                            <span>${arr[i][0]._taskName}</span>
+                                            <i class="material-icons mdl-list__item-avatar">list</i>
+                                            <span>
+                                            ${arr[i][0]._taskName}
+                                            
+                                            </span>
                                         </span>
 										</div>
 									</div> 
@@ -76,6 +79,10 @@ function pageLoad() {
 		}
 	taskList.innerHTML = taskListInnerHTML;
 }
+
+//one function to calculate average time spent
+//1. get value from input date
+//2. use that to count average time spent
 
 function searchAssignedTask(name){
     let assignedTask = [];
