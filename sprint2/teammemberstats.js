@@ -128,31 +128,13 @@ function calAverageTimePerDay(array1){
         sum += assignedTask[i][0]._taskTimeinHours
         result = sum / array1.length
     }
+    result = parseFloat(result).toFixed(4)
     console.log(sum)
     console.log(result)
     return result
 }
-// for (var i = 0; i < dateArr.length; i++) {
-// 	var d = new Date(dateArr[i]),
-// 		month = '' + (d.getMonth() + 1),
-// 		day = '' + d.getDate(),
-// 		year = d.getFullYear();
 
-// 	if (month.length < 2) 
-// 		month = '0' + month;
-// 	if (day.length < 2) 
-// 		day = '0' + day;
-// 	formattedDate.push([year, month, day].join('-'));
-// }
-
-// function linspace(startVal, endVal, space){
-// 	var arr = [];
-// 	var step = (endVal - startVal) / (space - 1);
-// 	for (var i = 0; i < space; i++){
-// 		arr.push(startVal + (step * i));
-// 	}
-// 	return arr
-// }
+var dateArr = getInputDate(startDate, endDate);
 
 function searchAssignedTask(name){
     
@@ -169,17 +151,17 @@ google.charts.setOnLoadCallback(drawChart);
 
 function drawChart() {
 var data = google.visualization.arrayToDataTable([
-  ['Member', 'Number of Hours'],
-  [memberList[0], taskDurationList[0]],
-  [memberList[1], taskDurationList[1]],
-  [memberList[2], taskDurationList[2]],
-  [memberList[3], taskDurationList[3]],
-  [memberList[4], taskDurationList[4]],
-  [memberList[5], taskDurationList[5]],
-  [memberList[6], taskDurationList[6]],
-  [memberList[7], taskDurationList[7]],
-  [memberList[8], taskDurationList[8]],
-  [memberList[9], taskDurationList[9]]
+  ['Date', 'Number of Hours'],
+  [dateArr[0], taskDurationList[0]],
+  [dateArr[1], taskDurationList[1]],
+  [dateArr[2], taskDurationList[2]],
+  [dateArr[3], taskDurationList[3]],
+  [dateArr[4], taskDurationList[4]],
+  [dateArr[5], taskDurationList[5]],
+  [dateArr[6], taskDurationList[6]],
+  [dateArr[7], taskDurationList[7]],
+  [dateArr[8], taskDurationList[8]],
+  [dateArr[9], taskDurationList[9]]
 ]);
 
 var options = {
