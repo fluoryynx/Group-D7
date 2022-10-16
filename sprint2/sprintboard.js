@@ -359,7 +359,7 @@ $(function () {
 			marker: {
 				radius: 6
 			},
-			data: [taskDurationList[0], taskDurationList[1], taskDurationList[2]]
+			data: [taskDurationList[0], taskDurationList[1], taskDurationList[2], taskDurationList[3], taskDurationList[4]]
 		}]
 	});
 });

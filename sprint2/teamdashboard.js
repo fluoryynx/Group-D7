@@ -27,12 +27,20 @@ if (checkLSData(MEMBER_LIST_KEY)) {
                             <i class="material-icons mdl-list__item-avatar">person</i>
                             <span>${arr[i][0]._memberName}</span>
                         </span>
+						<button class="mdl-button mdl-js-button mdl-button--primary" onclick="viewMemberDetails(${i})">
+  							Details
+						</button>
                         <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick="deleteMember(${i})">  <i class="material-icons">delete</i> </button>
-                    </div>
+					</div>
 				</div>
 			</div>	`
 	}
 	memberList.innerHTML = memberListInnerHTML;
+}
+
+function viewMemberDetails(index){
+	updateLSData(MEMBER_NAME_KEY, index)
+    window.location = "teammemberstats.html"
 }
 
 function deleteMember(index){

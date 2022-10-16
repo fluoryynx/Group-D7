@@ -15,6 +15,7 @@ const SPRINT_NAME_KEY="sprintnamekey";
 // Declaration of constants for member
 const MEMBER_KEY="memberkey";
 const MEMBER_LIST_KEY="memberlistkey";
+const MEMBER_NAME_KEY="membernamekey"
 
 class Task {
     constructor(name, date,priority,tag,status,description,type,sprint,isSprint=false) {
