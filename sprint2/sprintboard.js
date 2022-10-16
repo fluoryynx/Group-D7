@@ -24,7 +24,6 @@ console.log(arr)
 function pageLoad() {
 
 	let sprintBoard = document.getElementById("sprint_board");
-
 	//change sprint board name according to the sprint name
 	document.getElementById("sprint_board_title").innerHTML = "&nbsp; &nbsp;" + sprintName + " Board"
 
@@ -90,6 +89,8 @@ function pageLoad() {
 
 	}
 	sprintBoard.innerHTML = sprintBoardInnerHTML;
+	calActualVelocity()
+	calIdealVelocity()
 }
 
 function deleteSprintBoardTask(index) {
@@ -131,12 +132,13 @@ function markAsDone(index){
 
 
 //variables for timer
-let [milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
+let [days, hours, minutes, seconds] = [0, 0, 0, 0];
 let startTime;
 let Interval = null;
 let taskList = []
 let taskDurationList = []
 let storyPointList = []
+let idealVelocity = []
 
 // Timer
 /**
@@ -176,24 +178,29 @@ function stopTimer(index) {
 	updateLSData(TASK_LIST_KEY, savedTasks);
 };
 
-function resetTimer(index) {
+function calActualVelocity() {
 	// change to hours and minutes
-	taskDurationIndex = arr[index]
-	taskDurationIndex._taskDuration = [hours, minutes, seconds, milliseconds]
-
 	for (let i = 0; i < arr.length; i++) {
-		taskDurationList.push(arr[i]._taskDuration.seconds)
-		storyPointList.push(arr[i].storyPoint * 2)
+		extractedDate = document.getElementById("stopwatch" + i ).innerHTML;
+		var arr1 = extractedDate.split(" ");
+		console.log(extractedDate)
+		console.log(arr1)
+		days = arr1[1].split("d");
+		console.log(days[0])
+
+		// taskDurationIndex = arr1[index];
+		// taskDurationIndex._taskDuration = [days[0], hours, minutes, seconds]
+
+		// taskDurationList.push(arr[i]._taskDuration)
+		// storyPointList.push(arr[i].storyPoint * 2)
 	}
 
-	clearInterval(Interval);
-	[milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
-	document.getElementById("timer").innerHTML = '00 : 00 : 00 : 000';
-
+	//clearInterval(Interval);
+	//[milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
+	//document.getElementById("stopwatch" + index).innerHTML;
 };
 
 console.log(taskDurationList)
-
 
 function countup(startTime, index) {
 
@@ -241,6 +248,60 @@ for (let i = 0; i < arr.length; i++) {
 console.log(taskList)
 console.log(taskDurationList)
 
+// create an array of date
+var startDate = savedSprints._allSprint[tempSprintIndex]._sprintStartingDate; //YYYY-MM-DD
+var endDate = savedSprints._allSprint[tempSprintIndex]._sprintEndingDate; //YYYY-MM-DD
+
+var getDateArray = function(start, end) {
+    var arr = new Array();
+    var date = new Date(start);
+	var end2 = new Date(end)
+
+    while (date <= end2) {
+        arr.push(new Date(date));
+        date.setDate(date.getDate() + 1);
+    }
+    return arr;
+}
+
+var dateArr = getDateArray(startDate, endDate);
+var formattedDate = new Array();
+
+for (var i = 0; i < dateArr.length; i++) {
+	var d = new Date(dateArr[i]),
+		month = '' + (d.getMonth() + 1),
+		day = '' + d.getDate(),
+		year = d.getFullYear();
+
+	if (month.length < 2) 
+		month = '0' + month;
+	if (day.length < 2) 
+		day = '0' + day;
+	formattedDate.push([year, month, day].join('-'));
+}
+
+//console.log(dateArr)
+//console.log(formattedDate)
+console.log(storyPointList)
+
+function linspace(startVal, endVal, space){
+	var arr = [];
+	var step = (endVal - startVal) / (space - 1);
+	for (var i = 0; i < space; i++){
+		arr.push(startVal + (step * i));
+	}
+	return arr
+}
+
+var totalStoryPoints = 0;
+for(var j = 0; j < storyPointList.length; j++){
+	totalStoryPoints += Number(storyPointList[j])
+}
+
+function calIdealVelocity(){
+	idealVelocity = linspace(totalStoryPoints, 0, arr.length)
+	//console.log(idealVelocity)
+}
 
 // Burndown Chart
 /**
@@ -263,9 +324,9 @@ $(function () {
 		},
 		xAxis: {
 			title: {
-				text: 'Task'
+				text: 'Days'
 			},
-			categories: [taskList[0], taskList[1], taskList[2]]
+			categories: [formattedDate[0], formattedDate[1], formattedDate[2], formattedDate[3], formattedDate[4]]
 		},
 		yAxis: {
 			title: {
@@ -291,14 +352,14 @@ $(function () {
 			name: 'Ideal Velocity',
 			color: 'rgba(255,0,0,0.25)',
 			lineWidth: 2,
-			data: [storyPointList[0], storyPointList[1], storyPointList[2]]
+			data: [idealVelocity[0], idealVelocity[1], idealVelocity[2], idealVelocity[3], idealVelocity[4]]
 		}, {
 			name: 'Actual Velocity',
 			color: 'rgba(0,120,200,0.75)',
 			marker: {
 				radius: 6
 			},
-			data: [taskDurationList[0], taskDurationList[1], taskDurationList[2]]
+			data: [taskDurationList[0], taskDurationList[1], taskDurationList[2], taskDurationList[3], taskDurationList[4]]
 		}]
 	});
 });
