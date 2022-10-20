@@ -4,6 +4,7 @@ if (checkLSData(MEMBER_LIST_KEY)) {
     savedMember.fromData(memberListData);
   }
   
+  // adds a new member
   function addNewMember() {
     let newMemberNameRef = document.getElementById("memberName");
 
@@ -19,8 +20,8 @@ if (checkLSData(MEMBER_LIST_KEY)) {
     member.memberName = newMemberName;
     updateLSData(MEMBER_KEY, member);
 
-    console.log(member)
-    console.log(savedMember._allMember);
+    // console.log(member)
+    // console.log(savedMember._allMember);
 
     savedMember._allMember.push([member]);
     updateLSData(MEMBER_LIST_KEY, savedMember);

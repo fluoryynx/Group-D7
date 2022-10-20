@@ -42,11 +42,11 @@ for (let i = 0; i < arr.length; i++) {
 	}
 }
 
-console.log("member", arr_member)
-console.log("task", arr)
-console.log('1', arr[1]._taskAssignee[0])
-console.log("task list", taskDurationList);
-console.log("members list", memberList);
+// console.log("member", arr_member)
+// console.log("task", arr)
+// console.log('1', arr[1]._taskAssignee[0])
+// console.log("task list", taskDurationList);
+// console.log("members list", memberList);
 
 function pageLoad() {
 
@@ -149,6 +149,7 @@ function searchAssignedTask(name){
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
+// create chart for team member stats
 function drawChart() {
 var data = google.visualization.arrayToDataTable([
   ['Date', 'Number of Hours'],
