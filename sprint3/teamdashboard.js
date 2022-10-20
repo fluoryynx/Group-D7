@@ -36,11 +36,13 @@ if (checkLSData(MEMBER_LIST_KEY)) {
 	memberList.innerHTML = memberListInnerHTML;
 }
 
+// shows the members in the team dashboard
 function viewMemberDetails(index){
 	updateLSData(MEMBER_NAME_KEY, index)
     window.location = "teammemberstats.html"
 }
 
+// deletes a member
 function deleteMember(index){
 	savedMember._allMember.splice(index, 1);
 	updateLSData(MEMBER_LIST_KEY,savedMember);
@@ -52,14 +54,14 @@ let taskDurationList = []
 let arr = []
 let arr_member = savedMember._allMember
 
-console.log("member", arr_member)
+// console.log("member", arr_member)
 
 for (let i in savedTasks._allTask) {
 	arr.push(savedTasks._allTask[i][0])
 }
 
-console.log("task", arr)
-console.log('a', arr[1]._taskAssignee[0])
+// console.log("task", arr)
+// console.log('a', arr[1]._taskAssignee[0])
 
 for (let i = 0; i < arr_member.length; i++) {
 	memberList.push(arr_member[i][0]._memberName)
@@ -76,12 +78,13 @@ for (let i = 0; i < arr.length; i++) {
 	}
 }
 
-console.log("task list", taskDurationList);
-console.log("members list", memberList);
+// console.log("task list", taskDurationList);
+// console.log("members list", memberList);
 
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
+// draws the chart for the application
 function drawChart() {
 var data = google.visualization.arrayToDataTable([
   ['Member', 'Number of Hours'],
@@ -97,10 +100,12 @@ var data = google.visualization.arrayToDataTable([
   [memberList[9], taskDurationList[9]]
 ]);
 
+
 var options = {
   title:'Total Number of Hours spent per member'
 };
 
+// creates the bar chart for the team dashboard
 var chart = new google.visualization.BarChart(document.getElementById('myChart'));
   chart.draw(data, options);
 }
